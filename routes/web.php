@@ -21,6 +21,10 @@ Route::get('/peminjam', function () {
     return view('peminjam/halamanUtama');
 });
 
+Route::get('/kosong', function () {
+    return view('peminjam/kosong');
+});
+
 Route::get('/master', function () {
     return view('master');
 });
