@@ -17,18 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/peminjam', function () {
-    return view('peminjam/halamanUtama');
-});
+Route::get('/login', function () { return view('login'); });
 
-Route::get('/kosong', function () {
-    return view('peminjam/kosong');
-});
-
-Route::get('/master', function () {
-    return view('master');
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
+// PEMINJAM
+Route::get('/peminjam', function () { return view('peminjam/halamanUtama'); });
+Route::get('/kosong', function () { return view('peminjam/kosong'); });
+Route::get('/master', function () { return view('master'); });
+Route::get('/persetujuan', function () { return view('peminjam/persetujuan'); });
+Route::get('/form', function () { return view('peminjam/form'); });
