@@ -25,3 +25,4 @@ Route::get('/kosong', function () { return view('peminjam/kosong'); });
 Route::get('/master', function () { return view('master'); });
 Route::get('/persetujuan', function () { return view('peminjam/persetujuan'); });
 Route::get('/form', function () { return view('peminjam/form'); });
+Route::get('/formEvent', function () { return view('peminjam/formEvent'); });
