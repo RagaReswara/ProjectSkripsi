@@ -6,6 +6,15 @@
 
         <div class="p-4 border-2 border-gray-200 border-solid rounded-lg dark:border-gray-700">
             <div class="flex-1 gap-4 mb-4">
+
+            <div class="flex items-center h-10 rounded bg-gray-50 dark:bg-gray-800 mb-5">
+
+                <!-- INDIKATOR -->
+                <span class="flex items-center text-sm font-medium text-gray-900 dark:text-white me-3 ml-5"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Disetujui</span>
+                <span class="flex items-center text-sm font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-yellow-300 rounded-full me-1.5 flex-shrink-0"></span>Bersyarat</span>
+                <span class="flex items-center text-sm font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-red-500 rounded-full me-1.5 flex-shrink-0"></span>Ditolak</span>
+            
+            </div>
             
             <!-- TABEL -->
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -44,7 +53,7 @@
                                 $2999
                             </td>
                             <td class="px-6 py-4 text-right">
-                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
+                                <a href="http://127.0.0.1:8000/detailPersetujuan" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
                             </td>
                         </tr>
                     </tbody>

@@ -7,7 +7,7 @@
 
                 <form>
                 <div class="space-y-12">
-                    <div class="border-b border-gray-900/10 pb-12">
+                    <div class="border-b border-gray-900/40 pb-12">
                     <h2 class="text-2xl font-semibold leading-7 text-gray-900">Formulir Peminjaman Gor</h2>
                     <p class="mt-1 text-base leading-6 text-gray-600">Silahkan untuk mengisi form dibawah ini.</p>
 
@@ -26,7 +26,7 @@
                         <div class="sm:col-span-1 mt-4">
                         <!-- <label for="email" class="block text-base font-medium leading-6 text-gray-900">Nomor Telepon / WA</label> -->
                         <div class="mt-2">
-                            <input id="email" name="email" type="email" autocomplete="email" class="block w-full max-w-60 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon / WA">
+                            <input name="noTelp" type="text" autocomplete="noTelp" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon / WA">
                         </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                             </div>
                             </div>
 
-                            <div class="border-b border-gray-900/10 pb-8"></div>
+                            <div class="border-b border-gray-900/40 pb-8"></div>
                                 <!-- <h2 class="text-base font-semibold leading-7 text-gray-900">Perhatian</h2> -->
                                 <p class="mt-1 leading-6 text-gray-600">Khusus untuk kegiatan event silahkan untuk mengisikan form
                                     <a href="http://127.0.0.1:8000/formEvent" class="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">disini</a>
@@ -216,98 +216,14 @@
 
                 <div class="mt-6 flex items-center justify-end gap-x-6">
                     <div class="inline-flex mt-2 xs:mt-0">
-                        <button id="backButton" type="button" class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <button id="cancelButton" type="button" class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
                             Cancel
                         </button>
-                        <button id="submitButton" class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-blue-600 border-0 border-s border-blue-700 rounded-e-2xl hover:bg-blue-600 dark:bg-blue-700 dark:border-blue-700 dark:text-gray-300 dark:hover:bg-blue-700 dark:hover:text-white">
+                        <button id="submitButton" type="button" class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-blue-600 border-0 border-s border-blue-700 rounded-e-2xl hover:bg-blue-600 dark:bg-blue-700 dark:border-blue-700 dark:text-gray-300 dark:hover:bg-blue-700 dark:hover:text-white">
                             Submit
                         </button>
                 </div>
                 </form>
-
-
-<!-- JAVA SCRIPT -->
-            <script>
-
-                //BUTTON 
-                const backButton = document.getElementById("backButton");
-                backButton.addEventListener("click", function() {
-                    window.location.href = "http://127.0.0.1:8000/peminjam"; 
-                });
-
-                // CHECKBOX
-                const lapanganCheckbox = document.getElementById('1lapangan');
-                const tribunCheckbox = document.getElementById('tribun');
-                const lineCheckboxes = document.querySelectorAll('input[name="line"]');
-
-                    lapanganCheckbox.addEventListener('change', function() {
-                            if (this.checked) {
-                                lineCheckboxes.forEach(checkbox => {
-                                    checkbox.checked = true;
-                                    checkbox.disabled = false;
-                                });
-                                tribunCheckbox.checked = true;
-                            } else {
-                                lineCheckboxes.forEach(checkbox => {
-                                    checkbox.checked = false; // Batalkan centang pada checkbox "line"
-                                    checkbox.disabled = false; // Aktifkan kembali checkbox "line"
-                                });
-                                tribunCheckbox.checked = false; // Batalkan centang pada checkbox "Tribun"
-                                lapanganCheckbox.checked = false;
-                            }
-                    });        
-
-                    let checkedCount = 0;
-
-                    lineCheckboxes.forEach((checkbox) => {
-                        checkbox.addEventListener('change', function() {
-                            if (this.checked) {
-                                checkedCount++;
-                                if (checkedCount === 4) {
-                                    lapanganCheckbox.checked = true;
-                                    tribunCheckbox.checked = true;
-                                }
-                            } else {
-                                checkedCount--;
-                                lapanganCheckbox.checked = false;
-                                // tribunCheckbox.checked = false;
-                            }
-                        });
-                    });
-
-                    // NGECEK CHEKBOX BISA APA ENGGA
-                    lineCheckboxes.forEach((checkbox) => {
-                        checkbox.addEventListener('change', function() {
-                            console.log(checkbox.checked);
-                        });
-                    });
-                    lapanganCheckbox => {
-                        checkbox.addEventListener('change', function() {
-                            console.log(checkbox.checked);
-                        });
-                    };
-
-                    // document.querySelectorAll('input[name="lapangan"]').forEach((checkbox) => {
-                    //     checkbox.addEventListener('change', function() {
-                    //         document.querySelectorAll('input[name="lapangan"]').forEach((checkbox) => {
-                    //             checkbox.checked = false;
-                    //         });
-                    //         this.checked = true;
-                    //     });
-                    // });
-
-                    document.querySelectorAll('input[name="kegiatan"]').forEach((checkbox) => {
-                        checkbox.addEventListener('change', function() {
-                            if (this.checked) {
-                                document.querySelectorAll('input[name="kegiatan"]').forEach((checkbox) => {
-                                    checkbox.checked = false;
-                                });
-                                this.checked = true;
-                            }
-                        });
-                    });
-
-            </script>
 
             </div>
         

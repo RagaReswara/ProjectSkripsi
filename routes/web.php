@@ -13,11 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/login', function () { return view('login'); });
+Route::get('/', function () { return view('login'); });
 
 // PEMINJAM
 Route::get('/peminjam', function () { return view('peminjam/halamanUtama'); });
@@ -26,3 +22,9 @@ Route::get('/master', function () { return view('master'); });
 Route::get('/persetujuan', function () { return view('peminjam/persetujuan'); });
 Route::get('/form', function () { return view('peminjam/form'); });
 Route::get('/formEvent', function () { return view('peminjam/formEvent'); });
+Route::get('/rekap', function () { return view('peminjam/rekapPeminjaman'); });
+Route::get('/rekapEvent', function () { return view('peminjam/rekapEvent'); });
+Route::get('/detailPersetujuan', function () { return view('peminjam/detailPersetujuan'); });
+
+// BIRO 3
+Route::get('/jadwalBiro3', function () { return view('Biro3/jadwal'); });
