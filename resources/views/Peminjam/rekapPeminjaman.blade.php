@@ -35,19 +35,19 @@
                 <tbody>
                     <tr class="bg-white dark:bg-gray-800">
                         <td class="px-6 py-4">
-                            Silver
+                            Selasa
                         </td>
                         <td class="px-6 py-4">
-                            Silver
+                            17-04-2024
                         </td>
                         <td class="px-6 py-4">
-                            Laptop
+                            08.00 - 10.00
                         </td>
                         <td class="px-6 py-4">
-                            $2999
+                            Basket
                         </td>
                         <td class="px-6 py-4">
-                            $2999
+                            Full Lapangan
                         </td>
                     </tr>
                 </tbody>

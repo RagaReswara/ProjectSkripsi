@@ -37,7 +37,7 @@
                                     </svg>
                                 </div>
                                 <input name="end" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date end">
-                            </div>
+                            </div>  
                         </div> -->
                         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -75,7 +75,7 @@
                   <div class="w-1/7">
                     <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
                         <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4">
-                          <a href="http://127.0.0.1:8000/form" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                          <a href="http://127.0.0.1:8000/aturJadwal" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <span class="flex whitespace-nowrap">08.00 - 10.00</span>
                           </a>
                         </p>

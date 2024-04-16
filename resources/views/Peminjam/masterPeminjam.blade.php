@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    @include('Biro3.navbar')
+    @include('Peminjam.navbar')
     @yield('content')
 
 
@@ -22,12 +22,16 @@
         //BUTTON 
         const cancelButton = document.getElementById("cancelButton");
         const submitButton = document.getElementById("submitButton");
+        const rutinButton = document.getElementById("rutinButton");
 
         cancelButton.addEventListener("click", function() {
             window.location.href = "http://127.0.0.1:8000/peminjam"; 
         });
         submitButton.addEventListener("click", function() {
             window.location.href = "http://127.0.0.1:8000/rekap"; 
+        });
+        rutinButton.addEventListener("click", function() {
+            window.location.href = "http://127.0.0.1:8000"; 
         });
     
         // CHECKBOX
@@ -100,8 +104,7 @@
                     this.checked = true;
                     }
             });
-        });
-                
+        });   
 
     </script>
 

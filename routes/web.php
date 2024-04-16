@@ -28,3 +28,7 @@ Route::get('/detailPersetujuan', function () { return view('peminjam/detailPerse
 
 // BIRO 3
 Route::get('/jadwalBiro3', function () { return view('Biro3/jadwal'); });
+Route::get('/listPermohonan', function () { return view('Biro3/listPermohonan'); });
+Route::get('/detailPermohonan', function () { return view('Biro3/detailPermohonan'); });
+Route::get('/detailPermohonanEvent', function () { return view('Biro3/detailPermohonanEvent'); });
+Route::get('/aturJadwal', function () { return view('Biro3/formAturJadwal'); });

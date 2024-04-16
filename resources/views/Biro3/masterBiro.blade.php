@@ -21,14 +21,14 @@
     <script>
         //BUTTON 
         const cancelButton = document.getElementById("cancelButton");
-        const submitButton = document.getElementById("submitButton");
+        // const submitButton = document.getElementById("submitButton");
 
         cancelButton.addEventListener("click", function() {
-            window.location.href = "http://127.0.0.1:8000/peminjam"; 
+            window.location.href = "http://127.0.0.1:8000/jadwalBiro3"; 
         });
-        submitButton.addEventListener("click", function() {
-            window.location.href = "http://127.0.0.1:8000/rekap"; 
-        });
+        // submitButton.addEventListener("click", function() {
+        //     window.location.href = "http://127.0.0.1:8000/rekap"; 
+        // });
     
         // CHECKBOX
         const lapanganCheckbox = document.getElementById('1lapangan');
@@ -101,6 +101,23 @@
                     }
             });
         });
+
+        const toggleDatepicker = document.getElementById('toggleDatepicker');
+        const datePickerAkhirRutin = document.getElementById('datePickerAkhirRutin');
+        const headerTanggalDipilih = document.getElementById('headerTanggalDipilih');
+
+            toggleDatepicker.addEventListener('change', function() {
+            // Jika checkbox dicentang, tampilkan datepicker
+            if (this.checked) {
+                datePickerAkhirRutin.classList.remove('hidden');
+                headerTanggalDipilih.classList.remove('hidden');
+                // Di sini Anda dapat memanggil fungsi untuk menampilkan datepicker, misalnya menggunakan Flatpickr atau datepicker lainnya
+            } else {
+                // Jika checkbox tidak dicentang, sembunyikan datepicker
+                datePickerAkhirRutin.classList.add('hidden');
+                headerTanggalDipilih.classList.add('hidden');
+            }
+            });
                 
 
     </script>
