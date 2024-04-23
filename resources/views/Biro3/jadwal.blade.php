@@ -75,7 +75,7 @@
                   <div class="w-1/7">
                     <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
                         <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4">
-                          <a href="http://127.0.0.1:8000/aturJadwal" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                          <a href="http://127.0.0.1:8000/isiJadwal" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                             <span class="flex whitespace-nowrap">08.00 - 10.00</span>
                           </a>
                         </p>

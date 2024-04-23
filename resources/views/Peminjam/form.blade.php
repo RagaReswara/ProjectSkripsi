@@ -7,102 +7,66 @@
 
                 <form>
                 <div class="space-y-12">
-                    <div class="border-b border-gray-900/40 pb-12">
+                    <div class="border-b border-gray-900/40 pb-6">
                     <h2 class="text-2xl font-semibold leading-7 text-gray-900">Formulir Peminjaman Gor</h2>
                     <p class="mt-1 text-base leading-6 text-gray-600">Silahkan untuk mengisi form dibawah ini.</p>
 
-                    <div class="border-b-8 border-gray-950/40 pb-12"></div>
+                    <div class="border-b-8 border-gray-950/40 pb-2"></div>
 
-                    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                        <div class="sm:col-span-4">
+                    <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                        <div class="sm:col-span-2">
                         <!-- <label for="organisasi" class="block text-base font-medium leading-6 text-gray-900">Nama Organisasi</label> -->
-                        <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                            <!-- <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">workcation.com/</span> -->
-                            <input type="text" name="organisasi" id="organisasi" autocomplete="organisasi" class="block flex-1 border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-base sm:leading-6" placeholder="Nama Organisasi">
-                            </div>  
-                        </div>
 
-                        <div class="sm:col-span-1 mt-4">
-                        <!-- <label for="email" class="block text-base font-medium leading-6 text-gray-900">Nomor Telepon / WA</label> -->
-                        <div class="mt-2">
-                            <input name="noTelp" type="text" autocomplete="noTelp" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon / WA">
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-
+                            <!-- DROPDOWN SELECT -->
+                            <form class="max-w-60 mx-auto mt">
+                                    <select id="countries" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-10">
+                                        <option selected>Silahkan Pilih Organisasi</option>
+                                        <option value="hmsi">Himpunan Mahasiswa Sistem Informasi (HMSI)</option>
+                                        <option value="fti">Badan Eksekutif Mahasiswa Fakultas Teknologi Informasi (BMFTI)</option>
+                                        <option value="ti">Himpunan Mahasiswa Teknologi Informasi (HMTI)</option>
+                                        <option value="kedokteran">Kedokteran</option>
+                                    </select>
+                            </form>   
                     
+                            <!-- <label for="email" class="block text-base font-medium leading-6 text-gray-900">Nomor Telepon / WA</label> -->
+                            <div class="sm:col-span-2 mt-4">
+                                <input name="noTelp" type="text" autocomplete="noTelp" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon/WA Penanggung Jawab">
+                            </div>
+                            
+                        
+                        </div>
+                    </div>
 
                     <!-- CHECKBOX KATEGORI KEGIATAN-->
-                    <div class="mt-10 space-y-10">
+                    <div class="space-y-10">
                         <fieldset>
-                        <legend class="text-base font-semibold leading-6 text-gray-900">Kategori Kegiatan</legend>
-                        <div class="mt-6 space-y-6">
-                            
-                        <!-- BADMINTON -->
-                            <div class="relative flex gap-x-3">
-                            <div class="flex h-6 items-center">
-                                <input id="badminton" name="kegiatan" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                            </div>
-                            <div class="text-sm leading-6">
-                                <label for="badminton" class="font-medium text-gray-900">Badminton</label>
-                                <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
-                            </div>
-                        <!-- TAEKWONDO -->
-                            <div class="flex h-6 items-center ml-9">
-                                <input id="taekwondo" name="kegiatan" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                            </div>
-                            <div class="text-sm leading-6">
-                                <label for="taekwondo" class="font-medium text-gray-900">Taekwondo</label>
-                                <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
-                            </div>
-                            </div>
-                        
-                        <!-- BASKET -->
-                            <div class="relative flex gap-x-3">
-                            <div class="flex h-6 items-center">
-                                <input id="basket" name="kegiatan" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                            </div>
-                            <div class="text-sm leading-6">
-                                <label for="basket" class="font-medium text-gray-900">Basket</label>
-                                <!-- <p class="text-gray-500">Get notified when a candidate applies for a job.</p> -->
-                            </div>
-                        <!-- LAIN-LAIN -->
-                            <div class="flex h-6 items-center ml-16">
-                                <input id="lain" name="kegiatan" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                            </div>
-                            <div class="text-sm leading-6">
-                                <label for="lain" class="font-medium text-gray-900">Lain-lain</label>
-                                <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
-                            </div>
-                            </div>
-                            <!-- TENIS MEJA -->
-                            <div class="relative flex gap-x-3">
-                            <div class="flex h-6 items-center">
-                                <input id="tenismeja" name="kegiatan" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                            </div>
-                            <div class="text-sm leading-6">
-                                <label for="tenismeja" class="font-medium text-gray-900">Tenis Meja</label>
-                                <!-- <p class="text-gray-500">Get notified when a candidate accepts or rejects an offer.</p> -->
-                            </div>
-                            </div>
+                        <!-- <legend class="text-base font-semibold leading-6 text-gray-900">Kategori Kegiatan</legend> -->
+                        <div class="space-y-2">
+                            <form class="max-w-80">
+                                    <select id="kategoriKegiatan" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-10">
+                                        <option disabled selected hidden>Silahkan Pilih Kategori Kegiatan</option>
+                                        <option value="basket">Basket</option>
+                                        <option value="bulutangkis">Bulu Tangkis</option>
+                                        <option value="taekwondo">Taekwondo</option>
+                                        <option value="tenismeja">Tenis Meja</option>
+                                        <option value="lainnya">Lainnya</option>
+                                    </select>
+                            </form>
 
-                            <div class="border-b border-gray-900/40 pb-8"></div>
-                                <!-- <h2 class="text-base font-semibold leading-7 text-gray-900">Perhatian</h2> -->
-                                <p class="mt-1 leading-6 text-gray-600">Khusus untuk kegiatan event silahkan untuk mengisikan form
-                                    <a href="http://127.0.0.1:8000/formEvent" class="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">disini</a>
-                                </p>
+                            <!-- <h2 class="text-base font-semibold leading-7 text-gray-900">Perhatian</h2> -->
+                            <p class="text-gray-600">Khusus untuk kegiatan event silahkan untuk mengisikan form
+                                <a href="http://127.0.0.1:8000/formEvent" class="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">disini</a>
+                            </p>
                         </fieldset>
                     </div>
                     <!-- CHECKBOX KATEGORI KEGIATAN -->
 
                 </div>
                     <!-- CHECKBOX LAPANGAN-->
-                    <div class="mt-10 space-y-10">
+                    <div class="space-y-10">
                         <fieldset>
-                        <legend class="text-base font-semibold leading-6 text-gray-900">Silahkan Memilih Lapangan</legend>
-                        <div class="mt-6 space-y-6">
+                        <legend class="text-base font-semibold leading-6 text-gray-900">Silahkan Pilih Lapangan</legend>
+                        <div class="mt-4 space-y-6">
                             
                         <!-- LINE -->
                             <div class="relative flex gap-x-3">
@@ -156,7 +120,7 @@
                             </div>
                             </div>
 
-                            <div class="border-b border-gray-900/10 pb-12"></div>
+                            <div class="border-b border-gray-900/10 pb-6"></div>
                             
                         </div>
                         
@@ -261,7 +225,7 @@
 
             <!-- Main modal -->
             <div id="popup" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-screen md:inset-0 h-[calc(100%-1rem)] max-h-screen bg-black bg-opacity-70">
-                <div class="flex p-4 w-full max-w-7xl max-h-full mx-auto my-auto py-64">
+                <div class="flex flex-1 p-4 w-full max-w-7xl max-h-full my-auto py-52 mx-96">
                     <!-- Modal content -->
                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                         <!-- Modal header -->
@@ -295,57 +259,63 @@
                                 </div> 
                                 <div class="flex-1 gap-4 mb-4">
                                 <!-- SLOT/JADWAL 1 -->
-                                <div class="flex gap-2">
+                                    <div class="flex gap-2">
 
-                                <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                    <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="bordered-radio-1" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">08.00 - 10.00</label>
-                                </div>
-                                <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                    <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="bordered-radio-2" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">10.00 - 12.00</label>
-                                </div>
-                                <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                    <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="bordered-radio-3" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">12.00 - 14.00</label>
-                                </div>
-                                <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                    <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="bordered-radio-4" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">14.00 - 16.00</label>
-                                </div>
-                                <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                    <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="bordered-radio-5" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">16.00 - 18.00</label>
-                                </div>
-                                <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                    <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="bordered-radio-6" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">18.00 - 20.00</label>
-                                </div>
-                                <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                    <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                    <label for="bordered-radio-7" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">20.00 - 22.00</label>
-                                </div>
+                                        <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                                            <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                            <label for="bordered-radio-1" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">08.00 - 10.00</label>
+                                        </div>
+                                        <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                                            <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                            <label for="bordered-radio-2" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">10.00 - 12.00</label>
+                                        </div>
+                                        <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                                            <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                            <label for="bordered-radio-3" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">12.00 - 14.00</label>
+                                        </div>
+                                        <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                                            <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                            <label for="bordered-radio-4" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">14.00 - 16.00</label>
+                                        </div>
+                                        <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                                            <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                            <label for="bordered-radio-5" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">16.00 - 18.00</label>
+                                        </div>
+                                        <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                                            <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                            <label for="bordered-radio-6" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">18.00 - 20.00</label>
+                                        </div>
+                                        <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                                            <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                            <label for="bordered-radio-7" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">20.00 - 22.00</label>
+                                        </div>
 
-                                </div>
+                                    </div>
 
                                 <div class="mt-6 flex justify-end gap-x-6">
-                                <div class="inline-flex mt-2 xs:mt-0">
-                                    <button id="buttonSubmitPopup" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-                                        Submit
-                                    </button>
-                                </div>
+                                    <div class="inline-flex mt-2 xs:mt-0">
+                                        <button id="buttonSubmitPopup" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                                            Submit
+                                        </button>
+                                    </div>
                                 </div>
                         </form>
-                    </div>
+                        </div>
                 </div>
+            </div>
             </div> 
             <!-- RUTIN -->
 
             <script>
+                // POP UP
                 const buttonRutin = document.getElementById("buttonRutin");
                 const popup = document.getElementById("popup");
                 const closePopup = document.getElementById("closePopup");
                 const buttonSubmitPopup = document.getElementById("buttonSubmitPopup");
+
+                // DROPDOWN
+                // const dropdown = document.getElementById("dropdown");
+                // const dropdownNamaOrganisasi = document.getElementById("dropdownNamaOrganisasi");
 
                 buttonRutin.addEventListener("click", function() {
                     popup.classList.remove("hidden"); 
@@ -357,8 +327,12 @@
                     popup.classList.add("hidden"); 
                 });
 
+                // dropdown.addEventListener("click",function() { 
+                //     dropdownNamaOrganisasi.classList.toggle("hidden");
+                // });
+
             </script>
         
-        </div>
+        
 
 @endsection

@@ -6,8 +6,7 @@
         <div class="p-4 border-2 border-gray-200 border-solid rounded-lg dark:border-gray-700">
 
         <div class="border-b-4 border-gray-900/40 pb-6">
-            <h2 class="text-2xl font-semibold leading-7 text-gray-900">Detil Booking Kegiatan Event</h2>
-            <p class="mt-1 text-base leading-6 text-gray-600">Pastikan Booking yang dilakukan sudah benar</p>
+            <h2 class="text-2xl font-semibold leading-7 text-gray-900">Detail Pemohonan Kegiatan Event</h2>
         </div>
 
         <!-- TABEL -->
@@ -53,7 +52,7 @@
                 </tbody>
             </table>
 
-            <div class="border-b-4 border-gray-900/40 pb-6 mt-10"></div>
+            <div class="border-b-4 border-gray-900/40 pb-6 mt-3"></div>
 
             <div class="border-b-4 border-gray-900/40 pb-6 mt-2">
                 <h2 class="text-2xl font-semibold leading-7 text-gray-900">Surat dan Tor yang diajukan</h2>
@@ -148,6 +147,10 @@
                     <!-- DOWNLOAD FILE TOR -->
                 </div>
 
+            </div>
+
+            <div class="flex flex-1 mt-5">
+                <textarea id="catatan" rows="4" class="block p-2.5 w-96 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Berikan Catatan Untuk Peminjam"></textarea>
             </div>
 
             <div class="mt-6 flex items-center justify-end gap-x-6">

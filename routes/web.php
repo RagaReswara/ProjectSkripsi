@@ -29,6 +29,14 @@ Route::get('/detailPersetujuan', function () { return view('peminjam/detailPerse
 // BIRO 3
 Route::get('/jadwalBiro3', function () { return view('Biro3/jadwal'); });
 Route::get('/listPermohonan', function () { return view('Biro3/listPermohonan'); });
+Route::get('/listPeminjaman', function () { return view('Biro3/listPeminjaman'); });
+Route::get('/historyPeminjaman', function () { return view('Biro3/historyPeminjaman'); });
+
 Route::get('/detailPermohonan', function () { return view('Biro3/detailPermohonan'); });
 Route::get('/detailPermohonanEvent', function () { return view('Biro3/detailPermohonanEvent'); });
-Route::get('/aturJadwal', function () { return view('Biro3/formAturJadwal'); });
+Route::get('/detailPermohonanRutin', function () { return view('Biro3/detailPermohonanRutin'); });
+
+Route::get('/isiJadwal', function () { return view('Biro3/formIsiJadwal'); });
+Route::get('/isiEvent', function () { return view('Biro3/formIsiEvent'); });
+Route::get('/rekapIsiJadwal', function () { return view('Biro3/rekapIsiJadwal'); });
+
