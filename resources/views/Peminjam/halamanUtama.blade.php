@@ -45,16 +45,7 @@
         <!-- JADWAL -->
             <div class="flex-1 gap-4 mb-4">
                 <!-- SLOT/JADWAL 1 -->
-                <div class="flex gap-2">
-                  <div class="w-1/7">
-                    <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
-                        <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4">
-                          <a href="http://127.0.0.1:8000/form" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                            <span class="flex whitespace-nowrap">08.00 - 10.00</span>
-                          </a>
-                        </p>
-                    </div>
-                  </div>
+                <div id="slot" class="flex gap-2">
 
                   <div class="w-1/7">
                     <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
@@ -97,7 +88,7 @@
                   </div>
 
                   <div class="w-1/7">
-                    <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
+                    <div class="flex group-disabled:inset-72 items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
                         <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4">
 
                         </p>
@@ -105,65 +96,6 @@
                   </div>
                 </div>
                 <!-- SLOT/JADWAL 1 -->
-
-                <!-- SLOT/JADWAL 2 -->
-                <div class="flex gap-2 mt-4">
-                    <div class="w-1/7">
-                      <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
-                          <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4">
-                            
-                          </p>
-                      </div>
-                    </div>
-
-                    <div class="w-1/7">
-                      <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
-                          <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4">
-                            
-                          </p>
-                      </div>
-                    </div>
-
-                    <div class="w-1/7">
-                      <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
-                          <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4">
-                            
-                          </p>
-                      </div>
-                    </div>
-
-                    <div class="w-1/7">
-                      <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
-                          <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4">
-                            
-                          </p>
-                      </div>
-                    </div>
-
-                    <div class="w-1/7">
-                      <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
-                          <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4">
-                            
-                          </p>
-                      </div>
-                    </div>
-
-                    <div class="w-1/7">
-                      <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
-                          <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4">
-                            
-                          </p>
-                      </div>
-                    </div>
-
-                    <div class="w-1/7">
-                      <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
-                          <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4">
-                              
-                          </p>
-                      </div>
-                    </div>
-                <!-- SLOT/JADWAL 2 -->
                 </div>
 
 
@@ -172,6 +104,37 @@
 
       </div>
         <!-- JADWAL -->
+
+      <script>
+
+        const jam = document.getElementById('slot');
+
+        function slot() {
+          fetch('http://127.0.0.1:8000/api/jadwal')
+          .then(response=>response.json())
+          .then(data=>{
+            console.log(data)
+            data.data.forEach((item)=>{
+              jam.innerHTML +=
+            `
+            <div class="w-1/7">
+              <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
+                <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4 ">
+                    <a href="http://127.0.0.1:8000/form" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${item.status == 1 ? 'dark:hover:bg-red-700 pointer-event-none group-disabled:inset-72' : 'dark:hover:bg-gray-700'}">
+                      <span class="flex whitespace-nowrap"> ${item.jam_mulai} - ${item.jam_selesai} </span>
+                    <a>
+                </p>
+              </div>
+            </div>
+
+            `
+            })
+            
+          })
+        }
+        slot();
+
+      </script>
 
 
     </div>

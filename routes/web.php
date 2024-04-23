@@ -31,6 +31,8 @@ Route::get('/jadwalBiro3', function () { return view('Biro3/jadwal'); });
 Route::get('/listPermohonan', function () { return view('Biro3/listPermohonan'); });
 Route::get('/listPeminjaman', function () { return view('Biro3/listPeminjaman'); });
 Route::get('/historyPeminjaman', function () { return view('Biro3/historyPeminjaman'); });
+Route::get('/listAkun', function () { return view('Biro3/buatAkun'); });
+
 
 Route::get('/detailPermohonan', function () { return view('Biro3/detailPermohonan'); });
 Route::get('/detailPermohonanEvent', function () { return view('Biro3/detailPermohonanEvent'); });
