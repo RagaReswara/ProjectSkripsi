@@ -47,10 +47,13 @@
                             <th scope="col" class="px-6 py-3">
                                 Status
                             </th>
+                            <th scope="col" class="px-6 py-3">
+                                Koreksi
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 Himpunan Mahasiswa Sistem Informasi
                             </th>
@@ -74,6 +77,11 @@
                             </td>
                             <td class="px-6 py-4">
                                 berlangsung
+                            </td>
+                            <td class="px-6 py-4">
+                                <button type="button" class="text-white bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
+                                        Selesai
+                                </button>
                             </td>
                         </tr>
                     </tbody>
