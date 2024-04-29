@@ -148,24 +148,25 @@
                         </div>
 
                         <div class="sm:col-span-2 sm:col-start-1">
-                        <label for="city" class="block text-md font-medium leading-6 text-gray-900">Hari</label>
-                        <label for="city" class="hidden text-md font-medium leading-6 text-gray-900">Hari Pertama</label>
+                        <label for="city" id="labelHari" class="block text-md font-medium leading-6 text-gray-900">Hari</label>
+                        
+                        <label for="city" id="labelHariPertama" class="hidden text-md font-medium leading-6 text-gray-900">Hari Pertama</label>
                         <div class="mt-2">
-                            <input type="text" name="city" id="city" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" disabled>
+                            <input type="text" name="hari" id="textFieldHari" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" disabled>
                         </div>
                         </div>
 
                         <div class="sm:col-span-2">
                         <label for="region" class="block text-base font-medium leading-6 text-gray-900">Tanggal</label>
                         <div class="mt-2">
-                            <input type="text" name="region" id="region" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" disabled>
+                            <input type="text" name="tanggal" id="textFieldTanggal" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" disabled>
                         </div>
                         </div>
 
                         <div class="sm:col-span-2">
                         <label for="postal-code" class="block text-base font-medium leading-6 text-gray-900">Slot / Jam</label>
                         <div class="mt-2">
-                            <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" disabled>
+                            <input type="text" name="slot" id="textFieldSlot" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" disabled>
                         </div>
                         </div>
 
@@ -173,25 +174,25 @@
                     </div>
 
                     <!-- HIDDEN RUTIN -->
-                    <div class="hidden flex-col">
+                    <div class="hidden flex-col" id="hiddenRutin">
                             <div class="sm:col-span-2 sm:col-start-1">
                             <label for="city" class="block text-md font-medium leading-6 text-gray-900">Hari ke 2</label>
                             <div class="mt-2">
-                                <input type="text" name="city" id="city" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" disabled>
+                                <input type="text" name="hariRutin" id="popupHariRutin" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" disabled>
                             </div>
                             </div>
 
                             <div class="sm:col-span-2">
                             <label for="region" class="block text-base font-medium leading-6 text-gray-900">Tanggal</label>
                             <div class="mt-2">
-                                <input type="text" name="region" id="region" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" disabled>
+                                <input type="text" name="tanggalRutin" id="popupTanggalRutin" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" disabled>
                             </div>
                             </div>
 
                             <div class="sm:col-span-2">
                             <label for="postal-code" class="block text-base font-medium leading-6 text-gray-900">Slot / Jam</label>
                             <div class="mt-2">
-                                <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" disabled>
+                                <input type="text" name="slotRutin" id="popupSlotRutin" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" disabled>
                             </div>
                             </div>
                     </div>
@@ -237,64 +238,36 @@
                                 <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                                 </svg>
-                                <span class="sr-only">Close modal</span>
                             </button>
                         </div>
                         <!-- Modal body -->
                         <form class="p-4 md:p-5">
                             <div class="flex gap-4 mb-4 flex-col">
                                 <div class="col-span-2">
+                            <!-- DATEPICKER -->
                                     <div class="relative max-w-sm mr-10">
+                                    <input name="tanggal2" id="popupPilihTanggal" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+
                                         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                             <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                             </svg>
                                         </div>
-                                        <input datepicker datepicker-autohide type="text" datepicker-format="dd/mm/yyyy" class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date" id="datepicker">
-                                    </div>
+                                   </div>
                                     
                                     <div class="flex text-center items-center justify-center">
                                     <label for="name" class="block mb-2 text-md font-medium text-gray-900 dark:text-white mt-5">Silahkan pilih slot yang tersedia</label>
                                     </div>
                                 </div> 
                                 <div class="flex-1 gap-4 mb-4">
-                                <!-- SLOT/JADWAL 1 -->
-                                    <div class="flex gap-2">
-
-                                        <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                            <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="bordered-radio-1" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">08.00 - 10.00</label>
-                                        </div>
-                                        <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                            <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="bordered-radio-2" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">10.00 - 12.00</label>
-                                        </div>
-                                        <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                            <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="bordered-radio-3" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">12.00 - 14.00</label>
-                                        </div>
-                                        <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                            <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="bordered-radio-4" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">14.00 - 16.00</label>
-                                        </div>
-                                        <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                            <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="bordered-radio-5" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">16.00 - 18.00</label>
-                                        </div>
-                                        <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                            <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="bordered-radio-6" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">18.00 - 20.00</label>
-                                        </div>
-                                        <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                            <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                            <label for="bordered-radio-7" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">20.00 - 22.00</label>
-                                        </div>
+                            <!-- SLOT/JADWAL 1 -->
+                                    <div class="flex gap-2" id="radioSlot">
 
                                     </div>
 
                                 <div class="mt-6 flex justify-end gap-x-6">
                                     <div class="inline-flex mt-2 xs:mt-0">
-                                        <button id="buttonSubmitPopup" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                                        <button id="buttonSubmitRutin" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                                             Submit
                                         </button>
                                     </div>
@@ -312,10 +285,77 @@
                 const popup = document.getElementById("popup");
                 const closePopup = document.getElementById("closePopup");
                 const buttonSubmitPopup = document.getElementById("buttonSubmitPopup");
+                const buttonSubmitRutin = document.getElementById("buttonSubmitRutin");
 
-                // DROPDOWN
-                // const dropdown = document.getElementById("dropdown");
-                // const dropdownNamaOrganisasi = document.getElementById("dropdownNamaOrganisasi");
+                let popupPilihTanggal = document.getElementById("popupPilihTanggal")
+                let popupTanggalRutin = document.getElementById("popupTanggalRutin")
+                let PopupHariRutin = document.getElementById("popupHariRutin")
+                let popupSlotRutin = document.getElementById("popupSlotRutin")
+
+                let counter = 1;
+                
+                const slotRutin = document.getElementById('radioSlot');
+                function slot() {
+                fetch('http://127.0.0.1:8000/api/jadwal')
+                .then(response=>response.json())
+                .then(data=>{
+                    console.log(data)
+                    data.data.forEach((item)=>{
+                        let jamMulai = item.jam_mulai.slice(0, -3);
+                        let jamSelesai = item.jam_selesai.slice(0, -3);
+                    slotRutin.innerHTML +=
+                    `
+                    <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                        <input id="slotRutin${counter}" type="radio" value="${jamMulai} - ${jamSelesai}" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="slotRutin${counter}" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"> ${jamMulai} - ${jamSelesai} </label>
+                    </div>
+
+                    `
+                    counter++
+                    })
+                    
+                })
+                }
+                slot();
+
+                buttonSubmitRutin.addEventListener('click', function(){
+                    popup.classList.add("hidden");
+                    document.getElementById("labelHari").classList.add("hidden");
+                    document.getElementById("labelHariPertama").classList.remove("hidden");
+                    document.getElementById("hiddenRutin").classList.remove("hidden");
+
+                    let selectedValue;
+                    
+                    const radioButtonRutin = document.querySelectorAll('input[name="bordered-radio"]');
+                    radioButtonRutin.forEach(radioButton => {
+                        // Periksa apakah radio button ini yang dipilih
+                        if (radioButton.checked) {
+                            // Jika dipilih, ambil nilai dari radio button yang dipilih
+                            selectedValue = radioButton.value;
+                            console.log("Nilai yang dipilih:", selectedValue);
+                            // Lakukan apa pun yang ingin Anda lakukan dengan nilai yang dipilih di sini
+                            // Contoh: Simpan nilai ini ke variabel atau kirim ke server
+                        }
+                    });
+                    const parts = popupPilihTanggal.value.split('-');
+                    const day = parts[1];
+                    const tanggalRutin = parts[0]+' - '+parts[2]+" - "+parts[3];
+                    const [start, end] = selectedValue.split(' - ');
+                    const hari = {
+                        'Sun': 'Minggu',
+                        'Mon': 'Senin',
+                        'Tue': 'Selasa',
+                        'Wed': 'Rabu',
+                        'Thu': 'Kamis',
+                        'Fri': 'Jumat',
+                        'Sat': 'Sabtu'
+                    };
+                    const dayIndonesian = hari[day];
+                    popupTanggalRutin.value = tanggalRutin;
+                    PopupHariRutin.value = dayIndonesian;
+                    popupSlotRutin.value = start + ' - ' + end;
+                    console.log(dayIndonesian);
+                });
 
                 buttonRutin.addEventListener("click", function() {
                     popup.classList.remove("hidden"); 
@@ -326,10 +366,6 @@
                 buttonSubmitPopup.addEventListener("click", function() {
                     popup.classList.add("hidden"); 
                 });
-
-                // dropdown.addEventListener("click",function() { 
-                //     dropdownNamaOrganisasi.classList.toggle("hidden");
-                // });
 
             </script>
         

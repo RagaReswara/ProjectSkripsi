@@ -4,9 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('../resources/css/app.css')
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 </head>
 <body>
@@ -16,6 +14,12 @@
 
 
 </body>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
+
+  
 
 <!-- SCRIPT -->
     <script>
@@ -100,7 +104,65 @@
                     this.checked = true;
                     }
             });
-        });   
+        });
+
+        // DATE PICKER flatpickr
+        document.addEventListener('DOMContentLoaded', function(){
+
+            let tanggal2 = flatpickr('input[name="tanggal2"]',{
+                dateFormat: 'd-D-M-Y',
+                enableTime: false,
+            });
+
+            // Ambil nilai tanggal1 dari URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const tanggal1 = urlParams.get('tanggal1');
+            const slot = urlParams.get('slot');
+
+            const parts = tanggal1.split('-');
+            const day = parts[1];
+            const tanggal = parts[0]+' - '+parts[2]+" - "+parts[3];
+
+            const hari = {
+                'Sun': 'Minggu',
+                'Mon': 'Senin',
+                'Tue': 'Selasa',
+                'Wed': 'Rabu',
+                'Thu': 'Kamis',
+                'Fri': 'Jumat',
+                'Sat': 'Sabtu'
+            };
+            const dayIndonesian = hari[day];
+
+            // Pisahkan jam mulai dan jam selesai
+            const [start, end] = slot.split(' - ');
+
+            // Hapus detik dari jam mulai dan jam selesai
+            const startTime = start.slice(0, -3);
+            const endTime = end.slice(0, -3);
+
+            document.getElementById("textFieldHari").value = dayIndonesian;
+            document.getElementById("textFieldTanggal").value = tanggal;
+            document.getElementById("textFieldSlot").value = startTime + ' - ' + endTime;
+
+            
+
+            console.log(slot);
+
+
+    
+            // Jika tanggal1 ada dalam URL, set nilai tanggal1 ke dalam date picker tanggal2
+            if (tanggal1) {
+                tanggal2 = flatpickr('input[name="tanggal2"]', {
+                    dateFormat: 'd-D-M-Y',
+                    defaultDate: tanggal1, // Set tanggal1 sebagai default date pada tanggal2
+                    enableTime: false,
+                    minDate: tanggal1 // Tetapkan tanggal minimal untuk tanggal2 agar setidaknya satu hari setelah tanggal1
+                });
+            }
+        
+
+        });
 
     </script>
 
