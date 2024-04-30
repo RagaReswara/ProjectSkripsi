@@ -209,12 +209,19 @@
                         <button id="buttonRutin" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-10" type="button">
                             Ajukan Peminjaman Rutin
                         </button>
-                        <button id="cancelButton" type="button" class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Cancel
+                        <div class="flex items-center px-4 h-9 ">
+                            <input id="termCheck" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="termCheck" class="ms-2 text-base font-medium text-gray-900 dark:text-gray-500">I agree with the <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">terms and conditions</a>.</label>
+                        </div>
+                        
+                        <button id="kembaliButton" type="button" class="flex items-center justify-center px-4 h-9 text-base font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
+                            Kembali
                         </button>
-                        <button id="submitButton" type="button" class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-blue-600 border-0 border-s border-blue-700 rounded-e-2xl hover:bg-blue-600 dark:bg-blue-700 dark:border-blue-700 dark:text-gray-300 dark:hover:bg-blue-700 dark:hover:text-white">
-                            Submit
+                        <button id="ajukanButton" data-modal-target="alertRekapPeminjaman" data-modal-toggle="popup-modal" type="button" class="flex items-center justify-center pointer-events-none opacity-50 px-4 h-9 text-base font-medium text-white bg-blue-600 border-0 border-s border-blue-700 rounded-e-2xl hover:bg-blue-600 dark:bg-blue-700 dark:border-blue-700 dark:text-gray-300 dark:hover:bg-blue-600 dark:hover:text-white">
+                            Ajukan Peminjaman
                         </button>
+                        
+                    </div>
                 </div>
                 </form>
 
@@ -253,7 +260,7 @@
                                             <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                             </svg>
                                         </div>
-                                   </div>
+                                    </div>
                                     
                                     <div class="flex text-center items-center justify-center">
                                     <label for="name" class="block mb-2 text-md font-medium text-gray-900 dark:text-white mt-5">Silahkan pilih slot yang tersedia</label>
@@ -287,6 +294,28 @@
                 const buttonSubmitPopup = document.getElementById("buttonSubmitPopup");
                 const buttonSubmitRutin = document.getElementById("buttonSubmitRutin");
 
+                // TERMS CHECK BUTTON
+                const kembaliButton = document.getElementById("kembaliButton");
+                const ajukanButton = document.getElementById("ajukanButton");
+                const termCheck = document.getElementById('termCheck');
+                kembaliButton.addEventListener("click", function() {
+                    window.location.href = "http://127.0.0.1:8000/peminjam"; 
+                });
+
+                // ajukanButton.addEventListener("click", function(){
+                //     window.location.href = "http://127.0.0.1:8000/peminjam";
+                // });
+
+                termCheck.addEventListener('change', function() {
+                    if (this.checked) {
+                        ajukanButton.classList.remove('pointer-events-none', 'opacity-50');
+                    } else {
+                        ajukanButton.classList.add('pointer-events-none', 'opacity-50');
+                    }
+                });
+                
+
+                // SLOT / JADWAL
                 let popupPilihTanggal = document.getElementById("popupPilihTanggal")
                 let popupTanggalRutin = document.getElementById("popupTanggalRutin")
                 let PopupHariRutin = document.getElementById("popupHariRutin")

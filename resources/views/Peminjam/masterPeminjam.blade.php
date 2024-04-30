@@ -116,7 +116,7 @@
 
             // Ambil nilai tanggal1 dari URL
             const urlParams = new URLSearchParams(window.location.search);
-            const tanggal1 = urlParams.get('tanggal1');
+            const tanggal1 = urlParams.get('tanggal');
             const slot = urlParams.get('slot');
 
             const parts = tanggal1.split('-');
@@ -145,12 +145,8 @@
             document.getElementById("textFieldTanggal").value = tanggal;
             document.getElementById("textFieldSlot").value = startTime + ' - ' + endTime;
 
-            
-
             console.log(slot);
 
-
-    
             // Jika tanggal1 ada dalam URL, set nilai tanggal1 ke dalam date picker tanggal2
             if (tanggal1) {
                 tanggal2 = flatpickr('input[name="tanggal2"]', {
