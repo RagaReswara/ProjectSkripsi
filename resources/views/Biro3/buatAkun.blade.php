@@ -112,11 +112,29 @@
                     </tbody>
                 </table>
             </div>
+
+            <!-- <button type="button" onclick="inputAkun()"> </button> -->
             <!-- TABEL PRODI -->
 
             </div>
         </div>
 
 </div>
+
+<script>
+
+    // function inputAkun(){
+    //     const form = document.querySelector('form')
+    //     const formData = new FormData(form)
+
+    //     fetch('http://127.0.0.1:8000/api/user', {
+    //       method:'post', body:FormData
+    //     })
+
+
+    // }
+    
+
+</script>
 
 @endsection

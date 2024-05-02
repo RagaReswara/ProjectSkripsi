@@ -23,16 +23,6 @@
 
 <!-- SCRIPT -->
     <script>
-        //BUTTON 
-        const cancelButton = document.getElementById("cancelButton");
-        const submitButton = document.getElementById("submitButton");
-
-        cancelButton.addEventListener("click", function() {
-            window.location.href = "http://127.0.0.1:8000/peminjam"; 
-        });
-        submitButton.addEventListener("click", function() {
-            window.location.href = "http://127.0.0.1:8000/rekap"; 
-        });
     
         // CHECKBOX
         const lapanganCheckbox = document.getElementById('1lapangan');
@@ -119,9 +109,12 @@
             const tanggal1 = urlParams.get('tanggal');
             const slot = urlParams.get('slot');
 
+            console.log(tanggal1)
+            console.log(slot)
+
             const parts = tanggal1.split('-');
             const day = parts[1];
-            const tanggal = parts[0]+' - '+parts[2]+" - "+parts[3];
+            const tanggal = parts[3]+'-'+parts[2]+"-"+parts[0];
 
             const hari = {
                 'Sun': 'Minggu',
@@ -141,11 +134,9 @@
             const startTime = start.slice(0, -3);
             const endTime = end.slice(0, -3);
 
-            document.getElementById("textFieldHari").value = dayIndonesian;
-            document.getElementById("textFieldTanggal").value = tanggal;
+            textFieldHari.value = dayIndonesian;
+            document.getElementById("textFieldTanggal").value = tanggal;    
             document.getElementById("textFieldSlot").value = startTime + ' - ' + endTime;
-
-            console.log(slot);
 
             // Jika tanggal1 ada dalam URL, set nilai tanggal1 ke dalam date picker tanggal2
             if (tanggal1) {
@@ -156,6 +147,8 @@
                     minDate: tanggal1 // Tetapkan tanggal minimal untuk tanggal2 agar setidaknya satu hari setelah tanggal1
                 });
             }
+            console.log('ini tanggal 1: '+document.getElementById('textFieldTanggal').value)
+            console.log('ini tanggal 2: '+document.getElementById('popupTanggalRutin').value)
         
 
         });

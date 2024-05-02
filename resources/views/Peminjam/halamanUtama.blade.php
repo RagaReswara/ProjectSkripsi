@@ -58,26 +58,27 @@
         document.addEventListener('DOMContentLoaded', function(){
             let dateStr = '';
             const tanggal = flatpickr('input[id="tanggal"]',{
-                dateFormat: 'd-D-M-Y',
+                dateFormat: 'd-D-m-Y',
                 enableTime: false,
                 onChange: function(selectedDates, newDateStr, instance){
                   dateStr = newDateStr;
-                  const links = document.querySelectorAll('.pesanLink');
+                  const links = document.querySelectorAll('#pesanLink');
                   // if (link) {
                   //     const url = new URL(link.href);
                   //     url.searchParams.set('tanggal', dateStr);
-                  //     link.href = url.toString();
+                  //     link.href = url.toString();s
                   // }
                   links.forEach(link => {
                     const url = new URL(link.href);
-                    url.searchParams.set('tanggal', dateStr);
+                    url.searchParams.set('tanggal', dateStr);  
                     link.href = url.toString();
                   })
                   console.log(dateStr)
+                  console.log(links)
               }
             });
         });
-
+        
         const jam = document.getElementById('slot');
             function slot() {
               fetch('http://127.0.0.1:8000/api/jadwal')

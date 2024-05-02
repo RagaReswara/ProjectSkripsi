@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +16,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () { return view('login'); });
+Route::post('/login', [UserController::class, 'login']);
+Route::get('/logout', function () {
+        Auth::logout();
+        return redirect('/');
+    });
 
 // PEMINJAM
-Route::get('/peminjam', function () { return view('peminjam/halamanUtama'); });
+Route::get('/peminjam', function () { return view('peminjam/halamanUtama');}) -> name('peminjam');
+
 Route::get('/kosong', function () { return view('peminjam/kosong'); });
 Route::get('/master', function () { return view('master'); });
 Route::get('/persetujuan', function () { return view('peminjam/persetujuan'); });
@@ -27,7 +35,7 @@ Route::get('/rekapEvent', function () { return view('peminjam/rekapEvent'); });
 Route::get('/detailPersetujuan', function () { return view('peminjam/detailPersetujuan'); });
 
 // BIRO 3
-Route::get('/jadwalBiro3', function () { return view('Biro3/jadwal'); });
+Route::get('/jadwalBiro3', function () { return view('Biro3/jadwal'); }) -> name('jadwalBiro3');
 Route::get('/listPermohonan', function () { return view('Biro3/listPermohonan'); });
 Route::get('/listPeminjaman', function () { return view('Biro3/listPeminjaman'); });
 Route::get('/historyPeminjaman', function () { return view('Biro3/historyPeminjaman'); });

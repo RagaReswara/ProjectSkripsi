@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\FormController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/jadwal',[JadwalController::class,'slot']);
+Route::post('/user',[UserController::class,'registerAkun']);
+
+Route::get('/form',[FormController::class,'']);
+Route::post('/formInput',[FormController::class,'inputForm']);
 

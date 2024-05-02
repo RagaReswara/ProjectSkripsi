@@ -18,6 +18,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
+        public function isAdmin()
+        {
+            return $this -> role === 'Admin';
+        }
+
     protected $table = 'users';
     protected $primaryKey = 'id_user';    
     protected $fillable = [
@@ -26,26 +31,10 @@ class User extends Authenticatable
         'namaOrganisasi',
         'no_telp',
         'fakultas',
-        'prodi' 
+        'prodi',
+        'role'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    public $timestamps = false;
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
 }
