@@ -52,7 +52,7 @@
 
                             <!-- <h2 class="text-base font-semibold leading-7 text-gray-900">Perhatian</h2> -->
                             <p class="text-gray-600">Khusus untuk kegiatan event silahkan untuk mengisikan form
-                                <a href="http://127.0.0.1:8000/formEvent" class="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">disini</a>
+                                <a id="tanggalEvent" href="" class="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">disini</a>
                             </p>
                         </fieldset>
                     </div>
@@ -388,6 +388,10 @@
                 }
                 slot();
 
+                // document.getElementById('tanggalEvent').href = `http://127.0.0.1:8000/form/formEvent?tanggalEvent=${tanggal}&slotEvent=${startTime + ' - ' + endTime}&hariEvent=${dayIndonesian}`;
+                document.getElementById('tanggalEvent').href = `http://127.0.0.1:8000/formEvent`;
+
+
                 buttonSubmitRutin.addEventListener('click', function(){
                     popup.classList.add("hidden");
                     document.getElementById("labelHari").classList.add("hidden");
@@ -439,4 +443,9 @@
         
         
 
+@endsection
+
+@section('script')
+@endsection
+@section('link')
 @endsection

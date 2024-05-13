@@ -61,21 +61,62 @@
                 dateFormat: 'd-D-m-Y',
                 enableTime: false,
                 onChange: function(selectedDates, newDateStr, instance){
+                  jam.innerHTML = '';
                   dateStr = newDateStr;
-                  const links = document.querySelectorAll('#pesanLink');
-                  // if (link) {
-                  //     const url = new URL(link.href);
-                  //     url.searchParams.set('tanggal', dateStr);
-                  //     link.href = url.toString();s
-                  // }
-                  links.forEach(link => {
-                    const url = new URL(link.href);
-                    url.searchParams.set('tanggal', dateStr);  
-                    link.href = url.toString();
-                  })
+                  // const links = document.querySelectorAll('#pesanLink');
                   console.log(dateStr)
-                  console.log(links)
-              }
+                  // console.log(links)
+                  const parts = dateStr.split('-');
+                  const day = parts[1];
+                  const hari = {
+                      'Sun': 'Minggu',
+                      'Mon': 'Senin',
+                      'Tue': 'Selasa',
+                      'Wed': 'Rabu',
+                      'Thu': 'Kamis',
+                      'Fri': 'Jumat',
+                      'Sat': 'Sabtu'
+                  };
+                  const dayIndonesian = hari[day];
+                  console.log(dayIndonesian)
+                  fetch('http://127.0.0.1:8000/api/slotPertanggal', {
+                        method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({hari:dayIndonesian})
+                    })
+                    .then(response=>response.json())
+                    .then(data => {
+                      let count = 0;
+                      data.data.forEach(item => {
+                        if (count % 5 === 0) { // Jika count habis dibagi 5, tambahkan div baru
+                            jam.innerHTML += '<div class="flex flex-wrap">';
+                        }
+                        jam.innerHTML +=
+                          `
+                          <div class="w-1/7">
+                            <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
+                              <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4 "> 
+                                  <a href="http://127.0.0.1:8000/form?tanggal=${dateStr}&slot=${item.jam_mulai} - ${item.jam_selesai}" id="pesanLink" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${item.status == 1 ?  'dark:bg-red-800 dark:hover:bg-red-700 pointer-event-none href="#" onclick="return false;' : 'dark:hover:bg-gray-700'}">
+                                    <span class="flex whitespace-nowrap"> ${item.jam_mulai} - ${item.jam_selesai} </span>
+                                  <a>
+                              </p>
+                            </div>
+                          </div>
+
+                          `;
+                          count++;
+
+                          // if (count % 5 === 0) { // Jika count mencapai lima, tutup div
+                          //     jam.innerHTML += '</div>';
+                          // }
+                        console.log(item)
+                        // links.forEach(link => {
+                        //   const url = new URL(link.href);
+                        //   url.searchParams.set('tanggal', dateStr);  
+                        //   link.href = url.toString();
+                        // })
+
+                      });
+                    })
+                }
             });
         });
         
@@ -103,45 +144,8 @@
                 
               })
             }
-            slot();
-        
-        // $(document).ready(function() {
-        //     // Ketika tanggal dipilih
-        //     $('#tanggal').change(function() {
-        //         var selectedDate = $(this).val();
+            // slot();
 
-        //         $.ajax({
-        //             // url_ke_endpoint_server
-        //             url: 'http://localhost/phpmyadmin/index.php?route=/sql&pos=0&db=gor_ukdw&table=forms',
-        //             method: 'GET',
-        //             data: { date: selectedDate },
-        //             success: function(response) {
-        //                 // Tanggapan berisi slot-slot yang tersedia untuk tanggal yang dipilih
-        //                 // Tampilkan slot-slot kepada pengguna
-        //                 // Misalnya, jika tanggapan adalah objek JSON dengan kunci 'slots':
-        //                 var slots = response.slots;
-        //                 // Lalu tampilkan slot-slot ini ke dalam elemen HTML yang sesuai
-
-        //                 // Periksa apakah semua slot terisi
-        //                 var allSlotsFilled = true;
-        //                 // Lakukan pemeriksaan dan ubah nilai allSlotsFilled jika diperlukan
-
-        //                 // Jika semua slot terisi, tandai tanggal sebagai tidak tersedia
-        //                 if (allSlotsFilled) {
-        //                     // Ubah tampilan tanggal menjadi merah
-        //                     $('#tanggal').addClass('text-red-500');
-        //                 } else {
-        //                     // Hapus penandaan tanggal sebagai tidak tersedia jika sebelumnya ditandai
-        //                     $('#tanggal').removeClass('text-red-500');
-        //                 }
-        //             },
-        //             error: function(xhr, status, error) {
-        //                 // Tangani kesalahan jika permintaan AJAX gagal
-        //                 console.error(error);
-        //             }
-        //         });
-        //     });
-        // });
 
       </script>
 

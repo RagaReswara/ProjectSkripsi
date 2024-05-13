@@ -32,7 +32,7 @@ Route::get('/form', function () { return view('peminjam/form'); });
 Route::get('/formEvent', function () { return view('peminjam/formEvent'); });
 Route::get('/rekap', function () { return view('peminjam/rekapPeminjaman'); });
 Route::get('/rekapEvent', function () { return view('peminjam/rekapEvent'); });
-Route::get('/detailPersetujuan', function () { return view('peminjam/detailPersetujuan'); });
+Route::get('/detailPersetujuan/{id_form}', function () { return view('peminjam/detailPersetujuan'); });
 
 // BIRO 3
 Route::get('/jadwalBiro3', function () { return view('Biro3/jadwal'); }) -> name('jadwalBiro3');

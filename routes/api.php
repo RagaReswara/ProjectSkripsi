@@ -23,10 +23,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/jadwal',[JadwalController::class,'slot']);
+Route::post('/inputJadwal',[JadwalController::class,'inputJadwal']);
+Route::post('/slotPertanggal',[JadwalController::class,'slotPertanggal']);
+
 Route::post('/user',[UserController::class,'registerAkun']);
 
 Route::get('/form',[FormController::class,'getForm']);
 Route::post('/formInput',[FormController::class,'inputForm']);
+Route::post('/getByid',[FormController::class,'getByid']);
 
 
 

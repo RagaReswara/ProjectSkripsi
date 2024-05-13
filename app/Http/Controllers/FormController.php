@@ -18,8 +18,8 @@ class FormController extends Controller
             'lapangan' => $request -> lapangan,
             'nama_kegiatan' => $request -> nama_kegiatan,
             'nama_pj' => $request -> nama_pj,
-            'surat_peminjaman' => $request -> surat_peminjaman,
-            'tor' => $request -> tor,
+            'surat_peminjaman' =>  $this -> handleUpload($request, 'surat_peminjaman'),
+            'tor' => $this -> handleUpload($request, 'tor'),
             'tanggal' => $request -> tanggal,
             'hari' => $request -> hari,
             'slot' => $request -> slot,
@@ -30,10 +30,25 @@ class FormController extends Controller
 
         return response()->json(['is_success'=> true,'data' => $form]);
     }
+
+    public function handleUpload(Request $request, $attribute){
+        if($request -> hasFile($attribute)){
+            $file = $request -> file($attribute);
+            $modifierFile = time().'_'.str_replace('','_',$file -> getClientOriginalName());
+            $path = $file -> storeAs('uploads',$modifierFile, 'public');
+            return $modifierFile;
+        }
+        return $request -> $attribute;
+    }
     
     public function getForm(){
         $form = Form::all();
         return response()->json(['is_success'=> true,'data' => $form]);
+    }
+
+    public function getByid(Request $request){
+        $getForm = Form::find($request -> id);
+        return response()->json(['is_success'=> true,'data' => $getForm]);
     }
 
 }

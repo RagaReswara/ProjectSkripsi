@@ -3,6 +3,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('../resources/css/app.css')
+  @yield('link')
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
@@ -12,14 +13,6 @@
     @include('Peminjam.navbar')
     @yield('content')
 
-
-</body>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
-
-<!-- SCRIPT -->
     <script>
     
         // CHECKBOX
@@ -149,7 +142,18 @@
             console.log('ini tanggal 1: '+document.getElementById('textFieldTanggal').value)
             console.log('ini tanggal 2: '+document.getElementById('textfieldTanggalRutin').value)
         });
+        
 
     </script>
+
+</body>
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
+
+<!-- SCRIPT -->
+    @yield('script')
 
 </html>

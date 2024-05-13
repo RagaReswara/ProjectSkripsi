@@ -139,7 +139,7 @@
                                         ${item.slot}
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <a href="http://127.0.0.1:8000/detailPersetujuan?namaOrganisasi=${item.nama_organisasi}&telp=${item.no_telp}&kategori=${item.kat_kegiatan}&pj=${item.nama_pj}&tanggal=${item.tanggal}&hari=${item.hari}&slot=${item.slot}&lapangan=${item.lapangan}&namaKegiatan=${item.nama_kegiatan}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
+                                        <a href="http://127.0.0.1:8000/detailPersetujuan/${item.id_form}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
                                     </td>
                                 </tr>
                             `;
@@ -187,7 +187,7 @@
                                         ${item.hariRutin}
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <a href="http://127.0.0.1:8000/detailPersetujuan?namaOrganisasi=${item.nama_organisasi}&telp=${item.no_telp}&kategori=${item.kat_kegiatan}&pj=${item.nama_pj}&tanggal=${item.tanggal}&hari=${item.hari}&slot=${item.slot}&lapangan=${item.lapangan}&namaKegiatan=${item.nama_kegiatan}&tanggalRutin=${item.tanggalRutin}&hariRutin=${item.hariRutin}&slotRutin=${item.slotRutin}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
+                                        <a href="http://127.0.0.1:8000/detailPersetujuan/${item.id_form}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
                                     </td>
                                 </tr>
                             `;
