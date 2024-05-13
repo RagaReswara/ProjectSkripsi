@@ -25,7 +25,6 @@
                                         <option value="Himpunan Mahasiswa Teknologi Informasi (HMTI)">Himpunan Mahasiswa Teknologi Informasi (HMTI)</option>
                                         <option value="kedokteran">Kedokteran</option>
                                     </select>
-                         
                     
                             <!-- <label for="email" class="block text-base font-medium leading-6 text-gray-900">Nomor Telepon / WA</label> -->
                             <div class="sm:col-span-2 mt-4">
@@ -43,11 +42,11 @@
                         <div class="space-y-2">
                                     <select name="kat_kegiatan" id="kat_kegiatan" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-10">
                                         <option disabled selected hidden>Silahkan Pilih Kategori Kegiatan</option>
-                                        <option value="basket">Basket</option>
-                                        <option value="bulutangkis">Bulu Tangkis</option>
-                                        <option value="taekwondo">Taekwondo</option>
-                                        <option value="tenismeja">Tenis Meja</option>
-                                        <option value="lainnya">Lainnya</option>
+                                        <option value="Basket">Basket</option>
+                                        <option value="Bulu Tangkis">Bulu Tangkis</option>
+                                        <option value="Taekwondo">Taekwondo</option>
+                                        <option value="Tenis Meja">Tenis Meja</option>
+                                        <option value="Lainnya">Lainnya</option>
                                     </select>
                             
 
@@ -68,54 +67,53 @@
                             
                         <!-- LINE -->
                             <div class="relative flex gap-x-3">
-                            <div class="flex h-6 items-center">
-                                <input id="lineA" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"> 
-                            </div>
-                            <div class="text-sm leading-6">
-                                <label for="lineA" class="font-medium text-gray-900">Line A</label>
-                                <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
-                            </div>
-                            <div class="flex h-6 items-center ml-9">
-                                <input id="lineB" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                            </div>
-                            <div class="text-sm leading-6">
-                                <label for="lineB" class="font-medium text-gray-900">Line B</label>
-                                <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
-                            </div>
-                            <div class="flex h-6 items-center ml-9">
-                                <input id="lineC" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                            </div>
-                            <div class="text-sm leading-6">
-                                <label for="lineC" class="font-medium text-gray-900">Line C</label>
-                                <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
-                            </div>
-                            <div class="flex h-6 items-center ml-9">
-                                <input id="lineD" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                            </div>
-                            <div class="text-sm leading-6">
-                                <label for="lineD" class="font-medium text-gray-900">Line D</label>
-                                <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
-                            </div>
-                            
+                                <div class="flex h-6 items-center">
+                                    <input id="lineA" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"> 
+                                </div>
+                                <div class="text-sm leading-6">
+                                    <label for="lineA" class="font-medium text-gray-900">Line A</label>
+                                    <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
+                                </div>
+                                <div class="flex h-6 items-center ml-9">
+                                    <input id="lineB" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                </div>
+                                <div class="text-sm leading-6">
+                                    <label for="lineB" class="font-medium text-gray-900">Line B</label>
+                                    <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
+                                </div>
+                                <div class="flex h-6 items-center ml-9">
+                                    <input id="lineC" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                </div>
+                                <div class="text-sm leading-6">
+                                    <label for="lineC" class="font-medium text-gray-900">Line C</label>
+                                    <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
+                                </div>
+                                <div class="flex h-6 items-center ml-9">
+                                    <input id="lineD" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                </div>
+                                <div class="text-sm leading-6">
+                                    <label for="lineD" class="font-medium text-gray-900">Line D</label>
+                                    <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
+                                </div>
                             </div>
                         
                         <!-- FULL LAPANGAN -->
                             <div class="relative flex gap-x-3">
-                            <div class="flex h-6 items-center">
-                                <input id="1lapangan" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                            </div>
-                            <div class="text-sm leading-6">
-                                <label for="1lapangan" class="font-medium text-gray-900">Full Lapangan</label>
-                                <!-- <p class="text-gray-500">Get notified when a candidate applies for a job.</p> -->
-                            </div>
-                        <!-- TRIBUN -->
-                            <div class="flex h-6 items-center ml-6">
-                                <input id="tribun" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                            </div>
-                            <div class="text-sm leading-6">
-                                <label for="tribun" class="font-medium text-gray-900">Tribun</label>
-                                <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
-                            </div>
+                                <div class="flex h-6 items-center">
+                                    <input id="1lapangan" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                </div>
+                                <div class="text-sm leading-6">
+                                    <label for="1lapangan" class="font-medium text-gray-900">Full Lapangan</label>
+                                    <!-- <p class="text-gray-500">Get notified when a candidate applies for a job.</p> -->
+                                </div>
+                            <!-- TRIBUN -->
+                                <div class="flex h-6 items-center ml-6">
+                                    <input id="tribun" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                </div>
+                                <div class="text-sm leading-6">
+                                    <label for="tribun" class="font-medium text-gray-900">Tribun</label>
+                                    <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
+                                </div>
                             </div>
 
                             <div class="border-b border-gray-900/10 pb-6"></div>
@@ -176,21 +174,21 @@
                             <div class="sm:col-span-2 sm:col-start-1">
                             <label for="city" class="block text-md font-medium leading-6 text-gray-900">Hari ke 2</label>
                             <div class="mt-2">
-                                <input type="text" name="hariRutin" id="popupHariRutin" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                                <input type="text" name="hariRutin" id="textfieldHariRutin" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                             </div>
                             </div>
 
                             <div class="sm:col-span-2">
                             <label for="region" class="block text-base font-medium leading-6 text-gray-900">Tanggal</label>
                             <div class="mt-2">
-                                <input type="text" name="tanggalRutin" id="popupTanggalRutin" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                                <input type="text" name="tanggalRutin" id="textfieldTanggalRutin" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                             </div>
                             </div>
 
                             <div class="sm:col-span-2">
                             <label for="postal-code" class="block text-base font-medium leading-6 text-gray-900">Slot / Jam</label>
                             <div class="mt-2">
-                                <input type="text" name="slotRutin" id="popupSlotRutin" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                                <input type="text" name="slotRutin" id="textfieldSlotRutin" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                             </div>
                             </div>
                     </div>
@@ -204,21 +202,19 @@
 
                 <div class="mt-6 flex items-center justify-end gap-x-6">
                     <div class="inline-flex mt-2 xs:mt-0">
-                        <button id="buttonRutin" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-10" type="button">
+                        <button id="buttonRutin" type="button" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-10">
                             Ajukan Peminjaman Rutin
                         </button>
                         <div class="flex items-center px-4 h-9 ">
                             <input id="termCheck" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                             <label for="termCheck" class="ms-2 text-base font-medium text-gray-900 dark:text-gray-500">I agree with the <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">terms and conditions</a>.</label>
                         </div>
-                        
                         <button id="kembaliButton" type="button" class="flex items-center justify-center px-4 h-9 text-base font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
                             Kembali
                         </button>
-                        <button id="ajukanButton" data-modal-target="alertRekapPeminjaman" data-modal-toggle="popup-modal" type="submit" class="flex items-center justify-center pointer-events-none opacity-50 px-4 h-9 text-base font-medium text-white bg-blue-600 border-0 border-s border-blue-700 rounded-e-2xl hover:bg-blue-600 dark:bg-blue-700 dark:border-blue-700 dark:text-gray-300 dark:hover:bg-blue-600 dark:hover:text-white">
+                        <button id="ajukanButton" onclick="inputForm(event)" data-modal-target="alertRekapPeminjaman" data-modal-toggle="popup-modal" type="submit" class="flex items-center justify-center pointer-events-none opacity-50 px-4 h-9 text-base font-medium text-white bg-blue-600 border-0 border-s border-blue-700 rounded-e-2xl hover:bg-blue-600 dark:bg-blue-700 dark:border-blue-700 dark:text-gray-300 dark:hover:bg-blue-600 dark:hover:text-white">
                             Ajukan Peminjaman
                         </button>
-                        
                     </div>
                 </div>
             </div>
@@ -246,7 +242,7 @@
                         <!-- Modal body -->
                             <div class="flex gap-4 mb-4 flex-col">
                                 <div class="col-span-2">
-                            <!-- DATEPICKER -->
+                            <!-- DATEPICKER RUTIN-->
                                     <div class="relative max-w-sm mr-10">
                                     <input name="tanggal2" id="popupPilihTanggal" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
 
@@ -269,12 +265,13 @@
 
                                 <div class="mt-6 flex justify-end gap-x-6">
                                     <div class="inline-flex mt-2 xs:mt-0">
-                                        <button id="buttonSubmitRutin" onclick="inputForm(event)" type="submit" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        <button id="buttonSubmitRutin" type="button" data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                             Submit
                                         </button>
                                     </div>
                                 </div>
                     </form>
+                    
                         </div>
                 </div>
             </div>
@@ -286,8 +283,7 @@
                 // POP UP
                 const buttonRutin = document.getElementById("buttonRutin");
                 const popup = document.getElementById("popup");
-                const closePopup = document.getElementById("closePopup");
-                const buttonSubmitPopup = document.getElementById("buttonSubmitPopup");
+                const closePopup = document.getElementById("closePopup");              
                 const buttonSubmitRutin = document.getElementById("buttonSubmitRutin");
 
                 // TERMS CHECK BUTTON
@@ -323,7 +319,6 @@
                         const checkbox = document.querySelectorAll('input[name="line[]"]');
                         // Membuat array kosong untuk menyimpan nilai yang dicentang
                         let selectedLines = '';
-                        // Iterasi melalui setiap checkbox
                         checkbox.forEach((checkbox, index) => {
                             // Jika checkbox dicentang, tambahkan nilainya ke dalam string selectedLines
                             if (checkbox.checked) {
@@ -341,7 +336,7 @@
                         console.log("Nilai-nilai yang dicentang:", selectedLines);
 
                         fetch('http://127.0.0.1:8000/api/formInput', {
-                          method:'post', body:formData
+                            method:'post', body:formData
                         })
                         .then(response=>response.json())
                         .then(data=>{
@@ -349,16 +344,21 @@
                                 console.log('berhasil')
                             }
                         })
+                        // const isCheckedAll = Array.from(checkbox).every(checkbox => checkbox.checked);
+                        // if (isCheckedAll) {
+                        //     const lapanganInput = document.querySelectorAll('input[name="line[]"]');
+                        //     lapanganInput.value = 'Full Lapangan';
+                        // }
                 }
+                
                 const formPeminjam = document.querySelector('form')
                 formPeminjam.addEventListener('submit',inputForm)
-                
 
                 // SLOT / JADWAL
                 let popupPilihTanggal = document.getElementById("popupPilihTanggal")
-                let popupTanggalRutin = document.getElementById("popupTanggalRutin")
-                let PopupHariRutin = document.getElementById("popupHariRutin")
-                let popupSlotRutin = document.getElementById("popupSlotRutin")
+                let textfieldTanggalRutin = document.getElementById("textfieldTanggalRutin")
+                let textfieldHariRutin = document.getElementById("textfieldHariRutin")
+                let textfieldSlotRutin = document.getElementById("textfieldSlotRutin")
 
                 let counter = 1;
                 
@@ -371,14 +371,16 @@
                     data.data.forEach((item)=>{
                         let jamMulai = item.jam_mulai.slice(0, -3);
                         let jamSelesai = item.jam_selesai.slice(0, -3);
-                    slotRutin.innerHTML +=
-                    `
-                    <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                        <input id="slotRutin${counter}" type="radio" value="${jamMulai} - ${jamSelesai}" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="slotRutin${counter}" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"> ${jamMulai} - ${jamSelesai} </label>
-                    </div>
+                    if(item.status === 0){
+                        slotRutin.innerHTML +=
+                        `
+                        <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                            <input id="slotRutin${counter}" type="radio" value="${jamMulai} - ${jamSelesai}" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="slotRutin${counter}" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"> ${jamMulai} - ${jamSelesai} </label>
+                        </div>
 
-                    `
+                        `
+                    }
                     counter++
                     })
                     
@@ -407,7 +409,7 @@
                     });
                     const parts = popupPilihTanggal.value.split('-');
                     const day = parts[1];
-                    const tanggalRutin = parts[0]+' - '+parts[2]+" - "+parts[3];
+                    const tanggalRutin = parts[3]+'-'+parts[2]+"-"+parts[0];
                     const [start, end] = selectedValue.split(' - ');
                     const hari = {
                         'Sun': 'Minggu',
@@ -419,12 +421,11 @@
                         'Sat': 'Sabtu'
                     };
                     const dayIndonesian = hari[day];
-                    popupTanggalRutin.value = tanggalRutin;
-                    PopupHariRutin.value = dayIndonesian;
-                    popupSlotRutin.value = start + ' - ' + end;
+                    textfieldTanggalRutin.value = tanggalRutin;
+                    textfieldHariRutin.value = dayIndonesian;
+                    textfieldSlotRutin.value = start + ' - ' + end;
                     console.log(dayIndonesian);
                 });
-
 
                 buttonRutin.addEventListener("click", function() {
                     popup.classList.remove("hidden"); 
@@ -432,9 +433,7 @@
                 closePopup.addEventListener("click", function() {
                     popup.classList.add("hidden"); 
                 });
-                buttonSubmitPopup.addEventListener("click", function() {
-                    popup.classList.add("hidden"); 
-                });
+                
 
             </script>
         

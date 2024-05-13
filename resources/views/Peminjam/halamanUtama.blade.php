@@ -104,6 +104,44 @@
               })
             }
             slot();
+        
+        // $(document).ready(function() {
+        //     // Ketika tanggal dipilih
+        //     $('#tanggal').change(function() {
+        //         var selectedDate = $(this).val();
+
+        //         $.ajax({
+        //             // url_ke_endpoint_server
+        //             url: 'http://localhost/phpmyadmin/index.php?route=/sql&pos=0&db=gor_ukdw&table=forms',
+        //             method: 'GET',
+        //             data: { date: selectedDate },
+        //             success: function(response) {
+        //                 // Tanggapan berisi slot-slot yang tersedia untuk tanggal yang dipilih
+        //                 // Tampilkan slot-slot kepada pengguna
+        //                 // Misalnya, jika tanggapan adalah objek JSON dengan kunci 'slots':
+        //                 var slots = response.slots;
+        //                 // Lalu tampilkan slot-slot ini ke dalam elemen HTML yang sesuai
+
+        //                 // Periksa apakah semua slot terisi
+        //                 var allSlotsFilled = true;
+        //                 // Lakukan pemeriksaan dan ubah nilai allSlotsFilled jika diperlukan
+
+        //                 // Jika semua slot terisi, tandai tanggal sebagai tidak tersedia
+        //                 if (allSlotsFilled) {
+        //                     // Ubah tampilan tanggal menjadi merah
+        //                     $('#tanggal').addClass('text-red-500');
+        //                 } else {
+        //                     // Hapus penandaan tanggal sebagai tidak tersedia jika sebelumnya ditandai
+        //                     $('#tanggal').removeClass('text-red-500');
+        //                 }
+        //             },
+        //             error: function(xhr, status, error) {
+        //                 // Tangani kesalahan jika permintaan AJAX gagal
+        //                 console.error(error);
+        //             }
+        //         });
+        //     });
+        // });
 
       </script>
 

@@ -4,10 +4,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('../resources/css/app.css')
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
 </head>
 <body>
 
@@ -16,6 +14,10 @@
 
 
 </body>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
 
 <!-- SCRIPT -->
     <script>
@@ -33,7 +35,7 @@
         // CHECKBOX
         const lapanganCheckbox = document.getElementById('1lapangan');
         const tribunCheckbox = document.getElementById('tribun');
-        const lineCheckboxes = document.querySelectorAll('input[name="line"]');
+        const lineCheckboxes = document.querySelectorAll('input[name="line[]"]');
 
         lapanganCheckbox.addEventListener('change', function() {
                 if (this.checked) {
@@ -50,7 +52,7 @@
                     tribunCheckbox.checked = false; // Batalkan centang pada checkbox "Tribun"
                     lapanganCheckbox.checked = false;
                 }
-            });        
+            });
 
         let checkedCount = 0;
 
@@ -65,7 +67,7 @@
                 } else {
                     checkedCount--;
                     lapanganCheckbox.checked = false;
-                    // tribunCheckbox.checked = false;
+                    tribunCheckbox.checked = false;
                     }
             });
         });
@@ -118,7 +120,6 @@
                 headerTanggalDipilih.classList.add('hidden');
             }
             });
-                
 
     </script>
 

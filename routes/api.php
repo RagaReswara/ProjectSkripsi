@@ -25,6 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/jadwal',[JadwalController::class,'slot']);
 Route::post('/user',[UserController::class,'registerAkun']);
 
-Route::get('/form',[FormController::class,'']);
+Route::get('/form',[FormController::class,'getForm']);
 Route::post('/formInput',[FormController::class,'inputForm']);
+
+
 

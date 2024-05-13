@@ -12,104 +12,166 @@
                 <p class="mt-1 text-base leading-6 text-gray-600">Berhasil melakukan Booking silahkan tunggu untuk disetujui</p>
             </div>
 
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 gap-10 mt">
-                <thead class="text-xs text-gray-900 uppercase dark:text-gray-300">
-                    <tr class="bg-white dark:bg-gray-700">
-                        <th scope="col" class="px-6 py-3">
-                            Organisasi
-                        </th>
-                        <td class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                            : Himpunan Mahasiswa Sistem Informasi
-                        </td>
-                        <th scope="col" class="px-6 py-3">
-                            No Telp
-                        </th>
-                        <td class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                            : 08267171263
-                        </td>
-                    </tr>
-                        
-                    <tr class="bg-white dark:bg-gray-700">
-                        <th scope="col" class="px-6 py-3">
-                            Kegiatan
-                        </th>
-                        <td class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                            : Basket
-                        </td>
-                        <th scope="col" class="px-6 py-3">
-                            Lapangan
-                        </th>
-                        <td class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                            : Full Lapangan
-                        </td>
-                    </tr>
+                <!-- TABEL UNTUK PEMINJAMAN HARIAN -->
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 gap-10 mt">
+                    <thead class="text-xs text-gray-900 dark:text-gray-300">
+                        <tr class="bg-white dark:bg-gray-700">
+                            <th scope="col" class="px-6 py-3">
+                                Organisasi
+                            </th>
+                            <td id="organisasi" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                                : 
+                            </td>
+                            <th scope="col" class="px-6 py-3">
+                                Tanggal
+                            </th>
+                            <td id="tanggal" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                                : 
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-700">
+                            <th scope="col" class="px-6 py-3">
+                                Nama Penanggung Jawab
+                            </th>
+                            <td id="nama_pj" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                                : 
+                            </td>
+                            <th scope="col" class="px-6 py-3">
+                                Hari
+                            </th>
+                            <td id="hari" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                                : 
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-700">
+                            <th scope="col" class="px-6 py-3">
+                                Kategori Kegiatan
+                            </th>
+                            <td id="kategoriKegiatan" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                                : 
+                            </td>
+                            <th scope="col" class="px-6 py-3">
+                                Jam
+                            </th>
+                            <td id="jam" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                                : 
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-700">
+                            <th scope="col" class="px-6 py-3">
+                                namaKegiatan
+                            </th>
+                            <td id="namaKegiatan" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                                : 
+                            </td>
+                            <th scope="col" class="px-6 py-3">
+                                lapangan
+                            </th>
+                            <td id="lapangan" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                                : 
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-700">
+                            <th scope="col" class="px-6 py-3">
+                                No Telp/WA
+                            </th>
+                            <td id="noTelp" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                                : 
+                            </td>
+                            <th scope="col" class="px-6 py-3 dark:bg-white">
+                                
+                            </th>
+                            <td class="dark:bg-white px-6 py-4 text-gray-700 flex justify-end">
+                                <button type="button" class="text-white bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
+                                        Cetak Nota dan form
+                                </button>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+                <table>
+                        <tr class="bg-white dark:bg-white text-black">
+                            <th scope="col" class="px-6 py-3">
+                                Status
+                            </th>
+                            <td class="dark:bg-white px-6 py-4 font-bold text-gray-700">
+                                : Disetujui / tidak
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-white text-black">
+                            <th scope="col" class="px-6 py-3">
+                                Catatan
+                            </th>
+                            <td class="dark:bg-white px-6 py-4 font-bold text-gray-700">
+                                : Silahkan datang ke biro 3 dengan memberikan form dan nota secara fisik
+                            </td>
+                        </tr>
 
-                    <tr class="bg-white dark:bg-gray-700">
-                        <th scope="col" class="px-6 py-3">
-                            Hari
-                        </th>
-                        <td class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                            : Senin
-                        </td>
-                        <th scope="col" class="px-6 py-3">
-                            Jam
-                        </th>
-                        <td class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                            : 18.00 - 20.00
-                        </td>
-                    </tr>
-                    <tr class="bg-white dark:bg-gray-700">
-                        <th scope="col" class="px-6 py-3">
-                            Tanggal
-                        </th>
-                        <td class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                            : 23 Maret 2024
-                        </td>
-                        <th scope="col" class="px-6 py-3 dark:bg-white">
-                            
-                        </th>
-                        <td class="dark:bg-white px-6 py-4 text-gray-700 flex justify-end">
-                            <button type="button" class="text-white bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
-                                    Cetak Nota dan form
-                            </button>
-                        </td>
-                    </tr>
-                </thead>
-            </table>
-            <table>
-                    <tr class="bg-white dark:bg-white text-black">
-                        <th scope="col" class="px-6 py-3">
-                            Status
-                        </th>
-                        <td class="dark:bg-white px-6 py-4 font-bold text-gray-700">
-                            : Disetujui / tidak
-                        </td>
-                    </tr>
-                    <tr class="bg-white dark:bg-white text-black">
-                        <th scope="col" class="px-6 py-3">
-                            Catatan
-                        </th>
-                        <td class="dark:bg-white px-6 py-4 font-bold text-gray-700">
-                            : Silahkan datang ke biro 3 dengan memberikan form dan nota secara fisik
-                        </td>
-                    </tr>
+                        <tr class="bg-white dark:bg-white text-black">
+                            <td class="dark:bg-white px-6 py-4 font-bold text-gray-700">
+                            </td>
+                        </tr>
+                </table>
 
-                    <tr class="bg-white dark:bg-white text-black">
-                        <td class="dark:bg-white px-6 py-4 font-bold text-gray-700">
-                        </td>
-                    </tr>
-            </table>
-
-            <div class="flex flex-1 justify-end">
-                <button type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
-                    Mulai Peminjaman
-                </button>
-            </div>
-
-                
+                <div class="flex flex-1 justify-end">
+                    <button type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
+                        Mulai Peminjaman
+                    </button>
+                </div>         
 
             </div>
         </div>
+
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const namaOrganisasi = urlParams.get('namaOrganisasi');
+                const noTelp = urlParams.get('telp');
+                const kategori = urlParams.get('kategori');
+                const pj = urlParams.get('pj');
+                const tanggal = urlParams.get('tanggal');
+                const tanggalRutin = urlParams.get('tanggalRutin');
+                const hari = urlParams.get('hari');
+                const hariRutin = urlParams.get('hariRutin');
+                const slot = urlParams.get('slot');
+                const slotRutin = urlParams.get('slotRutin');
+                const lapangan = urlParams.get('lapangan');
+                const namaKegiatan = urlParams.get('namaKegiatan');
+
+                const cekTanggalRutin = document.getElementById('tanggal');
+                    if (tanggalRutin !== null) {
+                        cekTanggalRutin.innerText = `: ${tanggal} dan ${tanggalRutin}`;
+                    } else {
+                        cekTanggalRutin.innerText = `: ${tanggal}`;
+                    }
+                
+                const cekHariRutin = document.getElementById('hari');
+                    if (hariRutin !== null) {
+                        cekHariRutin.innerText = `: ${hari} dan ${hariRutin}`;
+                    } else {
+                        cekHariRutin.innerText = `: ${hari}`;
+                    }
+
+                const cekSlotRutin = document.getElementById('jam');
+                    if (slotRutin !== null) {
+                        cekSlotRutin.innerText = `: ${slot} dan ${slotRutin}`;
+                    } else {
+                        cekSlotRutin.innerText = `: ${slot}`;
+                    }
+
+                document.getElementById('organisasi').innerText = `: ${namaOrganisasi}`;
+                document.getElementById('noTelp').innerText = `: ${noTelp}`;
+                document.getElementById('kategoriKegiatan').innerText = `: ${kategori}`;
+                document.getElementById('nama_pj').innerText = `: ${pj}`;
+                document.getElementById('lapangan').innerText = `: ${lapangan}`;
+                document.getElementById('namaKegiatan').innerText = `: ${namaKegiatan}`;
+
+                console.log(document.getElementById('organisasi'));
+
+            });
+
+        </script>
 
 </div>
 

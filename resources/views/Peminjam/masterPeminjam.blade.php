@@ -19,15 +19,13 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
 
-  
-
 <!-- SCRIPT -->
     <script>
     
         // CHECKBOX
         const lapanganCheckbox = document.getElementById('1lapangan');
         const tribunCheckbox = document.getElementById('tribun');
-        const lineCheckboxes = document.querySelectorAll('input[name="line"]');
+        const lineCheckboxes = document.querySelectorAll('input[name="line[]"]');
 
         lapanganCheckbox.addEventListener('change', function() {
                 if (this.checked) {
@@ -44,7 +42,7 @@
                     tribunCheckbox.checked = false; // Batalkan centang pada checkbox "Tribun"
                     lapanganCheckbox.checked = false;
                 }
-            });        
+        });
 
         let checkedCount = 0;
 
@@ -59,7 +57,7 @@
                 } else {
                     checkedCount--;
                     lapanganCheckbox.checked = false;
-                    // tribunCheckbox.checked = false;
+                    tribunCheckbox.checked = false;
                     }
             });
         });
@@ -100,7 +98,7 @@
         document.addEventListener('DOMContentLoaded', function(){
 
             let tanggal2 = flatpickr('input[name="tanggal2"]',{
-                dateFormat: 'd-D-M-Y',
+                dateFormat: 'd-D-m-Y',
                 enableTime: false,
             });
 
@@ -114,7 +112,7 @@
 
             const parts = tanggal1.split('-');
             const day = parts[1];
-            const tanggal = parts[3]+'-'+parts[2]+"-"+parts[0];
+            const tanggal = parts[3]+'-'+parts[2]+'-'+parts[0];
 
             const hari = {
                 'Sun': 'Minggu',
@@ -135,22 +133,21 @@
             const endTime = end.slice(0, -3);
 
             textFieldHari.value = dayIndonesian;
-            document.getElementById("textFieldTanggal").value = tanggal;    
+            document.getElementById("textFieldTanggal").value = tanggal;
             document.getElementById("textFieldSlot").value = startTime + ' - ' + endTime;
+            document.getElementById("textfieldTanggalRutin").value = tanggal; 
 
             // Jika tanggal1 ada dalam URL, set nilai tanggal1 ke dalam date picker tanggal2
             if (tanggal1) {
                 tanggal2 = flatpickr('input[name="tanggal2"]', {
-                    dateFormat: 'd-D-M-Y',
+                    dateFormat: 'd-D-m-Y',
                     defaultDate: tanggal1, // Set tanggal1 sebagai default date pada tanggal2
                     enableTime: false,
                     minDate: tanggal1 // Tetapkan tanggal minimal untuk tanggal2 agar setidaknya satu hari setelah tanggal1
                 });
             }
             console.log('ini tanggal 1: '+document.getElementById('textFieldTanggal').value)
-            console.log('ini tanggal 2: '+document.getElementById('popupTanggalRutin').value)
-        
-
+            console.log('ini tanggal 2: '+document.getElementById('textfieldTanggalRutin').value)
         });
 
     </script>

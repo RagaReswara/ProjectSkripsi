@@ -52,21 +52,21 @@
                         <div class="sm:col-span-2 sm:col-start-1">
                         <label for="city" class="block text-sm font-medium leading-6 text-gray-900">Hari</label>
                         <div class="mt-2">
-                            <input type="text" name="city" id="city" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="hariEvent" id="hariEventId" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                         </div>
 
                         <div class="sm:col-span-2">
                         <label for="region" class="block text-base font-medium leading-6 text-gray-900">Tanggal</label>
                         <div class="mt-2">
-                            <input type="text" name="region" id="region" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="tanggalEvent" id="tanggalEventId" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                         </div>
 
                         <div class="sm:col-span-2">
                         <label for="postal-code" class="block text-base font-medium leading-6 text-gray-900">Slot / Jam</label>
                         <div class="mt-2">
-                            <input type="text" name="postal-code" id="postal-code" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="slotEvent" id="slotEventId" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                         </div>
 
@@ -157,6 +157,7 @@
                     const kembaliButton = document.getElementById("kembaliButton");
                     const ajukanButton = document.getElementById("ajukanButton");
                     const termCheck = document.getElementById('termCheck');
+
                     kembaliButton.addEventListener("click", function() {
                         window.location.href = "http://127.0.0.1:8000/form"; 
                     });
@@ -175,6 +176,19 @@
                     buttonDownload.addEventListener("click", function(){
                         window.location.href = "https://drive.usercontent.google.com/u/0/uc?id=1iwLf8M1MsdgsxJdaj-0zhrDdCkfBLVrz&export=download";
                     });
+
+                    // document.getElementById("tanggalEventId").value = textFieldTanggal;
+                    // document.getElementById("textFieldSlot").value = startTime + ' - ' + endTime;
+
+                    // document.addEventListener('DOMContentLoaded', function() {
+
+                    //     var textFieldTanggal = document.getElementById("textfieldtanggal").value;
+                    //     document.getElementById("tanggalEventId").value = textFieldTanggal;
+
+                    //     console.log('ini tanggal yang di ambil '+ textFieldTanggal)
+                    //     // console.log('ini slotnya '+ slot)
+
+                    // });
 
                 </script>
 

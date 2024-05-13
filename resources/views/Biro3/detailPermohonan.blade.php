@@ -17,14 +17,14 @@
                         <th scope="col" class="px-6 py-3">
                             Organisasi
                         </th>
-                        <td class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                            : Organisasi
+                        <td id="organisasi" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                            : 
                         </td>
                         <th scope="col" class="px-6 py-3">
-                            No Telp
+                            Nama Kegiatan
                         </th>
-                        <td class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                            : No Telp
+                        <td id="namaKegiatan" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                            : 
                         </td>
                     </tr>
                         
@@ -32,37 +32,52 @@
                         <th scope="col" class="px-6 py-3">
                             Kegiatan
                         </th>
-                        <td class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                            : Kegiatan
+                        <td id="kategoriKegiatan" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                            : 
                         </td>
                         <th scope="col" class="px-6 py-3">
-                            Lapangan
+                            Tanggal
                         </th>
-                        <td class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                            : Lapangan
+                        <td id="tanggal" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                            : 
+                        </td>
+                    </tr>
+                    <tr class="bg-white dark:bg-gray-700">
+                        <th scope="col" class="px-6 py-3">
+                            Penanggung Jawab
+                        </th>
+                        <td id="nama_pj" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                            : 
+                        </td>
+                        <th scope="col" class="px-6 py-3">
+                            Hari
+                        </th>
+                        <td id="hari" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                            : 
                         </td>
                     </tr>
 
                     <tr class="bg-white dark:bg-gray-700">
                         <th scope="col" class="px-6 py-3">
-                            Hari
+                            NO Telp/WA
                         </th>
-                        <td class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                            : Hari
+                        <td id="noTelp" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                            : 
                         </td>
                         <th scope="col" class="px-6 py-3">
                             Jam
                         </th>
-                        <td class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                            : Jam
+                        <td id="jam" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                            : 
                         </td>
                     </tr>
+                    
                     <tr class="bg-white dark:bg-gray-700">
                         <th scope="col" class="px-6 py-3">
-                            Tanggal
+                            Lapangan
                         </th>
-                        <td class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                            : Tanggal
+                        <td id="lapangan" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                            : 
                         </td>
                     </tr>
                 </thead>
@@ -84,6 +99,36 @@
 
             </div>
         </div>
+
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const namaOrganisasi = urlParams.get('namaOrganisasi');
+                const noTelp = urlParams.get('telp');
+                const kategori = urlParams.get('kategori');
+                const pj = urlParams.get('pj');
+                const tanggal = urlParams.get('tanggal');
+                const hari = urlParams.get('hari');
+                const slot = urlParams.get('slot');
+                const lapangan = urlParams.get('lapangan');
+                const namaKegiatan = urlParams.get('namaKegiatan');
+
+                document.getElementById('organisasi').innerText = `: ${namaOrganisasi}`;
+                document.getElementById('kategoriKegiatan').innerText = `: ${kategori}`;
+                document.getElementById('hari').innerText = `: ${hari}`;
+                document.getElementById('tanggal').innerText = `: ${tanggal}`;
+                document.getElementById('noTelp').innerText = `: ${noTelp}`;
+                document.getElementById('lapangan').innerText = `: ${lapangan}`;
+                document.getElementById('jam').innerText = `: ${slot}`;
+                document.getElementById('nama_pj').innerText = `: ${pj}`;
+                document.getElementById('namaKegiatan').innerText = `: ${namaKegiatan}`;
+
+                console.log(document.getElementById('organisasi'));
+
+            });
+
+        </script>
 
 </div>
 

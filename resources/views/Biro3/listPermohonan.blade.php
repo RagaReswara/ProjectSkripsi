@@ -27,43 +27,30 @@
                                 Tanggal
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Jam
+                                No Telp/WA
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Nama Kegiatan
+                                Kategori
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Nama Penanggung Jawab
+                                Penanggung Jawab
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Lapangan
+                                Tanggal
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Hari
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Slot
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 <span class="sr-only">Edit</span>
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                17 April 2024
-                            </th>
-                            <td class="px-6 py-2">
-                                16.00 - 20.00
-                            </td>
-                            <td class="px-6 py-4">
-                                Basket
-                            </td>
-                            <td class="px-6 py-4">
-                                Latihan Basket Hmsi
-                            </td>
-                            <td class="px-6 py-4">
-                                Full Lapangan
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <a href="http://127.0.0.1:8000/detailPermohonan" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Detail</a>
-                            </td>
-                        </tr>
+                    <tbody id="permohonanRutin">
+
                     </tbody>
                 </table>
             </div>
@@ -169,9 +156,57 @@
             </div>
             <!-- TABEL EVENT -->
 
-
             </div>
         </div>
+
+        <script>
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                fetch('http://127.0.0.1:8000/api/form')
+                    .then(response => response.json())
+                    .then(data => {
+                        const tbody = document.getElementById('permohonanRutin');
+                        data.data.forEach((item) => {
+                            console.log(data)
+                            if(item.hariRutin === null){
+                            const row = 
+                            `
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        ${item.nama_organisasi}
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        ${item.no_telp}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.kat_kegiatan}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.nama_pj}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.tanggal}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.hari}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.slot}
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <a href="http://127.0.0.1:8000/detailPermohonan?namaOrganisasi=${item.nama_organisasi}&telp=${item.no_telp}&kategori=${item.kat_kegiatan}&pj=${item.nama_pj}&tanggal=${item.tanggal}&hari=${item.hari}&slot=${item.slot}&lapangan=${item.lapangan}&namaKegiatan=${item.nama_kegiatan}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
+                                    </td>
+                                </tr>
+                            `;
+                            tbody.innerHTML += row;
+                            console.log(item.nama_organisasi);
+                            }
+                        });
+                    })
+                    .catch(error => console.error('Error fetching data:', error));
+            });
+
+        </script>
 
 </div>
 
