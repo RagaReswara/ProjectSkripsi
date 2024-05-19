@@ -260,13 +260,10 @@
                 const [start, end] = slot.split(' - ');
 
                 // Hapus detik dari jam mulai dan jam selesai
-                const startTime = start.slice(0, -3);
-                const endTime = end.slice(0, -3);
-
                 document.getElementById("textfieldHari").value = dayIndonesian;
                 // textFieldHari.value = dayIndonesian;
                 document.getElementById("textfieldTanggal").value = tanggal;
-                document.getElementById("textfieldSlot").value = startTime + ' - ' + endTime;
+                document.getElementById("textfieldSlot").value = start + ' - ' + end;
                 // document.getElementById("textfieldTanggalRutin").value = tanggal; 
 
                 // Jika tanggal1 ada dalam URL, set nilai tanggal1 ke dalam date picker tanggal2

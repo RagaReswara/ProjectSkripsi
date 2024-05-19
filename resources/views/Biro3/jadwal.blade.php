@@ -81,8 +81,64 @@
               }
             });
         });
-        
+
         const jam = document.getElementById('slot');
+
+        document.addEventListener('DOMContentLoaded', function(){
+                let dateStr = '';
+                const tanggal = flatpickr('input[id="tanggal"]', {
+                        dateFormat: 'd-D-m-Y',
+                        minDate: 'today', // Mengatur tanggal minimum ke hari ini
+                        enableTime: false,
+                        onChange: function(selectedDates, newDateStr, instance) {
+                            jam.innerHTML = '';
+                            dateStr = newDateStr;
+                            console.log(dateStr)
+                            
+                            const parts = newDateStr.split('-');
+                            const day = parts[1];
+                            const hari = {
+                                'Sun': 'Minggu',
+                                'Mon': 'Senin',
+                                'Tue': 'Selasa',
+                                'Wed': 'Rabu',
+                                'Thu': 'Kamis',
+                                'Fri': 'Jumat',
+                                'Sat': 'Sabtu'
+                        };
+                        const dayIndonesian = hari[day];
+                        console.log(dayIndonesian);
+
+                        fetch('http://127.0.0.1:8000/api/slotPertanggal', {
+                                method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({hari:dayIndonesian})
+                            }) 
+                            .then(response=>response.json())
+                            .then(data=>{
+                                console.log(data)
+                                data.data.forEach((item)=>{
+                                    let jamMulai = item.jam_mulai.slice(0, -3);
+                                    let jamSelesai = item.jam_selesai.slice(0, -3);
+                                    jam.innerHTML +=
+                                    `
+                                    <div class="w-1/7">
+                                      <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
+                                        <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4 "> 
+                                            <a href="http://127.0.0.1:8000/isiJadwal?tanggal=${dateStr}&slot=${jamMulai} - ${jamSelesai}" id="pesanLink" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${item.status == 1 ?  'dark:bg-red-800 dark:hover:bg-red-700 pointer-event-none href="#" onclick="return false;' : 'dark:hover:bg-gray-700'}">
+                                              <span class="flex whitespace-nowrap"> ${jamMulai} - ${jamSelesai} </span>
+                                            <a>
+                                        </p>
+                                      </div>
+                                    </div>
+                                    `
+                                
+                                })
+                            })
+                            console.log(popupPilihTanggal)
+                        }
+                    })
+                });
+        
+        
             function slot() {
               fetch('http://127.0.0.1:8000/api/jadwal')
               .then(response=>response.json())
@@ -106,7 +162,7 @@
                 
               })
             }
-            slot();
+            // slot();
 
       </script>
 

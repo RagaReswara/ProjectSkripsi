@@ -55,17 +55,19 @@
 
       <script>
 
+        const jam = document.getElementById('slot');
+
         document.addEventListener('DOMContentLoaded', function(){
             let dateStr = '';
             const tanggal = flatpickr('input[id="tanggal"]',{
                 dateFormat: 'd-D-m-Y',
+                minDate: 'today',
                 enableTime: false,
                 onChange: function(selectedDates, newDateStr, instance){
                   jam.innerHTML = '';
                   dateStr = newDateStr;
-                  // const links = document.querySelectorAll('#pesanLink');
                   console.log(dateStr)
-                  // console.log(links)
+
                   const parts = dateStr.split('-');
                   const day = parts[1];
                   const hari = {
@@ -77,6 +79,7 @@
                       'Fri': 'Jumat',
                       'Sat': 'Sabtu'
                   };
+
                   const dayIndonesian = hari[day];
                   console.log(dayIndonesian)
                   fetch('http://127.0.0.1:8000/api/slotPertanggal', {
@@ -84,66 +87,52 @@
                     })
                     .then(response=>response.json())
                     .then(data => {
-                      let count = 0;
                       data.data.forEach(item => {
-                        if (count % 5 === 0) { // Jika count habis dibagi 5, tambahkan div baru
-                            jam.innerHTML += '<div class="flex flex-wrap">';
-                        }
+                        const startTime = item.jam_mulai.slice(0, -3);
+                        const endTime = item.jam_selesai.slice(0, -3);
+                      
                         jam.innerHTML +=
                           `
                           <div class="w-1/7">
                             <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
                               <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4 "> 
-                                  <a href="http://127.0.0.1:8000/form?tanggal=${dateStr}&slot=${item.jam_mulai} - ${item.jam_selesai}" id="pesanLink" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${item.status == 1 ?  'dark:bg-red-800 dark:hover:bg-red-700 pointer-event-none href="#" onclick="return false;' : 'dark:hover:bg-gray-700'}">
-                                    <span class="flex whitespace-nowrap"> ${item.jam_mulai} - ${item.jam_selesai} </span>
+                                  <a href="http://127.0.0.1:8000/form?tanggal=${dateStr}&slot=${startTime} - ${endTime}" id="pesanLink" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${item.status == 1 ?  'dark:bg-red-800 dark:hover:bg-red-700 pointer-event-none href="#" onclick="return false;' : 'dark:hover:bg-gray-700'}">
+                                    <span class="flex whitespace-nowrap"> ${startTime} - ${endTime} </span>
                                   <a>
                               </p>
                             </div>
                           </div>
-
                           `;
-                          count++;
-
-                          // if (count % 5 === 0) { // Jika count mencapai lima, tutup div
-                          //     jam.innerHTML += '</div>';
-                          // }
                         console.log(item)
-                        // links.forEach(link => {
-                        //   const url = new URL(link.href);
-                        //   url.searchParams.set('tanggal', dateStr);  
-                        //   link.href = url.toString();
-                        // })
-
                       });
                     })
                 }
             });
         });
-        
-        const jam = document.getElementById('slot');
-            function slot() {
-              fetch('http://127.0.0.1:8000/api/jadwal')
-              .then(response=>response.json())
-              .then(data=>{
-                console.log(data)
-                data.data.forEach((item)=>{
-                  jam.innerHTML +=
-                `
-                <div class="w-1/7">
-                  <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
-                    <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4 "> 
-                        <a href="http://127.0.0.1:8000/form?tanggal&slot=${item.jam_mulai} - ${item.jam_selesai}" id="pesanLink" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${item.status == 1 ?  'dark:bg-red-800 dark:hover:bg-red-700 pointer-event-none href="#" onclick="return false;' : 'dark:hover:bg-gray-700'}">
-                          <span class="flex whitespace-nowrap"> ${item.jam_mulai} - ${item.jam_selesai} </span>
-                        <a>
-                    </p>
-                  </div>
-                </div>
+      
+            // function slot() {
+            //   fetch('http://127.0.0.1:8000/api/jadwal')
+            //   .then(response=>response.json())
+            //   .then(data=>{
+            //     console.log(data)
+            //     data.data.forEach((item)=>{
+            //       jam.innerHTML +=
+            //     `
+            //     <div class="w-1/7">
+            //       <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
+            //         <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4 "> 
+            //             <a href="http://127.0.0.1:8000/form?tanggal&slot=${item.jam_mulai} - ${item.jam_selesai}" id="pesanLink" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${item.status == 1 ?  'dark:bg-red-800 dark:hover:bg-red-700 pointer-event-none href="#" onclick="return false;' : 'dark:hover:bg-gray-700'}">
+            //               <span class="flex whitespace-nowrap"> ${item.jam_mulai} - ${item.jam_selesai} </span>
+            //             <a>
+            //         </p>
+            //       </div>
+            //     </div>
 
-                `
-                })
+            //     `
+            //     })
                 
-              })
-            }
+            //   })
+            // }
             // slot();
 
 

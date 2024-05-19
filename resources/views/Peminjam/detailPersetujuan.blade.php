@@ -169,53 +169,6 @@
             getByid()
             console.log(idForm)
 
-            // document.addEventListener('DOMContentLoaded', function() {
-            //     const urlParams = new URLSearchParams(window.location.search);
-            //     const namaOrganisasi = urlParams.get('namaOrganisasi');
-            //     const noTelp = urlParams.get('telp');
-            //     const kategori = urlParams.get('kategori');
-            //     const pj = urlParams.get('pj');
-            //     const tanggal = urlParams.get('tanggal');
-            //     const tanggalRutin = urlParams.get('tanggalRutin');
-            //     const hari = urlParams.get('hari');
-            //     const hariRutin = urlParams.get('hariRutin');
-            //     const slot = urlParams.get('slot');
-            //     const slotRutin = urlParams.get('slotRutin');
-            //     const lapangan = urlParams.get('lapangan');
-            //     const namaKegiatan = urlParams.get('namaKegiatan');
-
-            //     const cekTanggalRutin = document.getElementById('tanggal');
-            //         if (tanggalRutin !== null) {
-            //             cekTanggalRutin.innerText = `: ${tanggal} dan ${tanggalRutin}`;
-            //         } else {
-            //             cekTanggalRutin.innerText = `: ${tanggal}`;
-            //         }
-                
-            //     const cekHariRutin = document.getElementById('hari');
-            //         if (hariRutin !== null) {
-            //             cekHariRutin.innerText = `: ${hari} dan ${hariRutin}`;
-            //         } else {
-            //             cekHariRutin.innerText = `: ${hari}`;
-            //         }
-
-            //     const cekSlotRutin = document.getElementById('jam');
-            //         if (slotRutin !== null) {
-            //             cekSlotRutin.innerText = `: ${slot} dan ${slotRutin}`;
-            //         } else {
-            //             cekSlotRutin.innerText = `: ${slot}`;
-            //         }
-
-            //     document.getElementById('organisasi').innerText = `: ${namaOrganisasi}`;
-            //     document.getElementById('noTelp').innerText = `: ${noTelp}`;
-            //     document.getElementById('kategoriKegiatan').innerText = `: ${kategori}`;
-            //     document.getElementById('nama_pj').innerText = `: ${pj}`;
-            //     document.getElementById('lapangan').innerText = `: ${lapangan}`;
-            //     document.getElementById('namaKegiatan').innerText = `: ${namaKegiatan}`;
-
-            //     console.log(document.getElementById('organisasi'));
-
-            // });
-
         </script>
 
 </div>

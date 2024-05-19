@@ -102,31 +102,76 @@
 
         <script>
 
-            document.addEventListener('DOMContentLoaded', function() {
-                const urlParams = new URLSearchParams(window.location.search);
-                const namaOrganisasi = urlParams.get('namaOrganisasi');
-                const noTelp = urlParams.get('telp');
-                const kategori = urlParams.get('kategori');
-                const pj = urlParams.get('pj');
-                const tanggal = urlParams.get('tanggal');
-                const hari = urlParams.get('hari');
-                const slot = urlParams.get('slot');
-                const lapangan = urlParams.get('lapangan');
-                const namaKegiatan = urlParams.get('namaKegiatan');
+            const idForm = window.location.pathname.split('/').pop() 
 
-                document.getElementById('organisasi').innerText = `: ${namaOrganisasi}`;
-                document.getElementById('kategoriKegiatan').innerText = `: ${kategori}`;
-                document.getElementById('hari').innerText = `: ${hari}`;
-                document.getElementById('tanggal').innerText = `: ${tanggal}`;
-                document.getElementById('noTelp').innerText = `: ${noTelp}`;
-                document.getElementById('lapangan').innerText = `: ${lapangan}`;
-                document.getElementById('jam').innerText = `: ${slot}`;
-                document.getElementById('nama_pj').innerText = `: ${pj}`;
-                document.getElementById('namaKegiatan').innerText = `: ${namaKegiatan}`;
+            function getByid(){
+                        fetch('http://127.0.0.1:8000/api/getByid', {
+                            method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:idForm})
+                        })
+                        .then(response=>response.json())
+                        .then(data=>{
+                            if(data.is_success){
+                                document.getElementById('organisasi').textContent = `: ${data.data.nama_organisasi}`;
+                                document.getElementById('noTelp').innerText = `: ${data.data.no_telp}`;
+                                document.getElementById('kategoriKegiatan').innerText = `: ${data.data.kat_kegiatan}`;
+                                document.getElementById('nama_pj').innerText = `: ${data.data.nama_pj}`;
+                                document.getElementById('lapangan').innerText = `: ${data.data.lapangan}`;
+                                document.getElementById('namaKegiatan').innerText = `: ${data.data.nama_kegiatan}`;
+                                document.getElementById('tanggal').innerText = `: ${data.data.tanggal}`;
+                                document.getElementById('hari').innerText = `: ${data.data.hari}`;
+                                document.getElementById('jam').innerText = `: ${data.data.slot}`;
+                                console.log(data)
+                                const cekTanggalRutin = document.getElementById('tanggal');
+                                    if (data.data.tanggalRutin !== null) {
+                                        cekTanggalRutin.innerText = `: ${data.data.tanggal} dan ${data.data.tanggalRutin}`;
+                                    } else {
+                                        cekTanggalRutin.innerText = `: ${data.data.tanggal}`;
+                                    }
+                                
+                                const cekHariRutin = document.getElementById('hari');
+                                    if (data.data.hariRutin !== null) {
+                                        cekHariRutin.innerText = `: ${data.data.hari} dan ${data.data.hariRutin}`;
+                                    } else {
+                                        cekHariRutin.innerText = `: ${data.data.hari}`;
+                                    }
 
-                console.log(document.getElementById('organisasi'));
+                                const cekSlotRutin = document.getElementById('jam');
+                                    if (data.data.slotRutin !== null) {
+                                        cekSlotRutin.innerText = `: ${data.data.slot} dan ${data.data.slotRutin}`;
+                                    } else {
+                                        cekSlotRutin.innerText = `: ${data.data.slot}`;
+                                    }
+                            }
+                        })
+            }
+            getByid()
+            console.log(idForm)
 
-            });
+            // document.addEventListener('DOMContentLoaded', function() {
+            //     const urlParams = new URLSearchParams(window.location.search);
+            //     const namaOrganisasi = urlParams.get('namaOrganisasi');
+            //     const noTelp = urlParams.get('telp');
+            //     const kategori = urlParams.get('kategori');
+            //     const pj = urlParams.get('pj');
+            //     const tanggal = urlParams.get('tanggal');
+            //     const hari = urlParams.get('hari');
+            //     const slot = urlParams.get('slot');
+            //     const lapangan = urlParams.get('lapangan');
+            //     const namaKegiatan = urlParams.get('namaKegiatan');
+
+            //     document.getElementById('organisasi').innerText = `: ${namaOrganisasi}`;
+            //     document.getElementById('kategoriKegiatan').innerText = `: ${kategori}`;
+            //     document.getElementById('hari').innerText = `: ${hari}`;
+            //     document.getElementById('tanggal').innerText = `: ${tanggal}`;
+            //     document.getElementById('noTelp').innerText = `: ${noTelp}`;
+            //     document.getElementById('lapangan').innerText = `: ${lapangan}`;
+            //     document.getElementById('jam').innerText = `: ${slot}`;
+            //     document.getElementById('nama_pj').innerText = `: ${pj}`;
+            //     document.getElementById('namaKegiatan').innerText = `: ${namaKegiatan}`;
+
+            //     console.log(document.getElementById('organisasi'));
+
+            // });
 
         </script>
 

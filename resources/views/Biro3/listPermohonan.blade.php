@@ -49,7 +49,7 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody id="permohonanRutin">
+                    <tbody id="permohonanHarian">
 
                     </tbody>
                 </table>
@@ -165,7 +165,7 @@
                 fetch('http://127.0.0.1:8000/api/form')
                     .then(response => response.json())
                     .then(data => {
-                        const tbody = document.getElementById('permohonanRutin');
+                        const tbodyHarian = document.querySelector('#permohonanHarian');
                         data.data.forEach((item) => {
                             console.log(data)
                             if(item.hariRutin === null){
@@ -194,11 +194,11 @@
                                         ${item.slot}
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <a href="http://127.0.0.1:8000/detailPermohonan?namaOrganisasi=${item.nama_organisasi}&telp=${item.no_telp}&kategori=${item.kat_kegiatan}&pj=${item.nama_pj}&tanggal=${item.tanggal}&hari=${item.hari}&slot=${item.slot}&lapangan=${item.lapangan}&namaKegiatan=${item.nama_kegiatan}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
+                                        <a href="http://127.0.0.1:8000/detailPermohonan/${item.id_form}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Lihat Detail</a>
                                     </td>
                                 </tr>
                             `;
-                            tbody.innerHTML += row;
+                            tbodyHarian.innerHTML += row;
                             console.log(item.nama_organisasi);
                             }
                         });

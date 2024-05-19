@@ -121,14 +121,12 @@
             // Pisahkan jam mulai dan jam selesai
             const [start, end] = slot.split(' - ');
 
-            // Hapus detik dari jam mulai dan jam selesai
-            const startTime = start.slice(0, -3);
-            const endTime = end.slice(0, -3);
-
             textFieldHari.value = dayIndonesian;
             document.getElementById("textFieldTanggal").value = tanggal;
-            document.getElementById("textFieldSlot").value = startTime + ' - ' + endTime;
-            document.getElementById("textfieldTanggalRutin").value = tanggal; 
+            document.getElementById("textFieldSlot").value = start + ' - ' + end;
+            document.getElementById("textfieldTanggalRutin").value = tanggal;
+            
+            document.getElementById('tanggalEvent').href = `http://127.0.0.1:8000/formEvent?tanggalEvent=${tanggal}&slotEvent=${start + '-' + end}&hariEvent=${dayIndonesian}`;
 
             // Jika tanggal1 ada dalam URL, set nilai tanggal1 ke dalam date picker tanggal2
             if (tanggal1) {

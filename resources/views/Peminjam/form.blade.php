@@ -144,9 +144,9 @@
                         </div>
 
                         <div class="sm:col-span-2 sm:col-start-1">
-                        <label for="city" id="labelHari" class="block text-md font-medium leading-6 text-gray-900">Hari</label>
+                        <label for="hari" id="labelHari" class="block text-md font-medium leading-6 text-gray-900">Hari</label>
                         
-                        <label for="city" id="labelHariPertama" class="hidden text-md font-medium leading-6 text-gray-900">Hari Pertama</label>
+                        <label for="hari" id="labelHariPertama" class="hidden text-md font-medium leading-6 text-gray-900">Hari Pertama</label>
                         <div class="mt-2">
                             <input type="text" name="hari" id="textFieldHari" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                         </div>
@@ -363,34 +363,84 @@
                 let counter = 1;
                 
                 const slotRutin = document.getElementById('radioSlot');
-                function slot() {
-                fetch('http://127.0.0.1:8000/api/jadwal')
-                .then(response=>response.json())
-                .then(data=>{
-                    console.log(data)
-                    data.data.forEach((item)=>{
-                        let jamMulai = item.jam_mulai.slice(0, -3);
-                        let jamSelesai = item.jam_selesai.slice(0, -3);
-                    if(item.status === 0){
-                        slotRutin.innerHTML +=
-                        `
-                        <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                            <input id="slotRutin${counter}" type="radio" value="${jamMulai} - ${jamSelesai}" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="slotRutin${counter}" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"> ${jamMulai} - ${jamSelesai} </label>
-                        </div>
 
-                        `
-                    }
-                    counter++
+                document.addEventListener('DOMContentLoaded', function(){
+                let dateStr = '';
+                const tanggalRutin = flatpickr('input[id="popupPilihTanggal"]', {
+                        dateFormat: 'd-D-m-Y',
+                        minDate: 'today', // Mengatur tanggal minimum ke hari ini
+                        enableTime: false,
+                        onChange: function(selectedDates, newDateStr, instance) {
+                            slotRutin.innerHTML = '';
+                            dateStr = newDateStr;
+                            console.log(dateStr)
+                            
+                            const parts = newDateStr.split('-');
+                            const day = parts[1];
+                            const hari = {
+                                'Sun': 'Minggu',
+                                'Mon': 'Senin',
+                                'Tue': 'Selasa',
+                                'Wed': 'Rabu',
+                                'Thu': 'Kamis',
+                                'Fri': 'Jumat',
+                                'Sat': 'Sabtu'
+                        };
+                        const dayIndonesian = hari[day];
+                        console.log(dayIndonesian);
+
+                        fetch('http://127.0.0.1:8000/api/slotPertanggal', {
+                                method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({hari:dayIndonesian})
+                            }) 
+                            .then(response=>response.json())
+                            .then(data=>{
+                                console.log(data)
+                                data.data.forEach((item)=>{
+                                    let jamMulai = item.jam_mulai.slice(0, -3);
+                                    let jamSelesai = item.jam_selesai.slice(0, -3);
+                                if(item.status === 0){
+                                    slotRutin.innerHTML +=
+                                    `
+                                    <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                                        <input id="slotRutin${counter}" type="radio" value="${jamMulai} - ${jamSelesai}" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="slotRutin${counter}" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"> ${jamMulai} - ${jamSelesai} </label>
+                                    </div>
+
+                                    `
+                                }
+                                })
+                            })
+                            console.log(popupPilihTanggal)
+
+                        }
                     })
-                    
-                })
+                });
+                
+                function slot() {
+                    fetch('http://127.0.0.1:8000/api/jadwal')
+                    .then(response=>response.json())
+                    .then(data=>{
+                        slotRutin.innerHTML = '';
+                        let counter = 0;
+                        console.log(data)
+                        data.data.forEach((item)=>{
+                            let jamMulai = item.jam_mulai.slice(0, -3);
+                            let jamSelesai = item.jam_selesai.slice(0, -3);
+                        if(item.status === 0){
+                            slotRutin.innerHTML +=
+                            `
+                            <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                                <input id="slotRutin${counter}" type="radio" value="${jamMulai} - ${jamSelesai}" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="slotRutin${counter}" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"> ${jamMulai} - ${jamSelesai} </label>
+                            </div>
+
+                            `
+                        }
+                        counter++
+                        })
+                    })
                 }
-                slot();
-
-                // document.getElementById('tanggalEvent').href = `http://127.0.0.1:8000/form/formEvent?tanggalEvent=${tanggal}&slotEvent=${startTime + ' - ' + endTime}&hariEvent=${dayIndonesian}`;
-                document.getElementById('tanggalEvent').href = `http://127.0.0.1:8000/formEvent`;
-
+                // slot();
 
                 buttonSubmitRutin.addEventListener('click', function(){
                     popup.classList.add("hidden");

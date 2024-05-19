@@ -40,6 +40,7 @@ Route::get('/listPermohonan', function () { return view('Biro3/listPermohonan');
 Route::get('/listPeminjaman', function () { return view('Biro3/listPeminjaman'); });
 Route::get('/historyPeminjaman', function () { return view('Biro3/historyPeminjaman'); });
 Route::get('/listAkun', function () { return view('Biro3/buatAkun'); });
+Route::get('/formAkun', function () { return view('Biro3/formBuatAkun'); });
 
 
 Route::get('/detailPermohonan', function () { return view('Biro3/detailPermohonan'); });

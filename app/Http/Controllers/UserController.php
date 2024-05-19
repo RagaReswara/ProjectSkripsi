@@ -13,7 +13,8 @@ class UserController extends Controller
     {
         $user = User::create([
             'email' => $request -> email,
-            'password' => bcrypt($request -> password),
+            // 'password' => bcrypt($request -> password),
+            'password' => $request -> password,
             'namaOrganisasi' => $request -> namaOrganisasi,
             'no_telp' => $request -> no_telp,
             'fakultas' => $request -> fakultas,
@@ -44,4 +45,10 @@ class UserController extends Controller
             }
         }
     }
+
+    public function getUser(){
+        $form = User::all();
+        return response()->json(['is_success'=> true,'data' => $form]);
+    }
+
 }

@@ -5,30 +5,29 @@
 
             <div class="p-4 border-2 border-gray-200 border-solid rounded-lg dark:border-gray-700">
 
-                <form>
+            <form>
                 <div class="space-y-12">
                     <div class="border-b border-gray-900/10 pb-12">
                     <h2 class="text-2xl font-semibold leading-7 text-gray-900">Formulir Peminjaman Gor Khusus Kegiatan Event</h2>
                     <p class="mt-1 text-base leading-6 text-gray-600">Silahkan untuk mengisi form dibawah ini.</p>
 
-                    <div class="border-b-8 border-gray-950/40 pb-12"></div>
+                    <div class="border-b-8 border-gray-950/40 pb-2"></div>
 
-                    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                        <div class="sm:col-span-4">
+                    <div class="mt-2 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                        <div class="sm:col-span-2">
                             <!-- <label for="organisasi" class="block text-base font-medium leading-6 text-gray-900">Nama Organisasi</label> -->
-                        <div class="mt-2">
-                            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                            <!-- <span class="flex select-none items-center pl-3 text-gray-500 sm:text-sm">workcation.com/</span> -->
-                            <input type="text" name="organisasi" id="organisasi" autocomplete="organisasi" class="block flex-1 border-0 bg-transparent py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-base sm:leading-6" placeholder="Nama Organisasi">
-                            </div>  
-                        </div>
+                            <select name="nama_organisasi" id="nama_organisasi" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-2">
+                                <option selected>Silahkan Pilih Organisasi</option>
+                                <option value="Himpunan Mahasiswa Sistem Informasi (HMSI)">Himpunan Mahasiswa Sistem Informasi (HMSI)</option>
+                                <option value="Badan Eksekutif Mahasiswa Fakultas Teknologi Informasi (BMFTI)">Badan Eksekutif Mahasiswa Fakultas Teknologi Informasi (BMFTI)</option>
+                                <option value="Himpunan Mahasiswa Teknologi Informasi (HMTI)">Himpunan Mahasiswa Teknologi Informasi (HMTI)</option>
+                                <option value="kedokteran">Kedokteran</option>
+                            </select>
 
-                        <div class="sm:col-span-1 mt-4">
-                            <!-- <label for="email" class="block text-base font-medium leading-6 text-gray-900">Nomor Telepon / WA</label> -->
                             <div class="mt-2">
-                                <input id="noTelp" name="noTelp" type="text" autocomplete="email" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon / WA">
+                                <input id="noTelp" name="no_telp" type="text" autocomplete="email" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon / WA">
                             </div>
-                        </div>
+                        
                     </div>
                     </div>
 
@@ -38,35 +37,35 @@
                         <div class="sm:col-span-3">
                         <!-- <label for="first-name" class="block text-base font-medium leading-6 text-gray-900">Nama Kegiatan</label> -->
                         <div class="mt-0">
-                            <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Kegiatan">
+                            <input type="text" name="nama_kegiatan" id="nama_kegiatan" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Kegiatan">
                         </div>
                         </div>
 
                         <div class="sm:col-span-3">
                         <!-- <label for="last-name" class="block text-base font-medium leading-6 text-gray-900">Nama Penanggung Jawab</label> -->
                         <div class="mt-0">
-                            <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Penanggung Jawab">
+                            <input type="text" name="nama_pj" id="nama_pj" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Penanggung Jawab">
                         </div>
                         </div>
 
                         <div class="sm:col-span-2 sm:col-start-1">
                         <label for="city" class="block text-sm font-medium leading-6 text-gray-900">Hari</label>
                         <div class="mt-2">
-                            <input type="text" name="hariEvent" id="hariEventId" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="hari" id="textfieldhariEvent" readonly autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                         </div>
 
                         <div class="sm:col-span-2">
                         <label for="region" class="block text-base font-medium leading-6 text-gray-900">Tanggal</label>
                         <div class="mt-2">
-                            <input type="text" name="tanggalEvent" id="tanggalEventId" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="tanggal" id="textfieldTanggalEvent" readonly autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                         </div>
 
                         <div class="sm:col-span-2">
                         <label for="postal-code" class="block text-base font-medium leading-6 text-gray-900">Slot / Jam</label>
                         <div class="mt-2">
-                            <input type="text" name="slotEvent" id="slotEventId" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="slot" id="textfieldSlotEvent" readonly autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                         </div>
 
@@ -123,12 +122,12 @@
             
                         <div class="mt-5 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-4">
                             <div class="sm:col-span-2 sm:col-start-1">
-                                <label class="block mb-2 text-base font-medium text-gray-900 dark:text-gray-900" for="file_input">Surat Peminjaman</label>
-                                <input class="block w-full text-base text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
+                                <label class="block mb-2 text-base font-medium text-gray-900 dark:text-gray-900" for="surat_peminjaman">Surat Peminjaman</label>
+                                <input class="block w-full text-base text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="surat_peminjaman" name="surat_peminjaman" type="file">
                             </div>
                             <div class="sm:col-span-2">
-                                <label class="block mb-2 text-base font-medium text-gray-900 dark:text-gray-900" for="file_input">ToR</label>
-                                <input class="block w-full text-base text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file">
+                                <label class="block mb-2 text-base font-medium text-gray-900 dark:text-gray-900" for="tor">ToR</label>
+                                <input class="block w-full text-base text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="tor" name="tor" type="file">
                             </div>
                         </div>
 
@@ -147,15 +146,16 @@
                         <button id="kembaliButton" type="button" class="flex items-center justify-center px-4 h-9 text-base font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
                             Kembali
                         </button>
-                        <button id="ajukanButton" data-modal-target="alertRekapPeminjaman" data-modal-toggle="popup-modal" type="button" class="flex items-center justify-center pointer-events-none opacity-50 px-4 h-9 text-base font-medium text-white bg-blue-600 border-0 border-s border-blue-700 rounded-e-2xl hover:bg-blue-600 dark:bg-blue-700 dark:border-blue-700 dark:text-gray-300 dark:hover:bg-blue-600 dark:hover:text-white">
+                        <button id="ajukanButtonEvent" onclick="inputFormEvent(event)" data-modal-target="alertRekapPeminjaman" data-modal-toggle="popup-modal" type="button" class="flex items-center justify-center pointer-events-none opacity-50 px-4 h-9 text-base font-medium text-white bg-blue-600 border-0 border-s border-blue-700 rounded-e-2xl hover:bg-blue-600 dark:bg-blue-700 dark:border-blue-700 dark:text-gray-300 dark:hover:bg-blue-600 dark:hover:text-white">
                             Ajukan Peminjaman
                         </button>
                 </div>
+            </form>
 
                 <script>
 
                     const kembaliButton = document.getElementById("kembaliButton");
-                    const ajukanButton = document.getElementById("ajukanButton");
+                    const ajukanButtonEvent = document.getElementById("ajukanButtonEvent");
                     const termCheck = document.getElementById('termCheck');
 
                     kembaliButton.addEventListener("click", function() {
@@ -167,9 +167,9 @@
                     // });
                     termCheck.addEventListener('change', function() {
                         if (this.checked) {
-                            ajukanButton.classList.remove('pointer-events-none', 'opacity-50');
+                            ajukanButtonEvent.classList.remove('pointer-events-none', 'opacity-50');
                         } else {
-                            ajukanButton.classList.add('pointer-events-none', 'opacity-50');
+                            ajukanButtonEvent.classList.add('pointer-events-none', 'opacity-50');
                         }
                     });
 
@@ -177,18 +177,63 @@
                         window.location.href = "https://drive.usercontent.google.com/u/0/uc?id=1iwLf8M1MsdgsxJdaj-0zhrDdCkfBLVrz&export=download";
                     });
 
-                    // document.getElementById("tanggalEventId").value = textFieldTanggal;
-                    // document.getElementById("textFieldSlot").value = startTime + ' - ' + endTime;
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const tanggalEvent = urlParams.get('tanggalEvent');
+                    const slotEvent = urlParams.get('slotEvent');
+                    const hariEvent = urlParams.get('hariEvent');
 
-                    // document.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById("textfieldTanggalEvent").value = tanggalEvent;
+                    document.getElementById("textfieldSlotEvent").value = slotEvent;
+                    document.getElementById("textfieldhariEvent").value = hariEvent;
 
-                    //     var textFieldTanggal = document.getElementById("textfieldtanggal").value;
-                    //     document.getElementById("tanggalEventId").value = textFieldTanggal;
+                    function inputFormEvent(event){
+                        event.preventDefault()
+                            const form = document.querySelector('form')
+                            const formData = new FormData(form)
 
-                    //     console.log('ini tanggal yang di ambil '+ textFieldTanggal)
-                    //     // console.log('ini slotnya '+ slot)
+                            console.log(formData)
+                            formData.forEach(function(value,key){
+                                console.log(key+' : '+value)
+                            })
 
-                    // });
+                            const checkbox = document.querySelectorAll('input[name="line[]"]');
+                            // Membuat array kosong untuk menyimpan nilai yang dicentang
+                            let selectedLines = '';
+                            checkbox.forEach((checkbox, index) => {
+                                // Jika checkbox dicentang, tambahkan nilainya ke dalam string selectedLines
+                                if (checkbox.checked) {
+                                    // Jika ini bukan checkbox pertama yang dicentang, tambahkan koma dan spasi sebelum nilai checkbox
+                                    if (selectedLines !== '') {
+                                        selectedLines += ', ';
+                                    }
+                                    // Tambahkan nilai checkbox ke dalam string selectedLines
+                                    selectedLines += checkbox.id;
+                                }
+                            });
+                            formData.append('lapangan', selectedLines);
+
+                            // Tampilkan nilai-nilai yang dicentang
+                            console.log("Nilai-nilai yang dicentang:", selectedLines);
+
+                            fetch('http://127.0.0.1:8000/api/formInput', {
+                                method:'post', body:formData
+                            })
+                            .then(response=>response.json())
+                            .then(data=>{
+                                if(data.is_success){
+                                    console.log('berhasil')
+                                }
+                            })
+                            // const isCheckedAll = Array.from(checkbox).every(checkbox => checkbox.checked);
+                            // if (isCheckedAll) {
+                            //     const lapanganInput = document.querySelectorAll('input[name="line[]"]');
+                            //     lapanganInput.value = 'Full Lapangan';
+                            // }
+                    }
+                
+                const formPeminjam = document.querySelector('form')
+                formPeminjam.addEventListener('submit',inputFormEvent)
+
 
                 </script>
 

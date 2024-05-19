@@ -26,7 +26,8 @@ Route::get('/jadwal',[JadwalController::class,'slot']);
 Route::post('/inputJadwal',[JadwalController::class,'inputJadwal']);
 Route::post('/slotPertanggal',[JadwalController::class,'slotPertanggal']);
 
-Route::post('/user',[UserController::class,'registerAkun']);
+Route::post('/registerAkun',[UserController::class,'registerAkun']);
+Route::get('/user',[UserController::class,'getUser']);
 
 Route::get('/form',[FormController::class,'getForm']);
 Route::post('/formInput',[FormController::class,'inputForm']);
