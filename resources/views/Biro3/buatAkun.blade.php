@@ -136,7 +136,7 @@
                                 ${item.email}
                             </th>
                             <td class="px-6 py-4">
-                                ${item.password}
+                                ${item.plain_pw}
                             </td>
                             <td class="px-6 py-4">
                                 ${item.namaOrganisasi}
@@ -171,7 +171,7 @@
                                 ${item.email}
                             </th>
                             <td class="px-6 py-4">
-                                ${item.password}
+                                ${item.plain_pw}
                             </td>
                             <td class="px-6 py-4">
                                 ${item.namaOrganisasi}
@@ -206,7 +206,7 @@
                                 ${item.email}
                             </th>
                             <td class="px-6 py-4">
-                                ${item.password}
+                                ${item.plain_pw}
                             </td>
                             <td class="px-6 py-4">
                                 ${item.namaOrganisasi}

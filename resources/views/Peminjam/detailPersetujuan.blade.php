@@ -2,7 +2,7 @@
 @section('content')
 
 <!-- CONTENT -->
-<div class="p-4 sm:ml-64">
+    <div class="p-4 sm:ml-64">
 
         <div class="p-4 border-2 border-gray-200 border-solid rounded-lg dark:border-gray-700">
             <div class="flex-1 gap-4 mb-4">
@@ -114,7 +114,7 @@
                 </table>
 
                 <div class="flex flex-1 justify-end">
-                    <button type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
+                    <button type="button" onclick="mulaiPinjam()" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
                         Mulai Peminjaman
                     </button>
                 </div>         
@@ -168,6 +168,17 @@
             }
             getByid()
             console.log(idForm)
+
+            function mulaiPinjam(){
+                fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
+                    method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:idForm, special_status:1})
+                })
+                .then(response => response.json())
+                .then(data => {
+                    window.location.href = "/persetujuan";
+                })
+                console.log('clicked')
+            }
 
         </script>
 

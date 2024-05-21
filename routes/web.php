@@ -43,11 +43,13 @@ Route::get('/listAkun', function () { return view('Biro3/buatAkun'); });
 Route::get('/formAkun', function () { return view('Biro3/formBuatAkun'); });
 
 
-Route::get('/detailPermohonan', function () { return view('Biro3/detailPermohonan'); });
+Route::get('/detailPermohonan/{id_form}', function () { return view('Biro3/detailPermohonan'); });
 Route::get('/detailPermohonanEvent', function () { return view('Biro3/detailPermohonanEvent'); });
 Route::get('/detailPermohonanRutin', function () { return view('Biro3/detailPermohonanRutin'); });
 
 Route::get('/isiJadwal', function () { return view('Biro3/formIsiJadwal'); });
 Route::get('/isiEvent', function () { return view('Biro3/formIsiEvent'); });
 Route::get('/rekapIsiJadwal', function () { return view('Biro3/rekapIsiJadwal'); });
+
+Route::get('/cetak', function () { return view('Peminjam/cetak'); });
 

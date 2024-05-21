@@ -32,7 +32,8 @@ class User extends Authenticatable
         'no_telp',
         'fakultas',
         'prodi',
-        'role'
+        'role',
+        'plain_pw'
     ];
 
     public $timestamps = false;

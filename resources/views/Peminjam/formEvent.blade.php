@@ -135,6 +135,18 @@
 
                 </div>
 
+                <!-- HIDDEN -->
+                <div class="sm:col-span-2">
+                            <div class="mt-2">
+                                <input type="hidden" name="lapangan" id="lapanganEvent" value="Full Lapangan" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                            </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <div class="mt-2">
+                                <input type="hidden" name="kat_kegiatan" id="kat_kegiatanEvent" value="Event" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                            </div>
+                </div>
+
                 
 
                 <div class="mt-6 flex items-center justify-end gap-x-6">
@@ -196,25 +208,6 @@
                                 console.log(key+' : '+value)
                             })
 
-                            const checkbox = document.querySelectorAll('input[name="line[]"]');
-                            // Membuat array kosong untuk menyimpan nilai yang dicentang
-                            let selectedLines = '';
-                            checkbox.forEach((checkbox, index) => {
-                                // Jika checkbox dicentang, tambahkan nilainya ke dalam string selectedLines
-                                if (checkbox.checked) {
-                                    // Jika ini bukan checkbox pertama yang dicentang, tambahkan koma dan spasi sebelum nilai checkbox
-                                    if (selectedLines !== '') {
-                                        selectedLines += ', ';
-                                    }
-                                    // Tambahkan nilai checkbox ke dalam string selectedLines
-                                    selectedLines += checkbox.id;
-                                }
-                            });
-                            formData.append('lapangan', selectedLines);
-
-                            // Tampilkan nilai-nilai yang dicentang
-                            console.log("Nilai-nilai yang dicentang:", selectedLines);
-
                             fetch('http://127.0.0.1:8000/api/formInput', {
                                 method:'post', body:formData
                             })
@@ -224,16 +217,10 @@
                                     console.log('berhasil')
                                 }
                             })
-                            // const isCheckedAll = Array.from(checkbox).every(checkbox => checkbox.checked);
-                            // if (isCheckedAll) {
-                            //     const lapanganInput = document.querySelectorAll('input[name="line[]"]');
-                            //     lapanganInput.value = 'Full Lapangan';
-                            // }
                     }
                 
                 const formPeminjam = document.querySelector('form')
                 formPeminjam.addEventListener('submit',inputFormEvent)
-
 
                 </script>
 

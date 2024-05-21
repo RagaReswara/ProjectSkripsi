@@ -18,16 +18,20 @@
                         <!-- <label for="organisasi" class="block text-base font-medium leading-6 text-gray-900">Nama Organisasi</label> -->
 
                             <!-- DROPDOWN SELECT -->
-                                    <select name="nama_organisasi" id="nama_organisasi" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-10">
+                                    <!-- <select name="nama_organisasi" id="nama_organisasi" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-10">
                                         <option selected>Silahkan Pilih Organisasi</option>
                                         <option value="Himpunan Mahasiswa Sistem Informasi (HMSI)">Himpunan Mahasiswa Sistem Informasi (HMSI)</option>
                                         <option value="Badan Eksekutif Mahasiswa Fakultas Teknologi Informasi (BMFTI)">Badan Eksekutif Mahasiswa Fakultas Teknologi Informasi (BMFTI)</option>
                                         <option value="Himpunan Mahasiswa Teknologi Informasi (HMTI)">Himpunan Mahasiswa Teknologi Informasi (HMTI)</option>
                                         <option value="kedokteran">Kedokteran</option>
-                                    </select>
+                                    </select> -->
+                            <legend class="ml-2 text-base font-semibold leading-6 text-gray-900 mt-5">Nama Organisasi</legend>
+                            <div class="sm:col-span-2">
+                                <input name="nama_organisasi" id="nama_organisasi" readonly type="text" value="" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Organisasi">
+                            </div>    
                     
-                            <!-- <label for="email" class="block text-base font-medium leading-6 text-gray-900">Nomor Telepon / WA</label> -->
-                            <div class="sm:col-span-2 mt-4">
+                            <legend class="ml-2 text-base font-semibold leading-6 text-gray-900 mt-5">Nomor Telfon</legend>
+                            <div class="sm:col-span-2">
                                 <input name="no_telp" type="text" autocomplete="noTelp" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon/WA Penanggung Jawab">
                             </div>
                             
@@ -113,6 +117,33 @@
                                 <div class="text-sm leading-6">
                                     <label for="tribun" class="font-medium text-gray-900">Tribun</label>
                                     <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
+                                </div>
+                            </div>
+
+                    <!-- HIDDEN -->
+                            <div class="sm:col-span-2">
+                                <div class="mt-2">
+                                    <input type="hidden" name="status" id="" value="1" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <div class="mt-2">
+                                    <input type="hidden" name="" id="getStart" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <div class="mt-2">
+                                    <input type="hidden" name="" id="getSlotRutin" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <div class="mt-2">
+                                    <input type="hidden" name="email" id="getEmailyglogin" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <div class="mt-2">
+                                    <input type="hidden" name="id_user" id="idUserForm" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                                 </div>
                             </div>
 
@@ -306,7 +337,67 @@
                     }
                 });
 
+                // DATE PICKER flatpickr
+                document.addEventListener('DOMContentLoaded', function(){
+                    let tanggal2 = flatpickr('input[name="tanggal2"]',{
+                        dateFormat: 'd-D-m-Y',
+                        enableTime: false,
+                    });
+
+                    // Ambil nilai tanggal1 dari URL
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const tanggal1 = urlParams.get('tanggal');
+                    const slot = urlParams.get('slot');
+
+                    console.log(tanggal1)
+                    console.log(slot)
+
+                    const parts = tanggal1.split('-');
+                    const day = parts[1];
+                    const tanggal = parts[3]+'-'+parts[2]+'-'+parts[0];
+
+                    const hari = {
+                        'Sun': 'Minggu',
+                        'Mon': 'Senin',
+                        'Tue': 'Selasa',
+                        'Wed': 'Rabu',
+                        'Thu': 'Kamis',
+                        'Fri': 'Jumat',
+                        'Sat': 'Sabtu'
+                    };
+                    const dayIndonesian = hari[day];
+
+                    // Pisahkan jam mulai dan jam selesai
+                    const [start, end] = slot.split(' - ');
+
+                    textFieldHari.value = dayIndonesian;
+                    document.getElementById("textFieldTanggal").value = tanggal;
+                    document.getElementById("textFieldSlot").value = start + ' - ' + end;
+                    // document.getElementById("textfieldTanggalRutin").value = tanggal;
+                    document.getElementById("getStart").value = start;
+
+
+                    document.getElementById('tanggalEvent').href = `http://127.0.0.1:8000/formEvent?tanggalEvent=${tanggal}&slotEvent=${start + '-' + end}&hariEvent=${dayIndonesian}`;
+
+                    // Jika tanggal1 ada dalam URL, set nilai tanggal1 ke dalam date picker tanggal2
+                    if (tanggal1) {
+                        tanggal2 = flatpickr('input[name="tanggal2"]', {
+                            dateFormat: 'd-D-m-Y',
+                            defaultDate: tanggal1, // Set tanggal1 sebagai default date pada tanggal2
+                            enableTime: false,
+                            minDate: tanggal1 // Tetapkan tanggal minimal untuk tanggal2 agar setidaknya satu hari setelah tanggal1
+                        });
+                    }
+                    console.log('ini tanggal 1: '+document.getElementById('textFieldTanggal').value)
+                    console.log('ini tanggal 2: '+document.getElementById('textfieldTanggalRutin').value)
+                });
+
                 function inputForm(event){
+                    const getHari = document.getElementById('textFieldHari').value;
+                    const getStart = document.getElementById('getStart').value;
+                    const getHariRutin = document.getElementById('textfieldHariRutin').value;
+                    const getSlotRutin = document.getElementById('getSlotRutin').value;
+
                     event.preventDefault()
                         const form = document.querySelector('form')
                         const formData = new FormData(form)
@@ -319,19 +410,22 @@
                         const checkbox = document.querySelectorAll('input[name="line[]"]');
                         // Membuat array kosong untuk menyimpan nilai yang dicentang
                         let selectedLines = '';
+                        let counter = 0;
                         checkbox.forEach((checkbox, index) => {
-                            // Jika checkbox dicentang, tambahkan nilainya ke dalam string selectedLines
                             if (checkbox.checked) {
-                                // Jika ini bukan checkbox pertama yang dicentang, tambahkan koma dan spasi sebelum nilai checkbox
                                 if (selectedLines !== '') {
                                     selectedLines += ', ';
                                 }
-                                // Tambahkan nilai checkbox ke dalam string selectedLines
+                                counter++;
                                 selectedLines += checkbox.id;
                             }
-                        });
-                        formData.append('lapangan', selectedLines);
-
+                        }); 
+                        if(counter == 6){
+                            formData.append("lapangan", 'Full Lapangan');
+                        }
+                        else{
+                            formData.append('lapangan', selectedLines);
+                        }
                         // Tampilkan nilai-nilai yang dicentang
                         console.log("Nilai-nilai yang dicentang:", selectedLines);
 
@@ -342,6 +436,14 @@
                         .then(data=>{
                             if(data.is_success){
                                 console.log('berhasil')
+                                fetch('http://127.0.0.1:8000/api/updateSlot', {
+                                    method: 'post', headers:{'Content-Type':'application/json'}, body:JSON.stringify({hari:getHari, jam_mulai:getStart, hariRutin:getHariRutin, jam_mulaiRutin:getSlotRutin})
+                                })
+                                .then(response=>response.json())
+                                .then(data=>{
+                                    window.location.href = '/persetujuan';
+                                })
+                                
                             }
                         })
                         // const isCheckedAll = Array.from(checkbox).every(checkbox => checkbox.checked);
@@ -365,13 +467,15 @@
                 const slotRutin = document.getElementById('radioSlot');
 
                 document.addEventListener('DOMContentLoaded', function(){
-                let dateStr = '';
+                const urlParams = new URLSearchParams(window.location.search);
+                const ambilTanggal = urlParams.get('tanggal');
+
                 const tanggalRutin = flatpickr('input[id="popupPilihTanggal"]', {
                         dateFormat: 'd-D-m-Y',
                         minDate: 'today', // Mengatur tanggal minimum ke hari ini
                         enableTime: false,
                         onChange: function(selectedDates, newDateStr, instance) {
-                            slotRutin.innerHTML = '';
+                            slotRutin.innerHTML = '';  
                             dateStr = newDateStr;
                             console.log(dateStr)
                             
@@ -416,31 +520,50 @@
                     })
                 });
                 
-                function slot() {
-                    fetch('http://127.0.0.1:8000/api/jadwal')
-                    .then(response=>response.json())
-                    .then(data=>{
-                        slotRutin.innerHTML = '';
-                        let counter = 0;
-                        console.log(data)
-                        data.data.forEach((item)=>{
-                            let jamMulai = item.jam_mulai.slice(0, -3);
-                            let jamSelesai = item.jam_selesai.slice(0, -3);
-                        if(item.status === 0){
-                            slotRutin.innerHTML +=
-                            `
-                            <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
-                                <input id="slotRutin${counter}" type="radio" value="${jamMulai} - ${jamSelesai}" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="slotRutin${counter}" class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"> ${jamMulai} - ${jamSelesai} </label>
-                            </div>
+                window.userOrganizationName = "{{ Auth::user()-> namaOrganisasi }}";
+                window.userEmail = "{{ Auth::user()-> email }}";
+                document.addEventListener("DOMContentLoaded", function() {
 
-                            `
+                    const userOrganizationName = window.userOrganizationName;
+                    const userEmail = window.userEmail;
+                    console.log("ini adalah " + userOrganizationName)
+                    const inputField = document.getElementById('nama_organisasi');
+                    const inputEmailField = document.getElementById('getEmailyglogin');
+
+                    if (inputField && userOrganizationName) {
+                        inputField.value = userOrganizationName;
+                    }
+                    inputEmailField.value = userEmail;
+
+                });
+
+                window.user_id = "{{ Auth::user()-> id_user }}";
+                document.addEventListener("DOMContentLoaded", function() {
+
+                    const user_id = window.user_id;
+                    console.log("ini adalah " + user_id)
+                    const inputField = document.getElementById('idUserForm');
+
+                    if (inputField && user_id) {
+                        inputField.value = user_id;
+                    }
+                });
+
+                window.role = "{{ Auth::user()-> role }}";
+                document.addEventListener("DOMContentLoaded", function() {
+                    const role = window.role;
+                    console.log("ini adalah " + role)
+
+                    function cekRoleRutin(){
+                        const buttonUntukRutin = document.getElementById('buttonRutin');
+                        if (role === 'Universitas' || role === 'UKM') {
+                            buttonUntukRutin.classList.remove('hidden');
+                        } else {
+                            buttonUntukRutin.classList.add('hidden');
                         }
-                        counter++
-                        })
-                    })
-                }
-                // slot();
+                    }
+                    cekRoleRutin()
+                });
 
                 buttonSubmitRutin.addEventListener('click', function(){
                     popup.classList.add("hidden");
@@ -464,7 +587,7 @@
                     const parts = popupPilihTanggal.value.split('-');
                     const day = parts[1];
                     const tanggalRutin = parts[3]+'-'+parts[2]+"-"+parts[0];
-                    const [start, end] = selectedValue.split(' - ');
+                    const [startRutin, end] = selectedValue.split(' - ');
                     const hari = {
                         'Sun': 'Minggu',
                         'Mon': 'Senin',
@@ -477,7 +600,8 @@
                     const dayIndonesian = hari[day];
                     textfieldTanggalRutin.value = tanggalRutin;
                     textfieldHariRutin.value = dayIndonesian;
-                    textfieldSlotRutin.value = start + ' - ' + end;
+                    textfieldSlotRutin.value = startRutin + ' - ' + end;
+                    document.getElementById("getSlotRutin").value = startRutin;
                     console.log(dayIndonesian);
                 });
 

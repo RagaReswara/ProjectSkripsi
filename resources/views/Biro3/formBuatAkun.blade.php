@@ -72,6 +72,8 @@
                     <option value="Karyawan">Karyawan</option>
                     <option value="Biro">Biro</option>
                     <option value="BNI">BNI</option>
+                    <option value="UKM">UKM</option>
+                    <option value="Universitas">Universitas</option>
                     <option value="Lainnya">Lainnya</option>
             </select>
 

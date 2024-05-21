@@ -45,6 +45,9 @@
                                 Lapangan
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Kegiatan
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Status
                             </th>
                             <th scope="col" class="px-6 py-3">
@@ -52,37 +55,9 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="listPeminjaman">
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Himpunan Mahasiswa Sistem Informasi
-                            </th>
-                            <td class="px-6 py-4">
-                                17 April 2024
-                            </td>
-                            <td class="px-6 py-4">
-                                16.00 - 20.00
-                            </td>
-                            <td class="px-6 py-4">
-                                Basket
-                            </td>
-                            <td class="px-6 py-2">
-                                Vito Hermawan
-                            </td>
-                            <td class="px-6 py-4">
-                                086632711234
-                            </td>
-                            <td class="px-6 py-4">
-                                Full Lapangan
-                            </td>
-                            <td class="px-6 py-4">
-                                berlangsung
-                            </td>
-                            <td class="px-6 py-4">
-                                <button type="button" class="text-white bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
-                                        Selesai
-                                </button>
-                            </td>
+        
                         </tr>
                     </tbody>
                 </table>
@@ -91,7 +66,74 @@
 
             </div>
         </div>
-
 </div>
+
+<script>
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                fetch('http://127.0.0.1:8000/api/form')
+                    .then(response => response.json())
+                    .then(data => {
+                        const tbodyHarian = document.querySelector('#listPeminjaman');
+                        data.data.forEach((item) => {
+                            console.log(data)
+                            if(item.status === 2 && item.special_status === 2 ){
+                            const row = 
+                            `
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        ${item.nama_organisasi}
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        ${item.no_telp}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.kat_kegiatan}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.nama_pj}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.tanggal}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.hari}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.lapangan}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.special_status == 0 ? 'Mendatang' : item.special_status == 1 ? 'Sedang Dimulai' : 'Selesai'}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.slot}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <button type="button" onclick="selesaiPinjam(${item.id_form})" class="text-white bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
+                                                Selesai
+                                        </button>
+                                    </td>
+                                </tr>
+                            `;
+                            tbodyHarian.innerHTML += row;
+                            console.log(item.nama_organisasi);
+                            }
+                        });
+                    })
+                    .catch(error => console.error('Error fetching data:', error));
+            });
+
+            function selesaiPinjam(id){
+                fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
+                    method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:id, status:3})
+                })
+                .then(response => response.json())
+                .then(data => {
+                    window.location.href = "/historyPeminjaman";
+                })
+                console.log(id);
+            }
+
+        </script>
 
 @endsection

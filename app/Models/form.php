@@ -12,6 +12,8 @@ class form extends Model
     protected $table = 'forms';
     protected $primaryKey = 'id_form';    
     protected $fillable = [
+        'id_user',
+        'email',
         'nama_organisasi',
         'no_telp',
         'kat_kegiatan',
@@ -25,7 +27,9 @@ class form extends Model
         'slot',
         'hariRutin',
         'tanggalRutin',
-        'slotRutin'
+        'slotRutin',
+        'status',
+        'special_status'
     ];
 
     public $timestamps = false;

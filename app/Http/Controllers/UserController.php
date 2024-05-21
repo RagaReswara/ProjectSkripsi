@@ -13,13 +13,13 @@ class UserController extends Controller
     {
         $user = User::create([
             'email' => $request -> email,
-            // 'password' => bcrypt($request -> password),
-            'password' => $request -> password,
+            'password' => bcrypt($request -> password),
             'namaOrganisasi' => $request -> namaOrganisasi,
             'no_telp' => $request -> no_telp,
             'fakultas' => $request -> fakultas,
             'prodi' => $request -> prodi,
-            'role' => $request -> role
+            'role' => $request -> role,
+            'plain_pw' => $request -> password
         ]);
         return response()->json(['is_success'=> true,'data' => $user]);
         

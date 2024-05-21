@@ -24,36 +24,35 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                                Organisasi
+                                Nama Organisasi
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Penanggung Jawab
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Nomor Telfon
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Kegiatan
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Hari
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Tanggal
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Jam
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Nama Kegiatan
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                <span class="sr-only">Edit</span>
-                            </th>
+                                Status
+                            </th>   
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                17 April 2024
-                            </th>
-                            <td class="px-6 py-2">
-                                16.00 - 20.00
-                            </td>
-                            <td class="px-6 py-4">
-                                Basket
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <a href="http://127.0.0.1:8000/detailPermohonan" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Detail</a>
-                            </td>
-                        </tr>
+                    <tbody id="historyHarian">
+                        
                     </tbody>
-                </table>
+                </table>    
             </div>
             <!-- TABEL HARIAN -->
 
@@ -144,11 +143,55 @@
                 </table>
             </div> -->
             <!-- TABEL EVENT -->
-
-
             </div>
         </div>
-
 </div>
+
+<script>
+            document.addEventListener('DOMContentLoaded', function() {
+                fetch('http://127.0.0.1:8000/api/form')
+                    .then(response => response.json())
+                    .then(data => {
+                        const tbodyHarian = document.querySelector('#historyHarian');
+                        data.data.forEach((item) => {
+                            console.log(data)
+                            if(item.status === 3 && item.special_status === 2 ){
+                            const row = 
+                            `
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        ${item.nama_organisasi}
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        ${item.nama_pj}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.no_telp}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.nama_kegiatan}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.hari}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.tanggal}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.slot}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        ${item.special_status == 0 ? 'Mendatang' : item.special_status == 1 ? 'Sedang Dimulai' : 'Selesai'}
+                                    </td>
+                                </tr>
+                            `;
+                            tbodyHarian.innerHTML += row;
+                            console.log(item.nama_organisasi);
+                            }
+                        });
+                    })
+                    .catch(error => console.error('Error fetching data:', error));
+            });
+</script>
 
 @endsection

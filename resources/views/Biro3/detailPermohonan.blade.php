@@ -85,24 +85,26 @@
             <table>
 
             <div class="flex flex-1 mt-5">
-                <textarea id="description" rows="4" class="block p-2.5 w-96 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Berikan Catatan Untuk Peminjam"></textarea>
+                <textarea id="catatan" rows="4" class="block p-2.5 w-96 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Berikan Catatan Untuk Peminjam"></textarea>
+                <button type="button" onclick="kirimEmailHtml()" class="ml-2 max-h-[45px] mt-[62px] text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Kirim Pesan</button>
             </div>
                             
             <div class="flex flex-1 rounded-sm shadow-sm mt-5 justify-end items-end" role="group">                             
-                <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-red-500 dark:border-gray-800 dark:text-white dark:hover:text-white dark:hover:bg-red-400 dark:focus:ring-gray-600 dark:focus:text-white">              
+                <button type="button" onclick="tolak()" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-red-500 dark:border-gray-800 dark:text-white dark:hover:text-white dark:hover:bg-red-400 dark:focus:ring-gray-600 dark:focus:text-white">              
                     Tolak                    
                 </button>                                                          
-                <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-green-500 dark:border-gray-800 dark:text-white dark:hover:text-white dark:hover:bg-green-400 dark:focus:ring-gray-600 dark:focus:text-white">                                          
+                <button type="button" onclick="setujui()" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-green-500 dark:border-gray-800 dark:text-white dark:hover:text-white dark:hover:bg-green-400 dark:focus:ring-gray-600 dark:focus:text-white">                                          
                     Setujui                                       
                 </button>                                        
             </div>
 
             </div>
-        </div>
+        </div>  
 
         <script>
 
             const idForm = window.location.pathname.split('/').pop() 
+            let ambilNoHp = '';
 
             function getByid(){
                         fetch('http://127.0.0.1:8000/api/getByid', {
@@ -120,6 +122,7 @@
                                 document.getElementById('tanggal').innerText = `: ${data.data.tanggal}`;
                                 document.getElementById('hari').innerText = `: ${data.data.hari}`;
                                 document.getElementById('jam').innerText = `: ${data.data.slot}`;
+                                ambilNoHp = data.data.no_telp;
                                 console.log(data)
                                 const cekTanggalRutin = document.getElementById('tanggal');
                                     if (data.data.tanggalRutin !== null) {
@@ -147,31 +150,44 @@
             getByid()
             console.log(idForm)
 
-            // document.addEventListener('DOMContentLoaded', function() {
-            //     const urlParams = new URLSearchParams(window.location.search);
-            //     const namaOrganisasi = urlParams.get('namaOrganisasi');
-            //     const noTelp = urlParams.get('telp');
-            //     const kategori = urlParams.get('kategori');
-            //     const pj = urlParams.get('pj');
-            //     const tanggal = urlParams.get('tanggal');
-            //     const hari = urlParams.get('hari');
-            //     const slot = urlParams.get('slot');
-            //     const lapangan = urlParams.get('lapangan');
-            //     const namaKegiatan = urlParams.get('namaKegiatan');
+            function kirimPesanWa(){
+                const nomorTelp = document.getElementById('noTelp').textContent
+                const catatan = document.getElementById('catatan').value
+                const urlToWa = `https://wa.me/62${ambilNoHp}?text=${catatan}`;
+                window.open(urlToWa, "_blank");
+                
+                console.log(urlToWa)
+            }
 
-            //     document.getElementById('organisasi').innerText = `: ${namaOrganisasi}`;
-            //     document.getElementById('kategoriKegiatan').innerText = `: ${kategori}`;
-            //     document.getElementById('hari').innerText = `: ${hari}`;
-            //     document.getElementById('tanggal').innerText = `: ${tanggal}`;
-            //     document.getElementById('noTelp').innerText = `: ${noTelp}`;
-            //     document.getElementById('lapangan').innerText = `: ${lapangan}`;
-            //     document.getElementById('jam').innerText = `: ${slot}`;
-            //     document.getElementById('nama_pj').innerText = `: ${pj}`;
-            //     document.getElementById('namaKegiatan').innerText = `: ${namaKegiatan}`;
+            function setujui(){
+                fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
+                    method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:idForm, status:2})
+                })
+                .then(response => response.json())
+                .then(data => {
+                    window.location.href = "/listPermohonan";
+                })
+                console.log('clicked')
+            }
 
-            //     console.log(document.getElementById('organisasi'));
+            function tolak(){
+                fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
+                    method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:idForm, status:0})
+                })
+                .then(response => response.json())
+                .then(data => {
+                    window.location.href = "/listPermohonan";
+                })
+                console.log('clicked')
+            }
 
-            // });
+            function kirimEmailHtml(){
+                const mail = `mailto: dvinjo55@gmail.com?subject=TES PEMINJAMAN&body=testing`;
+                window.location.href = mail;
+                console.log('clicked')
+            }
+
+
 
         </script>
 

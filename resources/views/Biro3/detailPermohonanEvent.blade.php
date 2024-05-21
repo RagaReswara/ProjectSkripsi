@@ -160,14 +160,14 @@
                         </button>
                     </div> -->
                 
-            <div class="inline-flex rounded-md shadow-sm" role="group">
+            <div class="inline-flex rounded-md shadow-sm" role="">
                 <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-yellow-500 dark:border-gray-800 dark:text-white dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-gray-600 dark:focus:text-white">
                     Setujui Bersyarat
                 </button>
-                <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-red-500 dark:border-gray-800 dark:text-white dark:hover:text-white dark:hover:bg-red-400 dark:focus:ring-gray-600 dark:focus:text-white">
+                <button type="button" onclick="tolak()" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-red-500 dark:border-gray-800 dark:text-white dark:hover:text-white dark:hover:bg-red-400 dark:focus:ring-gray-600 dark:focus:text-white">
                     Tolak
                 </button>
-                <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-green-500 dark:border-gray-800 dark:text-white dark:hover:text-white dark:hover:bg-green-400 dark:focus:ring-gray-600 dark:focus:text-white">
+                <button type="button" onclick="setujui()" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-green-500 dark:border-gray-800 dark:text-white dark:hover:text-white dark:hover:bg-green-400 dark:focus:ring-gray-600 dark:focus:text-white">
                     Setujui
                 </button>
             </div>
@@ -184,6 +184,30 @@
         kembaliButton.addEventListener("click", function() {
             window.location.href = "http://127.0.0.1:8000/listPermohonan"; 
         }); 
+
+        const idForm = window.location.pathname.split('/').pop() 
+
+        function setujui(){
+                fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
+                    method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:idForm, status:2})
+                })
+                .then(response => response.json())
+                .then(data => {
+                    window.location.href = "/listPermohonan";
+                })
+                console.log('clicked')
+        }
+
+        function tolak(){
+                fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
+                    method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:idForm, status:0})
+                })
+                .then(response => response.json())
+                .then(data => {
+                    window.location.href = "/listPermohonan";
+                })
+                console.log('clicked')
+        }
         
 
     </script>
