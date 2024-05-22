@@ -7,7 +7,7 @@ use App\Models\Form;
 
 use Barryvdh\DomPDF\Facade\PDF;
 use Illuminate\Support\Facades\Response;
-use illuminate\Support\Facades\Mail;    
+use Illuminate\Support\Facades\Mail;
 
 
 class FormController extends Controller
@@ -81,18 +81,36 @@ class FormController extends Controller
         return Response::make($pdfContent,200, ['Content-Type' => 'application/pdf', 'Content-Disposition' => 'attachment; fileName'.$fileName.'pdf']);
     }
 
-    public function kirimEmail(){
+    // public function kirimEmail(){
+    //     $toEmail = 'dvinjo55@gmail.com';
+    //     $subject = 'Test Email Subject';
+    //     $message = 'This is a test email message.';
+    //     Mail::raw($message, function ($message) use ($toEmail, $subject) {
+    //         $message->to($toEmail)
+    //                 ->subject($subject)
+    //                 ->from(config('mail.from.address'), config('mail.from.name'));
+    //     });
+    //     return 'Email sent successfully';
+    // }
+
+    public function kirimEmail() {
         $toEmail = 'johanes.raga@si.ukdw.ac.id';
         $subject = 'Test Email Subject';
         $message = 'This is a test email message.';
-        Mail::raw($message, function ($message) use ($toEmail, $subject) {
-            $message->to($toEmail)
-                    ->subject($subject)
-                    ->from(config('mail.from.address'), config('mail.from.name'));
-        });
-
-        return 'Email sent successfully';
+    
+        try {
+            Mail::raw($message, function ($message) use ($toEmail, $subject) {
+                $message->to($toEmail)
+                        ->subject($subject)
+                        ->from(config('mail.from.address'), config('mail.from.name'));
+            });
+    
+            return 'Email sent successfully';
+        } catch (\Exception $e) {
+            return 'Failed to send email: ' . $e->getMessage();
+        }
     }
+    
 
     // public function kirimEmail2(){
     //     $data = ['otp' => 'TESTING'];
