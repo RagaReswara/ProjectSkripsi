@@ -81,43 +81,18 @@ class FormController extends Controller
         return Response::make($pdfContent,200, ['Content-Type' => 'application/pdf', 'Content-Disposition' => 'attachment; fileName'.$fileName.'pdf']);
     }
 
-    // public function kirimEmail(){
-    //     $toEmail = 'dvinjo55@gmail.com';
-    //     $subject = 'Test Email Subject';
-    //     $message = 'This is a test email message.';
-    //     Mail::raw($message, function ($message) use ($toEmail, $subject) {
-    //         $message->to($toEmail)
-    //                 ->subject($subject)
-    //                 ->from(config('mail.from.address'), config('mail.from.name'));
-    //     });
-    //     return 'Email sent successfully';
-    // }
-
-    public function kirimEmail() {
-        $toEmail = 'johanes.raga@si.ukdw.ac.id';
-        $subject = 'Test Email Subject';
-        $message = 'This is a test email message.';
-    
-        try {
-            Mail::raw($message, function ($message) use ($toEmail, $subject) {
-                $message->to($toEmail)
-                        ->subject($subject)
-                        ->from(config('mail.from.address'), config('mail.from.name'));
-            });
-    
-            return 'Email sent successfully';
-        } catch (\Exception $e) {
-            return 'Failed to send email: ' . $e->getMessage();
-        }
+    public function kirimEmail(Request $request){
+        $kirimEmail = Form::find($request -> id_form);
+        $toEmail = $kirimEmail -> email;
+        $subject = 'PEMBERITAHUAN PEMINJAMAN GOR KEPADA '.$kirimEmail -> nama_organisasi.' DENGAN PENANGGUNG JAWAB '.$kirimEmail -> nama_pj;
+        $message = $request -> catatan;
+        Mail::raw($message, function ($message) use ($toEmail, $subject) {
+            $message->to($toEmail)
+                    ->subject($subject)
+                    ->from(config('mail.from.address'), config('mail.from.name'));
+        });
+        return response()->json(['Email sent successfully']);
     }
-    
-
-    // public function kirimEmail2(){
-    //     $data = ['otp' => 'TESTING'];
-    //     Mail::send('Peminjam.kirimEmail', $data, function($message) use ($email) {
-    //         $message->to($email)->subject('Verify OTP');
-    //     });
-    // }
 
     public function mulaiPinjam(Request $request){
         $getForm = Form::find($request -> id);
@@ -139,7 +114,8 @@ class FormController extends Controller
             'tanggalRutin',
             'slotRutin',
             'status',
-            'special_status'
+            'special_status',
+            'catatan'
         ];
         
         foreach($updatePeminjaman as $update){
@@ -149,6 +125,29 @@ class FormController extends Controller
         }
         $getForm -> save();
         return response()->json(['is_success'=> true,'data' => $getForm]);
+    }
+
+    public function hapusForm(Request $request){
+        $getForm = Form::find($request -> id);
+        $getHari = $getForm -> hari;
+        $slot = 
+        $getForm -> delete();
+        return response()->json(['is_success'=> true,'data' => $getForm]);
+    }
+
+    public function cekLapangan(Request $request){
+        $getline = Form::where('hari', $request->hari)
+                        ->where('slot', $request->slot)
+                        ->pluck('lapangan')
+                        ->toArray();
+        $allLapangan = implode(', ', $getline);
+        return response()->json(['is_success' => true, 'lapangan' => $allLapangan]);
+
+        $getSlot = $request -> slot;
+        list($startSlot, $endSlot) = explode(' - ', $request -> slot);
+        $startSlot = trim($startSlot);
+        $endSlot = trim($endSlot);
+
     }
 
     

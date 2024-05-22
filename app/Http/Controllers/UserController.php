@@ -32,10 +32,6 @@ class UserController extends Controller
         if(Auth::attempt($credential))
         {
             $user = Auth::user();
-            // dd($user);
-
-            //return redirect() -> route('jadwalBiro3');
-            
             if($user -> role === 'Admin')
             {
                 return redirect() -> route('jadwalBiro3');

@@ -59,15 +59,14 @@
         .input-group {
         margin-bottom: 16px;
         }
-        .input-group input {
+        /* .input-group input {
         width: 100%;
-        max-width: 240px;
         padding: 8px;
-        border: 1px solid #e2e8f0;
+        border: 1px;
         border-radius: 4px;
         font-size: 1rem;
         color: #2d3748;
-        }
+        } */
         .hidden {
         display: none;
         }
@@ -92,9 +91,8 @@
 
     <div class="container">
         <div class="card">
-        <div class="card-header">
-            <h2>Detail Permohonan</h2>
-            <p>Berhasil melakukan Booking silahkan tunggu untuk disetujui</p>
+        <div class="form-header">
+            <h2>FORMULIR PEMINJAMAN GOR SAMAPTA</h2>
         </div>
 
         @isset($dataFormCetak)
@@ -144,83 +142,14 @@
             </tr>
             <tr>
             <th>Catatan</th>
-            <td>: Silahkan datang ke biro 3 dengan memberikan form dan nota secara fisik</td>
+            <td>: {{ $dataFormCetak -> catatan }}</td>
             </tr>
         </table>
-        @endisset
-        </div>
-
-        <div class="card">
-        <form>
-            <div class="form-header">
-            <h2>Formulir Peminjaman Gor</h2>
-            <p>Silahkan untuk mengisi form dibawah ini.</p>
-            </div>
-
-            <div class="form-section">
-            <div class="input-group">
-                <input name="organisasi" type="text" placeholder="Nama Organisasi">
-            </div>
-            <div class="input-group">
-                <input name="no_telp" type="text" placeholder="Nomor Telepon/WA Penanggung Jawab">
-            </div>
-            </div>
-
-            <div class="form-section">
-            <div class="input-group">
-                <input name="kategori_kegiatan" type="text" placeholder="Kategori Kegiatan">
-            </div>
-            </div>
-
-            <div class="form-section">
-            <div class="input-group">
-                <input name="lapangan" type="text" placeholder="Lapangan">
-            </div>
-            </div>
-
-            <div class="form-section">
-            <div class="input-group">
-                <input type="text" name="nama_kegiatan" id="nama_kegiatan" placeholder="Nama Kegiatan">
-            </div>
-            <div class="input-group">
-                <input type="text" name="nama_pj" id="nama_pj" placeholder="Nama Penanggung Jawab">
-            </div>
-            <div class="input-group">
-                <label for="hari" id="labelHari">Hari</label>
-                <input type="text" name="hari" id="textFieldHari" readonly>
-            </div>
-            <div class="input-group">
-                <label for="tanggal">Tanggal</label>
-                <input type="text" name="tanggal" id="textFieldTanggal" readonly>
-            </div>
-            <div class="input-group">
-                <label for="slot">Slot / Jam</label>
-                <input type="text" name="slot" id="textFieldSlot" readonly>
-            </div>
-            </div>
-
-            <div class="hidden" id="hiddenRutin">
-            <div class="form-section">
-                <div class="input-group">
-                <label for="hariRutin">Hari ke 2</label>
-                <input type="text" name="hariRutin" id="textfieldHariRutin" readonly>
-                </div>
-                <div class="input-group">
-                <label for="tanggalRutin">Tanggal</label>
-                <input type="text" name="tanggalRutin" id="textfieldTanggalRutin" readonly>
-                </div>
-                <div class="input-group">
-                <label for="slotRutin">Slot / Jam</label>
-                <input type="text" name="slotRutin" id="textfieldSlotRutin" readonly>
-                </div>
-            </div>
-            </div>
-
-            <div class="attention">
+        <div class="attention">
             <h2>Perhatian</h2>
             <p>Setelah mengisi form silahkan untuk mendownloadnya lalu di print bersamaan invoice yang akan di kirimkan melalui email kemudian diberikan kepada biro 3 sebagai tiket dalam meminjam gor</p>
-            </div>
-        </form>
+        </div>
+        @endisset
         </div>
     </div>
 

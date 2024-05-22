@@ -36,9 +36,12 @@ Route::post('/formInput',[FormController::class,'inputForm']);
 Route::post('/getByid',[FormController::class,'getByid']);
 Route::post('/cekSlot',[FormController::class,'cekSlot']);
 Route::post('/mulaiPinjam',[FormController::class,'mulaiPinjam']);
+Route::post('/hapusForm',[FormController::class,'hapusForm']);
 
 Route::post('/cetak',[FormController::class,'cetak']);
-Route::get('/kirimEmail',[FormController::class,'kirimEmail']);
+Route::post('/kirimEmail',[FormController::class,'kirimEmail']);
+
+Route::post('/cekLapangan',[FormController::class,'cekLapangan']);
 
 
 

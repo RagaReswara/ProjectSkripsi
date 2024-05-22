@@ -48,6 +48,7 @@
                                 <option value="Bulu Tangkis">Bulu Tangkis</option>
                                 <option value="Taekwondo">Taekwondo</option>
                                 <option value="Tenis Meja">Tenis Meja</option>
+                                <option value="Event">Event</option>
                                 <option value="Lainnya">Lainnya</option>
                             </select>
                             
@@ -174,25 +175,18 @@
                     
                 <!-- DATEPICKER AKHIR RUTIN -->
                     <div id="datePickerAkhirRutin" class="mt-4 hidden">
-                        <p class="mt-1 text-base leading-6 text-gray-600">Tetapkan tanggal akhir peminjaman</p>
-                        <!-- datepickerTanggalRutin -->
-                        <div class="relative">
-                            <svg class="absolute inset-y-3 left-2 w-4 h-4 text-gray-500 dark:text-gray-400 pointer-events-none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <div class="relative max-w-sm mr-10">
+                            <input id="isiTanggalRutin" name="tanggal2" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                            </svg>
-
-                            <!-- Input datepicker -->
-                            <input 
-                                id="datepicker"
-                                datepicker datepicker-autohide type="text" 
-                                datepicker-format="dd/mm/yyyy" 
-                                class="pl-8 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                                placeholder="Select date" 
-                            >
+                                </svg>
+                            </div>
+                        </div>
 
                         </div>
 
-                        <div class="flex gap-2 mt-5">
+                        <div id="radioSlot" class="flex gap-2 mt-5">
 
                         </div>
                         
@@ -226,12 +220,14 @@
             //     window.location.href = "http://127.0.0.1:8000/rekapIsiJadwal"; 
             // });
 
+
+            // DATEPICKER
             document.addEventListener('DOMContentLoaded', function(){
 
-                // let tanggal2 = flatpickr('input[name="tanggal2"]',{
-                //     dateFormat: 'd-D-m-Y',
-                //     enableTime: false,
-                // });
+                let tanggal2 = flatpickr('input[name="tanggal2"]',{
+                    dateFormat: 'd-D-m-Y',
+                    enableTime: false,
+                });
 
                 // Ambil nilai tanggal1 dari URL
                 const urlParams = new URLSearchParams(window.location.search);
@@ -267,17 +263,75 @@
                 // document.getElementById("textfieldTanggalRutin").value = tanggal; 
 
                 // Jika tanggal1 ada dalam URL, set nilai tanggal1 ke dalam date picker tanggal2
-                // if (tanggal1) {
-                //     tanggal2 = flatpickr('input[name="tanggal2"]', {
-                //         dateFormat: 'd-D-m-Y',
-                //         defaultDate: tanggal1, // Set tanggal1 sebagai default date pada tanggal2
-                //         enableTime: false,
-                //         minDate: tanggal1 // Tetapkan tanggal minimal untuk tanggal2 agar setidaknya satu hari setelah tanggal1
-                //     });
-                // }
+                if (tanggal1) {
+                    tanggal2 = flatpickr('input[name="tanggal2"]', {
+                        dateFormat: 'd-D-m-Y',
+                        defaultDate: tanggal1, // Set tanggal1 sebagai default date pada tanggal2
+                        enableTime: false,
+                        minDate: tanggal1 // Tetapkan tanggal minimal untuk tanggal2 agar setidaknya satu hari setelah tanggal1
+                    });
+                }
                 console.log('ini tanggal 1: '+document.getElementById('textfieldTanggal').value)
                 // console.log('ini tanggal 2: '+document.getElementById('textfieldTanggalRutin').value)
             });
+
+            // SLOT PERTANGGAL
+            let isiTanggalRutin = document.getElementById("isiTanggalRutin")
+            let counter = 1;    
+            const slotRutin = document.getElementById('radioSlot');
+            document.addEventListener('DOMContentLoaded', function(){
+                const urlParams = new URLSearchParams(window.location.search);
+                const ambilTanggal = urlParams.get('tanggal');
+
+                const tanggalRutin = flatpickr('input[id="isiTanggalRutin"]', {
+                        dateFormat: 'd-D-m-Y',
+                        minDate: 'today', // Mengatur tanggal minimum ke hari ini
+                        enableTime: false,
+                        onChange: function(selectedDates, newDateStr, instance) {
+                            slotRutin.innerHTML = '';  
+                            dateStr = newDateStr;
+                            console.log(dateStr)
+                            
+                            const parts = newDateStr.split('-');
+                            const day = parts[1];
+                            const hari = {
+                                'Sun': 'Minggu',
+                                'Mon': 'Senin',
+                                'Tue': 'Selasa',
+                                'Wed': 'Rabu',
+                                'Thu': 'Kamis',
+                                'Fri': 'Jumat',
+                                'Sat': 'Sabtu'
+                        };
+                        const dayIndonesian = hari[day];
+                        console.log(dayIndonesian);
+
+                        fetch('http://127.0.0.1:8000/api/slotPertanggal', {
+                                method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({hari:dayIndonesian})
+                            }) 
+                            .then(response=>response.json())
+                            .then(data=>{
+                                console.log(data)
+                                data.data.forEach((item)=>{
+                                    let jamMulai = item.jam_mulai.slice(0, -3);
+                                    let jamSelesai = item.jam_selesai.slice(0, -3);
+                                if(item.status === 0){
+                                    slotRutin.innerHTML +=
+                                    `
+                                    <div class="flex items-center ps-4 border border-gray-200 rounded dark:border-gray-700">
+                                        <input id="slotRutin${counter}" type="radio" value="${jamMulai} - ${jamSelesai}" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="slotRutin${counter}" class="mr-3 w-full py-4 ms-2 text-sm font-medium text-black dark:text-black"> ${jamMulai} - ${jamSelesai} </label>
+                                    </div>
+
+                                    `
+                                }
+                                })
+                            })
+                            console.log(isiTanggalRutin)
+
+                        }
+                    })
+                });
 
                 function inputForm(event){
                     event.preventDefault()

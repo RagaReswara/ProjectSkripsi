@@ -367,6 +367,47 @@
                     };
                     const dayIndonesian = hari[day];
 
+                    fetch('http://127.0.0.1:8000/api/cekLapangan', {
+                        method: 'post', headers:{'Content-Type':'application/json'}, body:JSON.stringify({hari:dayIndonesian, slot:slot})
+                    })
+                    .then(response=>response.json())
+                    .then(data=>{
+
+                        console.log(data)
+
+                        if (data.lapangan) {
+                            // Pisahkan string lapangan menjadi array menggunakan koma sebagai pemisah
+                            const lapanganArray = data.lapangan.split(', ');
+
+                            // Ambil semua input dan label dengan nama line[]
+                            const checkboxes = document.querySelectorAll('input[name="line[]"]');
+                            const labels = document.querySelectorAll('label[for^="line"]');
+
+                            // Proses setiap lapangan dalam array lapangan
+                            lapanganArray.forEach(lapangan => {
+                                // Iterasi semua input dan label
+                                checkboxes.forEach(checkbox => {
+                                    // Periksa apakah id lapangan sama dengan id input
+                                    if (checkbox.id === lapangan) {
+                                        // Tambahkan atribut hidden ke input
+                                        checkbox.classList.add('hidden');
+                                    }
+                                });
+
+                                labels.forEach(label => {
+                                    // Periksa apakah id lapangan sama dengan id label
+                                    if (label.getAttribute('for') === lapangan) {
+                                        // Tambahkan atribut hidden ke label
+                                        label.classList.add('hidden');
+                                    }
+                                });
+                            });
+                        } else {
+                            console.log('No lapangan data found');
+                        }
+                    })
+                    
+
                     // Pisahkan jam mulai dan jam selesai
                     const [start, end] = slot.split(' - ');
 
@@ -391,6 +432,17 @@
                     console.log('ini tanggal 1: '+document.getElementById('textFieldTanggal').value)
                     console.log('ini tanggal 2: '+document.getElementById('textfieldTanggalRutin').value)
                 });
+
+                // function cekLapangan(){
+                //     fetch('http://127.0.0.1:8000/api/cekLapangan', {
+                //         method: 'post', headers:{'Content-Type':'application/json'}, body:JSON.stringify({hari:dayIndonesian, slot:slot})
+                //     })
+                //     .then(response=>response.json())
+                //     .then(data=>{
+                //         console.log(data)
+                //     })
+                // }
+                // cekLapangan();
 
                 function inputForm(event){
                     const getHari = document.getElementById('textFieldHari').value;

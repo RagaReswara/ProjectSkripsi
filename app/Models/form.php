@@ -29,7 +29,8 @@ class form extends Model
         'tanggalRutin',
         'slotRutin',
         'status',
-        'special_status'
+        'special_status',
+        'catatan'
     ];
 
     public $timestamps = false;
