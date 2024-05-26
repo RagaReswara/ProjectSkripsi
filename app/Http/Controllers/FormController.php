@@ -66,7 +66,7 @@ class FormController extends Controller
     public function cekSlot(Request $request){
         $slot = $request -> jam_mulai . '-' . $request -> jam_selesai;
         $getSlot = Form::where('hari', $request -> hari) 
-        -> where('slot', $slot) -> first();
+        -> where('slot','LIKE', '%'. $request -> jam_mulai . '%') -> first();
         return response()->json(['is_success'=> true,'data' => $getSlot]);
     }
 
@@ -84,14 +84,19 @@ class FormController extends Controller
     public function kirimEmail(Request $request){
         $kirimEmail = Form::find($request -> id_form);
         $toEmail = $kirimEmail -> email;
-        $subject = 'PEMBERITAHUAN PEMINJAMAN GOR KEPADA '.$kirimEmail -> nama_organisasi.' DENGAN PENANGGUNG JAWAB '.$kirimEmail -> nama_pj;
-        $message = $request -> catatan;
+        $subject = 'Pemberitahuan Peminjaman GOR kepada '.$kirimEmail -> nama_organisasi.' dengan Penanggungjawab '.$kirimEmail -> nama_pj;
+        if($request -> catatan){
+            $message = $request -> catatan;
+        }
+        else{
+            $message = 'Maaf Booking Anda Saya batalkan karena ada acara mendadak';
+        }
         Mail::raw($message, function ($message) use ($toEmail, $subject) {
             $message->to($toEmail)
                     ->subject($subject)
                     ->from(config('mail.from.address'), config('mail.from.name'));
         });
-        return response()->json(['Email sent successfully']);
+        return response()->json(['is_success'=> true,'data' => $kirimEmail]);
     }
 
     public function mulaiPinjam(Request $request){
@@ -128,9 +133,8 @@ class FormController extends Controller
     }
 
     public function hapusForm(Request $request){
-        $getForm = Form::find($request -> id);
+        $getForm = Form::find($request -> id_form);
         $getHari = $getForm -> hari;
-        $slot = 
         $getForm -> delete();
         return response()->json(['is_success'=> true,'data' => $getForm]);
     }

@@ -28,13 +28,11 @@
                             <div class="sm:col-span-1 mt-4">
                                 <!-- <label for="email" class="block text-base font-medium leading-6 text-gray-900">Nomor Telepon / WA</label> -->
                                 <div class="mt-2">
-                                    <input name="noTelp" type="text" autocomplete="noTelp" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon / WA">
+                                    <input name="no_telp" type="text" autocomplete="noTelp" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon / WA">
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    
 
                     <!-- CHECKBOX KATEGORI KEGIATAN-->
                     <div class="space-y-10">
@@ -60,57 +58,50 @@
                     <!-- CHECKBOX LAPANGAN-->
                     <div class="mt-5 space-y-10">
                         <fieldset>
-                        <legend class="text-base font-semibold leading-6 text-gray-900">Silahkan Memilih Lapangan</legend>
-                        <div class="mt-6 space-y-6">
-                            
+                        <legend id="labelPilihLapangan" class="ml-28 text-base font-semibold leading-6 text-gray-900">Silahkan Pilih Lapangan</legend>
+                        <div class="mt-4 space-y-6">
                         <!-- LINE -->
-                        <div class="relative flex gap-x-3">
+                        <div class="relative flex flex-wrap gap-x-3">
                                 <div class="flex h-6 items-center">
                                     <input id="lineA" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"> 
                                 </div>
                                 <div class="text-sm leading-6">
                                     <label for="lineA" class="font-medium text-gray-900">Line A</label>
-                                    <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
                                 </div>
-                                <div class="flex h-6 items-center ml-9">
+                                <div class="flex h-6 items-center ml-1">
                                     <input id="lineB" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                 </div>
                                 <div class="text-sm leading-6">
                                     <label for="lineB" class="font-medium text-gray-900">Line B</label>
-                                    <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
                                 </div>
-                                <div class="flex h-6 items-center ml-9">
+                                <div class="flex h-6 items-center ml-1">
                                     <input id="lineC" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                 </div>
                                 <div class="text-sm leading-6">
                                     <label for="lineC" class="font-medium text-gray-900">Line C</label>
-                                    <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
                                 </div>
-                                <div class="flex h-6 items-center ml-9">
+                                <div class="flex h-6 items-center ml-1">
                                     <input id="lineD" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                 </div>
                                 <div class="text-sm leading-6">
                                     <label for="lineD" class="font-medium text-gray-900">Line D</label>
-                                    <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
+                                </div>
+                                <!-- TRIBUN -->
+                                <div class="flex h-6 items-center ml-1">
+                                    <input id="tribun" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                </div>
+                                <div class="text-sm leading-6">
+                                    <label for="tribun" class="font-medium text-gray-900">Tribun</label>
                                 </div>
                             </div>
-                        
-                        <!-- FULL LAPANGAN -->
-                            <div class="relative flex gap-x-3">
+                            
+                            <!-- FULL LAPANGAN -->
+                            <div class="relative flex flex-wrap gap-x-3 mt-4">
                                 <div class="flex h-6 items-center">
                                     <input id="1lapangan" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                                 </div>
                                 <div class="text-sm leading-6">
                                     <label for="1lapangan" class="font-medium text-gray-900">Full Lapangan</label>
-                                    <!-- <p class="text-gray-500">Get notified when a candidate applies for a job.</p> -->
-                                </div>
-                            <!-- TRIBUN -->
-                                <div class="flex h-6 items-center ml-6">
-                                    <input id="tribun" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                </div>
-                                <div class="text-sm leading-6">
-                                    <label for="tribun" class="font-medium text-gray-900">Tribun</label>
-                                    <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
                                 </div>
                             </div>
 
@@ -124,49 +115,48 @@
 
                 </div>
 
-                    <div class="border-b border-gray-900/10 pb-12">
+                <div class="border-b border-gray-900/10 pb-12">
 
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-
                         <div class="sm:col-span-3">
                         <!-- <label for="first-name" class="block text-base font-medium leading-6 text-gray-900">Nama Kegiatan</label> -->
                         <div class="mt-2">
-                            <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Kegiatan">
+                            <input type="text" name="nama_kegiatan" id="nama_kegiatan" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Kegiatan">
                         </div>
                         </div>
 
                         <div class="sm:col-span-3">
                         <!-- <label for="last-name" class="block text-base font-medium leading-6 text-gray-900">Nama Penanggung Jawab</label> -->
                         <div class="mt-2">
-                            <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Penanggung Jawab">
+                            <input type="text" name="nama_pj" id="nama_pj" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Penanggung Jawab">
                         </div>
                         </div>
-
-                        <h2 id="headerTanggalDipilih" class="text-base leading-6 text-gray-600 mt-4 hidden">Tanggal yang dipilih</h2>
 
                         <div class="sm:col-span-2 sm:col-start-1">
-                        <label for="city" class="block text-sm font-medium leading-6 text-gray-900">Hari</label>
+                        <label for="hari" id="labelHari" class="block text-md font-medium leading-6 text-gray-900">Hari</label>
+                        
+                        <label for="hari" id="labelHariPertama" class="hidden text-md font-medium leading-6 text-gray-900">Hari Pertama</label>
                         <div class="mt-2">
-                            <input readonly type="text" name="hari" id="textfieldHari" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="hari" id="textFieldHari" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                         </div>
                         </div>
 
                         <div class="sm:col-span-2">
                         <label for="region" class="block text-base font-medium leading-6 text-gray-900">Tanggal</label>
                         <div class="mt-2">
-                            <input readonly type="text" name="tanggal" id="textfieldTanggal" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="tanggal" id="textFieldTanggal" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                         </div>
                         </div>
 
                         <div class="sm:col-span-2">
                         <label for="postal-code" class="block text-base font-medium leading-6 text-gray-900">Slot / Jam</label>
                         <div class="mt-2">
-                            <input readonly type="text" name="slot" id="textfieldSlot" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            <input type="text" name="slot" id="textFieldSlot" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly >
                         </div>
                         </div>
 
                     </div>
-                    </div>
+                </div>
 
                     <div class="flex items-center mt-5 mb-5">
                         <input id="toggleDatepicker" name="lapangan" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
@@ -197,12 +187,43 @@
 
                 </div>
 
-                <div class="mt-6 flex items-center justify-end gap-x-6">
+                <div class="sm:col-span-2">
+                <div class="mt-2">
+                    <input type="hidden" name="status" id="" value="1" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                </div>
+                </div>
+                <div class="sm:col-span-2">
+                    <div class="mt-2">
+                        <input type="hidden" name="special_status" id="" value="0" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                    </div>
+                </div>
+                <div class="sm:col-span-2">
+                    <div class="mt-2">
+                        <input type="hidden" name="" id="getStart" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                    </div>
+                </div>
+                <div class="sm:col-span-2">
+                    <div class="mt-2">
+                        <input type="hidden" name="" id="getSlotRutin" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                    </div>
+                </div>
+                <div class="sm:col-span-2">
+                    <div class="mt-2">
+                        <input type="hidden" name="email" id="getEmailyglogin" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                    </div>
+                </div>
+                <div class="sm:col-span-2">
+                    <div class="mt-2">
+                        <input type="hidden" name="id_user" id="idUserForm" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                    </div>
+                </div>
+
+                <div class="mb-6 mr-6 flex items-center justify-end gap-x-6">
                     <div class="inline-flex mt-2 xs:mt-0">
                         <button id="cancelButton" type="button" class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
                             Cancel
                         </button>
-                        <button id="submitButton" onclick="inputForm(event)" type="submit" class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-blue-600 border-0 border-s border-blue-700 rounded-e-2xl hover:bg-blue-600 dark:bg-blue-700 dark:border-blue-700 dark:text-gray-300 dark:hover:bg-blue-700 dark:hover:text-white">
+                        <button id="" onclick="inputForm(event)" type="button" class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-blue-600 border-0 border-s border-blue-700 rounded-e-2xl hover:bg-blue-600 dark:bg-blue-700 dark:border-blue-700 dark:text-gray-300 dark:hover:bg-blue-700 dark:hover:text-white">
                             Save
                         </button>
                     </div>
@@ -213,7 +234,7 @@
 
         <script>
 
-            const submitButton = document.getElementById("submitButton");
+            // const submitButton = document.getElementById("submitButton");
             // const submitButton = document.getElementById("submitButton");
 
             // submitButton.addEventListener("click", function() {
@@ -221,9 +242,31 @@
             // });
 
 
-            // DATEPICKER
-            document.addEventListener('DOMContentLoaded', function(){
+            window.userOrganizationName = "{{ Auth::user()-> namaOrganisasi }}";
+            window.userEmail = "{{ Auth::user()-> email }}";
+            document.addEventListener("DOMContentLoaded", function() {
 
+            const userEmail = window.userEmail;
+            const inputEmailField = document.getElementById('getEmailyglogin');
+            inputEmailField.value = userEmail;
+
+            });
+
+            window.user_id = "{{ Auth::user()-> id_user }}";
+            document.addEventListener("DOMContentLoaded", function() {
+
+                const user_id = window.user_id;
+                console.log("ini adalah " + user_id)
+                const inputField = document.getElementById('idUserForm');
+
+                if (inputField && user_id) {
+                    inputField.value = user_id;
+                }
+            });
+            
+
+            // DATE PICKER flatpickr
+            document.addEventListener('DOMContentLoaded', function(){
                 let tanggal2 = flatpickr('input[name="tanggal2"]',{
                     dateFormat: 'd-D-m-Y',
                     enableTime: false,
@@ -252,28 +295,69 @@
                 };
                 const dayIndonesian = hari[day];
 
-                // Pisahkan jam mulai dan jam selesai
+                fetch('http://127.0.0.1:8000/api/cekLapangan', {
+                    method: 'post', 
+                    headers: {'Content-Type': 'application/json'}, 
+                    body: JSON.stringify({hari: dayIndonesian, slot: slot})
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+
+                    if (data.lapangan) {
+                        const lapanganArray = data.lapangan.split(', ');
+
+                        const checkboxes = document.querySelectorAll('input[name="line[]"]');
+                        const labels = document.querySelectorAll('label[for^="line"]');
+
+                        lapanganArray.forEach(lapangan => {
+
+                            checkboxes.forEach(checkbox => {
+                                if (checkbox.id === lapangan) {
+                                    checkbox.classList.add('hidden');
+                                }
+                            });
+
+                            labels.forEach(label => {
+                                if (label.getAttribute('for') === lapangan) {
+                                    label.classList.add('hidden');
+                                }
+                            });
+                        });
+
+                        if (lapanganArray.length > 1) {
+                            document.getElementById('1lapangan').classList.add('hidden');
+                            document.querySelector('label[for="1lapangan"]').classList.add('hidden');
+                            document.getElementById('labelPilihLapangan').textContent = 'Silahkan pilih Lapangan Yang tersisa';
+                            document.getElementById('labelPilihLapangan').classList.add('ml-10')
+                        }
+                    } else {
+                        console.log('No lapangan data found');
+                    }
+                })
+                .catch(error => console.error('Error fetching data:', error));
+                
+
                 const [start, end] = slot.split(' - ');
 
-                // Hapus detik dari jam mulai dan jam selesai
-                document.getElementById("textfieldHari").value = dayIndonesian;
-                // textFieldHari.value = dayIndonesian;
-                document.getElementById("textfieldTanggal").value = tanggal;
-                document.getElementById("textfieldSlot").value = start + ' - ' + end;
-                // document.getElementById("textfieldTanggalRutin").value = tanggal; 
+                textFieldHari.value = dayIndonesian;
+                document.getElementById("getStart").value = start;
+                document.getElementById("textFieldTanggal").value = tanggal;
+                document.getElementById("textFieldSlot").value = start + ' - ' + end;
 
-                // Jika tanggal1 ada dalam URL, set nilai tanggal1 ke dalam date picker tanggal2
                 if (tanggal1) {
                     tanggal2 = flatpickr('input[name="tanggal2"]', {
                         dateFormat: 'd-D-m-Y',
-                        defaultDate: tanggal1, // Set tanggal1 sebagai default date pada tanggal2
+                        defaultDate: tanggal1, 
                         enableTime: false,
-                        minDate: tanggal1 // Tetapkan tanggal minimal untuk tanggal2 agar setidaknya satu hari setelah tanggal1
+                        minDate: tanggal1 
                     });
                 }
-                console.log('ini tanggal 1: '+document.getElementById('textfieldTanggal').value)
+                console.log('ini tanggal 1: '+ document.getElementById('textFieldTanggal').value)
                 // console.log('ini tanggal 2: '+document.getElementById('textfieldTanggalRutin').value)
             });
+
+            let dayIndonesian = '';
 
             // SLOT PERTANGGAL
             let isiTanggalRutin = document.getElementById("isiTanggalRutin")
@@ -303,7 +387,7 @@
                                 'Fri': 'Jumat',
                                 'Sat': 'Sabtu'
                         };
-                        const dayIndonesian = hari[day];
+                        dayIndonesian = hari[day];
                         console.log(dayIndonesian);
 
                         fetch('http://127.0.0.1:8000/api/slotPertanggal', {
@@ -332,50 +416,87 @@
                         }
                     })
                 });
+        
 
-                function inputForm(event){
-                    event.preventDefault()
-                        const form = document.querySelector('form')
-                        const formData = new FormData(form)
+        function inputForm(event){
+            const getHari = document.getElementById('textFieldHari').value;
+            const getStart = document.getElementById('getStart').value;
+            const getSlotRutin = document.getElementById('getSlotRutin').value;
+            let simpanSlot = '';
 
-                        console.log(formData)
-                        formData.forEach(function(value,key){
-                            console.log(key+' : '+value)
-                        })
+            const radioButtonRutin = document.querySelectorAll('input[name="bordered-radio"]');
+            let selectedValue;
 
-                        const checkbox = document.querySelectorAll('input[name="line[]"]');
-                        // Membuat array kosong untuk menyimpan nilai yang dicentang
-                        let selectedLines = '';
-                        checkbox.forEach((checkbox, index) => {
-                            // Jika checkbox dicentang, tambahkan nilainya ke dalam string selectedLines
-                            if (checkbox.checked) {
-                                // Jika ini bukan checkbox pertama yang dicentang, tambahkan koma dan spasi sebelum nilai checkbox
-                                if (selectedLines !== '') {
-                                    selectedLines += ', ';
-                                }
-                                // Tambahkan nilai checkbox ke dalam string selectedLines
-                                selectedLines += checkbox.id;
-                            }
-                        });
-                        formData.append('lapangan', selectedLines);
+            radioButtonRutin.forEach(radioButton => {
+                if (radioButton.checked) {
+                    selectedValue = radioButton.value;
+                    simpanSlot = radioButton.value;
+                    console.log("Nilai yang dipilih:", selectedValue);
+                }
+            });
+            const [startRutin, end] = selectedValue.split(' - ');
+            const parts = isiTanggalRutin.value.split('-');
+            const tanggalRutin = parts[3]+'-'+parts[2]+"-"+parts[0];
 
-                        // Tampilkan nilai-nilai yang dicentang
-                        console.log("Nilai-nilai yang dicentang:", selectedLines);
+            console.log('ini rutin', radioButtonRutin)
 
-                        fetch('http://127.0.0.1:8000/api/formInput', {
-                            method:'post', body:formData
+            event.preventDefault()
+                const form = document.querySelector('form')
+                const formData = new FormData(form)
+
+                console.log(formData)
+                formData.forEach(function(value,key){
+                    console.log(key+' : '+value)
+                })
+
+                const checkbox = document.querySelectorAll('input[name="line[]"]');
+                // Membuat array kosong untuk menyimpan nilai yang dicentang
+                let selectedLines = '';
+                let counter = 0;
+                checkbox.forEach((checkbox, index) => {
+                    if (checkbox.checked) {
+                        if (selectedLines !== '') {
+                            selectedLines += ', ';
+                        }
+                        counter++;
+                        selectedLines += checkbox.id;
+                    }
+                }); 
+                if(counter == 6){
+                    formData.append("lapangan", 'Full Lapangan');
+                }
+                else{
+                    formData.append('lapangan', selectedLines);
+                }
+                console.log("Nilai-nilai yang dicentang:", selectedLines);
+
+                formData.append("hariRutin", dayIndonesian)
+                formData.append("slotRutin", simpanSlot)
+                formData.append("tanggalRutin", tanggalRutin)
+
+                fetch('http://127.0.0.1:8000/api/formInput', {
+                    method:'post', body:formData
+                })
+                .then(response=>response.json())
+                .then(data=>{
+                    if(data.is_success){
+                        console.log('berhasil')
+                        fetch('http://127.0.0.1:8000/api/updateSlot', {
+                            method: 'post', headers:{'Content-Type':'application/json'}, body:JSON.stringify({hari:getHari, jam_mulai:getStart, hariRutin:dayIndonesian, jam_mulaiRutin:startRutin })
                         })
                         .then(response=>response.json())
                         .then(data=>{
-                            if(data.is_success){
-                                console.log('berhasil')
-                            }
+                            window.location.href = '/listPermohonan';
                         })
-                }
-                const formPeminjam = document.querySelector('form')
-                formPeminjam.addEventListener('submit',inputForm)
+                    }
+                    document.getElementById("getSlotRutin").value = startRutin;
+                })
+        }
+        const formPeminjam = document.querySelector('form')
+        formPeminjam.addEventListener('submit',inputForm)
 
-        </script>
+
+</script>
         
 
 @endsection

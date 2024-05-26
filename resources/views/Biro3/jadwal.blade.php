@@ -13,7 +13,7 @@
         <div class="p-4 border-2 border-gray-200 border-solid rounded-lg dark:border-gray-700">
         
             <div class="flex-1 gap-4 mb-4">
-                <p class="text-xl text-gray-400 dark:text-black mr-4 mb-5">Silahkan pilih tanggal dan slot untuk diatur</p>
+                <p class="text-2xl font-semibold text-gray-400 dark:text-black mr-4 mb-5">Pilih tanggal dan slot untuk diatur</p>
 
                 <div class="flex items-center h-18 rounded bg-gray-50 dark:bg-gray-800 ">
                     <p class="text-2xl text-gray-400 dark:text-gray-500">
@@ -35,9 +35,9 @@
 
                 <!-- INDIKATOR -->
                 <!-- <p class="font-bold text-sm text-white mr-5"> ( Indikator )</p> -->
-                <span class="flex items-center text-sm font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Kosong</span>
-                <span class="flex items-center text-sm font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-yellow-300 rounded-full me-1.5 flex-shrink-0"></span>Masih Ada</span>
-                <span class="flex items-center text-sm font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-red-500 rounded-full me-1.5 flex-shrink-0"></span>Penuh</span>
+                <span class="flex items-center text-base font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Kosong</span>
+                <span class="flex items-center text-base font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-yellow-300 rounded-full me-1.5 flex-shrink-0"></span>Masih Ada</span>
+                <span class="flex items-center text-base font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-red-500 rounded-full me-1.5 flex-shrink-0"></span>Penuh</span>
                 
                 
                 </div>
@@ -47,7 +47,7 @@
             <div class="flex-1 gap-4 mb-4">
                 <!-- SLOT/JADWAL 1 -->
                 <div id="slot" class="flex gap-2">
-          
+
                 </div>
 
                 </div>
@@ -64,21 +64,21 @@
                 dateFormat: 'd-D-m-Y',
                 enableTime: false,
                 onChange: function(selectedDates, newDateStr, instance){
-                  dateStr = newDateStr;
-                  const links = document.querySelectorAll('#pesanLink');
-                  // if (link) {
-                  //     const url = new URL(link.href);
-                  //     url.searchParams.set('tanggal', dateStr);
-                  //     link.href = url.toString();s
-                  // }
-                  links.forEach(link => {
+                    dateStr = newDateStr;
+                    const links = document.querySelectorAll('#pesanLink');
+                    // if (link) {
+                    //     const url = new URL(link.href);
+                    //     url.searchParams.set('tanggal', dateStr);
+                    //     link.href = url.toString();s
+                    // }
+                    links.forEach(link => {
                     const url = new URL(link.href);
                     url.searchParams.set('tanggal', dateStr);  
                     link.href = url.toString();
-                  })
-                  console.log(dateStr)
-                  console.log(links)
-              }
+                    })
+                    console.log(dateStr)
+                    console.log(links)
+                }
             });
         });
 
@@ -118,53 +118,62 @@
                                 data.data.forEach((item)=>{
                                     let jamMulai = item.jam_mulai.slice(0, -3);
                                     let jamSelesai = item.jam_selesai.slice(0, -3);
+
+                                    let bgColorClass = 'dark:bg-green-800';
+                                    let pointerEventsClass = '';
+
+                                    if (item.status === 1) {
+                                        bgColorClass = 'dark:bg-red-800';
+                                        pointerEventsClass = 'pointer-events-none href="#" onclick="return false;"';
+                                    } else if (item.status === 4 && item.lapangan !== 'Full Lapangan') {
+                                        bgColorClass = 'dark:bg-yellow-800';
+                                    }
+
                                     jam.innerHTML +=
                                     `
                                     <div class="w-1/7">
-                                      <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
-                                        <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4 "> 
-                                            <a href="http://127.0.0.1:8000/isiJadwal?tanggal=${dateStr}&slot=${jamMulai} - ${jamSelesai}" id="pesanLink" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${item.status == 1 ?  'dark:bg-red-800 dark:hover:bg-red-700 pointer-event-none href="#" onclick="return false;' : 'dark:hover:bg-gray-700'}">
-                                              <span class="flex whitespace-nowrap"> ${jamMulai} - ${jamSelesai} </span>
-                                            <a>
-                                        </p>
-                                      </div>
+                                        <div class="flex items-center h-24 rounded-xl bg-gray-50 ${bgColorClass} pl-4 ${pointerEventsClass}">
+                                            <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4"> 
+                                                <a href="http://127.0.0.1:8000/isiJadwal?tanggal=${dateStr}&slot=${jamMulai} - ${jamSelesai}" id="pesanLink" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white group">
+                                                    <span class="flex whitespace-nowrap"> ${jamMulai} - ${jamSelesai} </span>
+                                                </a>
+                                            </p>
+                                        </div>
                                     </div>
                                     `
-                                
                                 })
                             })
-                            console.log(popupPilihTanggal)
                         }
                     })
                 });
         
         
             function slot() {
-              fetch('http://127.0.0.1:8000/api/jadwal')
-              .then(response=>response.json())
-              .then(data=>{
-                console.log(data)
-                data.data.forEach((item)=>{
-                  jam.innerHTML +=
-                `
-                <div class="w-1/7">
-                  <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
-                    <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4 "> 
-                        <a href="http://127.0.0.1:8000/isiJadwal?tanggal&slot=${item.jam_mulai} - ${item.jam_selesai}" id="pesanLink" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${item.status == 1 ?  'dark:bg-red-800 dark:hover:bg-red-700 pointer-event-none href="#" onclick="return false;' : 'dark:hover:bg-gray-700'}">
-                          <span class="flex whitespace-nowrap"> ${item.jam_mulai} - ${item.jam_selesai} </span>
-                        <a>
-                    </p>
-                  </div>
-                </div>
+                fetch('http://127.0.0.1:8000/api/jadwal')
+                .then(response=>response.json())
+                .then(data=>{
+                    console.log(data)
+                    data.data.forEach((item)=>{
+                    jam.innerHTML +=
+                    `
+                    <div class="w-1/7">
+                    <div class="flex items-center h-24 rounded bg-gray-50 dark:bg-gray-800 pl-4">
+                        <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4 "> 
+                            <a href="http://127.0.0.1:8000/isiJadwal?tanggal&slot=${item.jam_mulai} - ${item.jam_selesai}" id="pesanLink" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group ${item.status == 1 ?  'dark:bg-red-800 dark:hover:bg-red-700 pointer-event-none href="#" onclick="return false;' : 'dark:hover:bg-gray-700'}">
+                            <span class="flex whitespace-nowrap"> ${item.jam_mulai} - ${item.jam_selesai} </span>
+                            <a>
+                        </p>
+                    </div>
+                    </div>
 
-                `
+                    `
+                    })
+                    
                 })
-                
-              })
-            }
-            // slot();
+                }
+                // slot();
 
-      </script>
+    </script>
 
 
     </div>

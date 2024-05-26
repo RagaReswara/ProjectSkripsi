@@ -82,9 +82,13 @@
                                 
                             </th>
                             <td class="dark:bg-white px-6 py-4 text-gray-700 flex justify-end">
-                                <button type="button" class="text-white bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
-                                        Cetak Nota dan form
+                                <button type="button" onclick="cetak()" class="text-white bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
+                                    Cetak Form
                                 </button>
+                                <div id="progressContainer" class="w-full bg-gray-200 rounded-full dark:bg-gray-700" style="display: none;">
+                                    <div id="progressBar" class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style="width: 0%; height: 100%">0%</div>
+                                    <div id="progressText" class="ml-3 text-sm font-medium text-gray-700 dark:text-gray-300" style="display: none; margin-top: 2px;">Mengunduh Form.....</div>
+                                </div>
                             </td>
                         </tr>
                     </thead>
@@ -94,16 +98,16 @@
                             <th scope="col" class="px-6 py-3">
                                 Status
                             </th>
-                            <td class="dark:bg-white px-6 py-4 font-bold text-gray-700">
-                                : Disetujui / tidak
+                            <td id="status" class="dark:bg-white px-6 py-4 font-bold text-gray-700">
+                                : 
                             </td>
                         </tr>
                         <tr class="bg-white dark:bg-white text-black">
                             <th scope="col" class="px-6 py-3">
                                 Catatan
                             </th>
-                            <td class="dark:bg-white px-6 py-4 font-bold text-gray-700">
-                                : Silahkan datang ke biro 3 dengan memberikan form dan nota secara fisik
+                            <td id="catatan" class="dark:bg-white px-6 py-4 font-bold text-gray-700">
+                                : 
                             </td>
                         </tr>
 
@@ -114,8 +118,11 @@
                 </table>
 
                 <div class="flex flex-1 justify-end">
-                    <button type="button" onclick="mulaiPinjam()" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
+                    <button id="btnMulaiPinjam" type="button" onclick="mulaiPinjam()" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
                         Mulai Peminjaman
+                    </button>
+                    <button id="btnSelesaiPinjam" type="button" onclick="selesaiPinjam()" class="hidden text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
+                        Selesai Peminjaman
                     </button>
                 </div>         
 
@@ -125,7 +132,6 @@
         <script>
 
             const idForm = window.location.pathname.split('/').pop() 
-
             function getByid(){
                         fetch('http://127.0.0.1:8000/api/getByid', {
                             method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:idForm})
@@ -163,6 +169,42 @@
                                     } else {
                                         cekSlotRutin.innerText = `: ${data.data.slot}`;
                                     }
+                                
+                                const catatan = document.getElementById('catatan');
+                                    if(data.data.catatan === null){
+                                        catatan.innerText = `: Belum Ada`;
+                                    }
+                                    else{
+                                        
+                                        catatan.innerText = `: ${data.data.catatan}`;
+                                    }
+                                const status = document.getElementById('status');
+                                    if(data.data.status === 0){
+                                        status.innerText = `: Ditolak`;
+                                    }
+                                    else if(data.data.status === 1){
+                                        status.innerText = `: Menunggu Disetujui`;
+                                    }
+                                    else{
+                                        status.innerText = `: Diterima`;
+                                    }
+                                
+                                    const btnMulaiPinjam = document.getElementById('btnMulaiPinjam');
+                                    const btnSelesaiPinjam = document.getElementById('btnSelesaiPinjam');
+                                    const statusBtn = data.data.status; 
+                                    const specialStatus = data.data.special_status; 
+
+                                    if (statusBtn === 0 || statusBtn === 1) {
+                                        btnMulaiPinjam.classList.add('hidden');
+                                    } else if (statusBtn === 2) {
+                                        btnMulaiPinjam.classList.remove('hidden');
+                                    }
+                                    if (specialStatus === 1) {
+                                        btnSelesaiPinjam.classList.remove('hidden');
+                                        btnMulaiPinjam.classList.add('hidden');
+                                    } else if (specialStatus === 2) {
+                                        btnMulaiPinjam.classList.add('hidden');
+                                    }
                             }
                         })
             }
@@ -180,7 +222,46 @@
                 console.log('clicked')
             }
 
-            
+            function selesaiPinjam(){
+                fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
+                    method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:idForm, special_status:2})
+                })
+                .then(response => response.json())
+                .then(data => {
+                    window.location.href = "/persetujuan";
+                })
+                console.log('clicked')
+            }
+
+            function cetak() {
+                fetch('http://127.0.0.1:8000/api/cetak', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id_form: idForm })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.blob(); 
+                })
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'Nota_dan_Formulir_Peminjaman.pdf';
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    window.URL.revokeObjectURL(url);
+                })
+                .catch(error => {
+                    console.error('There was an error with the fetch operation:', error);
+                });
+
+                console.log('clicked');
+            }
+
 
         </script>
 

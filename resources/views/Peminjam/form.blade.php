@@ -66,64 +66,63 @@
                     <!-- CHECKBOX LAPANGAN-->
                     <div class="space-y-10">
                         <fieldset>
-                        <legend class="text-base font-semibold leading-6 text-gray-900">Silahkan Pilih Lapangan</legend>
+                        <legend id="labelPilihLapangan" class="ml-28 text-base font-semibold leading-6 text-gray-900">Silahkan Pilih Lapangan</legend>
                         <div class="mt-4 space-y-6">
                             
                         <!-- LINE -->
-                            <div class="relative flex gap-x-3">
-                                <div class="flex h-6 items-center">
-                                    <input id="lineA" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"> 
-                                </div>
-                                <div class="text-sm leading-6">
-                                    <label for="lineA" class="font-medium text-gray-900">Line A</label>
-                                    <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
-                                </div>
-                                <div class="flex h-6 items-center ml-9">
-                                    <input id="lineB" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                </div>
-                                <div class="text-sm leading-6">
-                                    <label for="lineB" class="font-medium text-gray-900">Line B</label>
-                                    <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
-                                </div>
-                                <div class="flex h-6 items-center ml-9">
-                                    <input id="lineC" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                </div>
-                                <div class="text-sm leading-6">
-                                    <label for="lineC" class="font-medium text-gray-900">Line C</label>
-                                    <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
-                                </div>
-                                <div class="flex h-6 items-center ml-9">
-                                    <input id="lineD" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                </div>
-                                <div class="text-sm leading-6">
-                                    <label for="lineD" class="font-medium text-gray-900">Line D</label>
-                                    <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
-                                </div>
+                        <div class="relative flex flex-wrap gap-x-3">
+                            <div class="flex h-6 items-center">
+                                <input id="lineA" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"> 
                             </div>
+                            <div class="text-sm leading-6">
+                                <label for="lineA" class="font-medium text-gray-900">Line A</label>
+                            </div>
+                            <div class="flex h-6 items-center ml-1">
+                                <input id="lineB" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                            </div>
+                            <div class="text-sm leading-6">
+                                <label for="lineB" class="font-medium text-gray-900">Line B</label>
+                            </div>
+                            <div class="flex h-6 items-center ml-1">
+                                <input id="lineC" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                            </div>
+                            <div class="text-sm leading-6">
+                                <label for="lineC" class="font-medium text-gray-900">Line C</label>
+                            </div>
+                            <div class="flex h-6 items-center ml-1">
+                                <input id="lineD" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                            </div>
+                            <div class="text-sm leading-6">
+                                <label for="lineD" class="font-medium text-gray-900">Line D</label>
+                            </div>
+                            <!-- TRIBUN -->
+                            <div class="flex h-6 items-center ml-1">
+                                <input id="tribun" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                            </div>
+                            <div class="text-sm leading-6">
+                                <label for="tribun" class="font-medium text-gray-900">Tribun</label>
+                            </div>
+                        </div>
                         
                         <!-- FULL LAPANGAN -->
-                            <div class="relative flex gap-x-3">
-                                <div class="flex h-6 items-center">
-                                    <input id="1lapangan" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                </div>
-                                <div class="text-sm leading-6">
-                                    <label for="1lapangan" class="font-medium text-gray-900">Full Lapangan</label>
-                                    <!-- <p class="text-gray-500">Get notified when a candidate applies for a job.</p> -->
-                                </div>
-                            <!-- TRIBUN -->
-                                <div class="flex h-6 items-center ml-6">
-                                    <input id="tribun" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-                                </div>
-                                <div class="text-sm leading-6">
-                                    <label for="tribun" class="font-medium text-gray-900">Tribun</label>
-                                    <!-- <p class="text-gray-500">Get notified when someones posts a comment on a posting.</p> -->
-                                </div>
+                        <div class="relative flex flex-wrap gap-x-3 mt-4">
+                            <div class="flex h-6 items-center">
+                                <input id="1lapangan" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                             </div>
+                            <div class="text-sm leading-6">
+                                <label for="1lapangan" class="font-medium text-gray-900">Full Lapangan</label>
+                            </div>
+                        </div>
 
                     <!-- HIDDEN -->
                             <div class="sm:col-span-2">
                                 <div class="mt-2">
                                     <input type="hidden" name="status" id="" value="1" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <div class="mt-2">
+                                    <input type="hidden" name="special_status" id="" value="0" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
@@ -368,12 +367,13 @@
                     const dayIndonesian = hari[day];
 
                     fetch('http://127.0.0.1:8000/api/cekLapangan', {
-                        method: 'post', headers:{'Content-Type':'application/json'}, body:JSON.stringify({hari:dayIndonesian, slot:slot})
+                        method: 'post', 
+                        headers: {'Content-Type': 'application/json'}, 
+                        body: JSON.stringify({hari: dayIndonesian, slot: slot})
                     })
-                    .then(response=>response.json())
-                    .then(data=>{
-
-                        console.log(data)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
 
                         if (data.lapangan) {
                             // Pisahkan string lapangan menjadi array menggunakan koma sebagai pemisah
@@ -389,7 +389,7 @@
                                 checkboxes.forEach(checkbox => {
                                     // Periksa apakah id lapangan sama dengan id input
                                     if (checkbox.id === lapangan) {
-                                        // Tambahkan atribut hidden ke input
+                                        // Tambahkan kelas hidden ke input
                                         checkbox.classList.add('hidden');
                                     }
                                 });
@@ -397,15 +397,24 @@
                                 labels.forEach(label => {
                                     // Periksa apakah id lapangan sama dengan id label
                                     if (label.getAttribute('for') === lapangan) {
-                                        // Tambahkan atribut hidden ke label
+                                        // Tambahkan kelas hidden ke label
                                         label.classList.add('hidden');
                                     }
                                 });
                             });
+
+                            // Sembunyikan "Full Lapangan" jika lapangan lebih dari satu
+                            if (lapanganArray.length > 1) {
+                                document.getElementById('1lapangan').classList.add('hidden');
+                                document.querySelector('label[for="1lapangan"]').classList.add('hidden');
+                                document.getElementById('labelPilihLapangan').textContent = 'Silahkan pilih Lapangan Yang tersisa';
+                                document.getElementById('labelPilihLapangan').classList.add('ml-10')
+                            }
                         } else {
                             console.log('No lapangan data found');
                         }
                     })
+                    .catch(error => console.error('Error fetching data:', error));
                     
 
                     // Pisahkan jam mulai dan jam selesai
@@ -498,11 +507,6 @@
                                 
                             }
                         })
-                        // const isCheckedAll = Array.from(checkbox).every(checkbox => checkbox.checked);
-                        // if (isCheckedAll) {
-                        //     const lapanganInput = document.querySelectorAll('input[name="line[]"]');
-                        //     lapanganInput.value = 'Full Lapangan';
-                        // }
                 }
                 
                 const formPeminjam = document.querySelector('form')

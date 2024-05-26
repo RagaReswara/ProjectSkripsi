@@ -1,4 +1,4 @@
-@extends('Biro3/masterBiro')
+@extends('Peminjam/masterPeminjam')
 @section('content')
 
 <!-- CONTENT -->
@@ -6,7 +6,7 @@
         <div class="p-4 border-2 border-gray-200 border-solid rounded-lg dark:border-gray-700">
 
         <div class="border-b-4 border-gray-900/40 pb-6">
-            <h2 class="text-2xl font-semibold leading-7 text-gray-900">Detail Pemohonan Kegiatan Event</h2>
+            <h2 class="text-2xl font-bold leading-7 text-gray-900">Detail Pemohonan Kegiatan Event</h2>
         </div>
 
         <!-- TABEL -->
@@ -160,30 +160,41 @@
                 </div>
 
             </div>
+            
+            <table>
+                <tr class="bg-white dark:bg-white text-black">
+                    <th scope="col" class="px-2 text-start py-3">
+                        Status
+                    </th>
+                    <td id="status" class="dark:bg-white px-6 py-4 font-bold text-gray-700">
+                        : 
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-white text-black">
+                    <th scope="col" class="px-2 text-start py-3">
+                        Catatan
+                    </th>
+                    <td id="catatan" class="dark:bg-white px-6 py-4 font-bold text-gray-700">
+                        : 
+                    </td>
+                </tr>
+                <tr class="bg-white dark:bg-white text-black">
+                    <td class="dark:bg-white px-6 py-4 font-bold text-gray-700">
+                    </td>
+                </tr>
+            </table>
 
-            <div  class="flex flex-1 mt-5 mb-3">
-                <textarea id="catatan" name="catatan" rows="4" class="block p-2.5 w-96 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Berikan Catatan Untuk Peminjam"></textarea>
-                <button id="kirimPesanBtn" type="button" onclick="kirimGmail()" class="ml-2 max-h-[45px] mt-[62px] text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                    Kirim Pesan
-                </button>        
-            </div> 
-
-            <div class="mt-6 flex items-center justify-end gap-x-6">
-                    <!-- <div class="inline-flex mt-2 xs:mt-0">
-                        <button id="kembaliButton" type="button" class="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white">
-                            Kembali
-                        </button>
-                    </div> -->
+            <div class="mt-6 flex content-between gap-x-6">
                 
-            <div class="inline-flex rounded-md shadow-sm" role="">
-                <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-s-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-red-500 dark:border-gray-800 dark:text-white dark:hover:text-white dark:hover:bg-red-400 dark:focus:ring-gray-600 dark:focus:text-white">
-                    Tolak
+            <div class="flex flex-1 place-content-between">
+                <button type="button" onclick="cetak()" class="text-white bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
+                    Cetak Form
                 </button>
-                <!-- <button type="button" onclick="tolak()" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-red-500 dark:border-gray-800 dark:text-white dark:hover:text-white dark:hover:bg-red-400 dark:focus:ring-gray-600 dark:focus:text-white">
-                    Tolak
-                </button> -->
-                <button type="button" onclick="setujui()" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-green-500 dark:border-gray-800 dark:text-white dark:hover:text-white dark:hover:bg-green-400 dark:focus:ring-gray-600 dark:focus:text-white">
-                    Setujui
+                <button id="btnMulaiPinjam" type="button" onclick="mulaiPinjam()" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
+                    Mulai Peminjaman
+                </button>
+                <button id="btnSelesaiPinjam" type="button" onclick="selesaiPinjam()" class="hidden text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
+                    Selesai Peminjaman
                 </button>
             </div>
 
@@ -193,13 +204,7 @@
         </div>
     </div>
 
-    <script>
-        // const kembaliButton = document.getElementById("kembaliButton");
-        
-        // kembaliButton.addEventListener("click", function() {
-        //     window.location.href = "http://127.0.0.1:8000/listPermohonan"; 
-        // }); 
-
+    <script> 
 
         const idForm = window.location.pathname.split('/').pop() 
         function getByid(){
@@ -217,119 +222,98 @@
                     document.getElementById('hari').innerText = `${data.data.hari}`;
                     document.getElementById('jam').innerText = `${data.data.slot}`;
                     console.log(data)
+
+                    const catatan = document.getElementById('catatan');
+                        if(data.data.catatan === null){
+                            catatan.innerText = `: Belum Ada`;
+                        }
+                        else{
+                            
+                            catatan.innerText = `: ${data.data.catatan}`;
+                        }
+                    const status = document.getElementById('status');
+                        if(data.data.status === 0){
+                            status.innerText = `: Ditolak`;
+                        }
+                        else if(data.data.status === 1 || data.data.status === 4){
+                            status.innerText = `: Menunggu Disetujui`;
+                        }
+                        else{
+                            status.innerText = `: Diterima`;
+                        }
                     
+                        const btnMulaiPinjam = document.getElementById('btnMulaiPinjam');
+                        const btnSelesaiPinjam = document.getElementById('btnSelesaiPinjam');
+                        const statusBtn = data.data.status; 
+                        const specialStatus = data.data.special_status; 
+
+                        if (statusBtn === 0 || statusBtn === 1) {
+                            btnMulaiPinjam.classList.add('hidden');
+                        } else if (statusBtn === 2) {
+                            btnMulaiPinjam.classList.remove('hidden');
+                        }
+                        if (specialStatus === 1) {
+                            btnSelesaiPinjam.classList.remove('hidden');
+                            btnMulaiPinjam.classList.add('hidden');
+                        } else if (specialStatus === 2) {
+                            btnMulaiPinjam.classList.add('hidden');
+                        }
                 }
             })
         }
         getByid()
         console.log(idForm)
 
-        function kirimGmail() {
-                let simpanCatatan = document.getElementById('catatan').value;
-                let progressBar = document.getElementById('progressBar');
-                let progressContainer = document.getElementById('progressContainer');
-                let progressText = document.getElementById('progressText');
-                let kirimPesanBtn = document.getElementById('kirimPesanBtn');
+        function mulaiPinjam(){
+            fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
+                method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:idForm, special_status:1})
+            })
+            .then(response => response.json())
+            .then(data => {
+                window.location.href = "/persetujuan";
+            })
+            console.log('clicked')
+        }
 
-                progressContainer.style.display = 'block';
-                progressText.style.display = 'block';
-                progressBar.style.width = '0%';
-                progressBar.textContent = '0%';
+        function selesaiPinjam(){
+            fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
+                method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:idForm, special_status:2})
+            })
+            .then(response => response.json())
+            .then(data => {
+                window.location.href = "/persetujuan";
+            })
+            console.log('clicked')
+        }
 
-                kirimPesanBtn.disabled = true;
-                kirimPesanBtn.innerHTML = `
-                    <svg aria-hidden="true" role="status" class="inline w-4 h-4 me-3 text-gray-200 animate-spin dark:text-gray-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
-                        <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="#1C64F2"/>
-                    </svg>
-                    Loading...
-                `;
-
-                let progress = 0;
-                let interval = setInterval(() => {
-                    if (progress < 90) {
-                        progress += 10;
-                        progressBar.style.width = progress + '%';
-                        progressBar.textContent = progress + '%';
-                    }
-                }, 500);
-
-                fetch('http://127.0.0.1:8000/api/kirimEmail', {
+        function cetak() {
+                fetch('http://127.0.0.1:8000/api/cetak', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ id_form: idForm, catatan: simpanCatatan })
+                    body: JSON.stringify({ id_form: idForm })
                 })
-                .then(response => response.json())
-                .then(data => {
-                    fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ id: idForm, catatan: simpanCatatan })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        // Complete progress bar
-                        clearInterval(interval);
-                        progressBar.style.width = '100%';
-                        progressBar.textContent = '100%';
-
-                        // Show success alert
-                        document.getElementById('alertContainer').innerHTML = `
-                            <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-                                <span class="font-medium">Success alert!</span> Berhasil Kirim Catatan ke peminjam.
-                            </div>
-                        `;
-                        setTimeout(() => {
-                            document.getElementById('alertContainer').innerHTML = '';
-                            progressContainer.style.display = 'none';
-                            progressText.style.display = 'none';
-                            progressBar.style.width = '0%';
-                            progressBar.textContent = '0%';
-                        }, 3000);
-
-                        // Re-enable the button
-                        kirimPesanBtn.disabled = false;
-                        kirimPesanBtn.innerHTML = 'Kirim Pesan';
-                    });
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.blob(); 
+                })
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'Nota_dan_Formulir_Peminjaman.pdf';
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    window.URL.revokeObjectURL(url);
                 })
                 .catch(error => {
-                    clearInterval(interval);
-                    alert("Error: " + error);
-                    progressContainer.style.display = 'none';
-                    progressText.style.display = 'none';
-                    progressBar.style.width = '0%';
-                    progressBar.textContent = '0%';
-
-                    // Re-enable the button
-                    kirimPesanBtn.disabled = false;
-                    kirimPesanBtn.innerHTML = 'Kirim Pesan';
+                    console.error('There was an error with the fetch operation:', error);
                 });
 
-                console.log(idForm);
-                console.log(document.getElementById('catatan').value);
+                console.log('clicked');
             }
-
-        function setujui(){
-                fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
-                    method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:idForm, status:2})
-                })
-                .then(response => response.json())
-                .then(data => {
-                    window.location.href = "/listPermohonan";
-                })
-                console.log('clicked')
-        }
-
-        function tolak(){
-                fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
-                    method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:idForm, status:0})
-                })
-                .then(response => response.json())
-                .then(data => {
-                    window.location.href = "/listPermohonan";
-                })
-                console.log('clicked')
-        }
         
 
     </script>

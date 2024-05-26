@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () { return view('login'); });
+Route::get('/', function () { return view('login2'); });
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/logout', function () {
         Auth::logout();
@@ -29,10 +29,10 @@ Route::get('/master', function () { return view('master'); });
 Route::get('/persetujuan', function () { return view('peminjam/persetujuan'); });
 Route::get('/form', function () { return view('peminjam/form'); });
 Route::get('/formEvent', function () { return view('peminjam/formEvent'); });
-Route::get('/rekap', function () { return view('peminjam/rekapPeminjaman'); });
-Route::get('/rekapEvent', function () { return view('peminjam/rekapEvent'); });
 Route::get('/detailPersetujuan/{id_form}', function () { return view('peminjam/detailPersetujuan'); });
+Route::get('/detailPersetujuanEvent/{id_form}', function () { return view('peminjam/detailPersetujuanEvent'); });
 Route::get('/cetak', function () { return view('Peminjam/cetak'); });
+Route::get('/historyPeminjam', function () { return view('Peminjam/history'); });
 
 // BIRO 3
 Route::group(['middleware' => 'Admin'], function() {
@@ -43,8 +43,7 @@ Route::group(['middleware' => 'Admin'], function() {
     Route::get('/listAkun', function () { return view('Biro3/buatAkun'); });
     Route::get('/formAkun', function () { return view('Biro3/formBuatAkun'); });
     Route::get('/detailPermohonan/{id_form}', function () { return view('Biro3/detailPermohonan'); });
-    Route::get('/detailPermohonanEvent', function () { return view('Biro3/detailPermohonanEvent'); });
-    Route::get('/detailPermohonanRutin', function () { return view('Biro3/detailPermohonanRutin'); });
+    Route::get('/detailPermohonanEvent/{id_form}', function () { return view('Biro3/detailPermohonanEvent'); });
     Route::get('/isiJadwal', function () { return view('Biro3/formIsiJadwal'); });
     Route::get('/isiEvent', function () { return view('Biro3/formIsiEvent'); });
     Route::get('/rekapIsiJadwal', function () { return view('Biro3/rekapIsiJadwal'); });

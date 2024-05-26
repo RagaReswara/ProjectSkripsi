@@ -16,14 +16,17 @@
                     <div class="mt-2 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <div class="sm:col-span-2">
                             <!-- <label for="organisasi" class="block text-base font-medium leading-6 text-gray-900">Nama Organisasi</label> -->
-                            <select name="nama_organisasi" id="nama_organisasi" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-2">
+                            <!-- <select name="nama_organisasi" id="nama_organisasi" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-2">
                                 <option selected>Silahkan Pilih Organisasi</option>
                                 <option value="Himpunan Mahasiswa Sistem Informasi (HMSI)">Himpunan Mahasiswa Sistem Informasi (HMSI)</option>
                                 <option value="Badan Eksekutif Mahasiswa Fakultas Teknologi Informasi (BMFTI)">Badan Eksekutif Mahasiswa Fakultas Teknologi Informasi (BMFTI)</option>
                                 <option value="Himpunan Mahasiswa Teknologi Informasi (HMTI)">Himpunan Mahasiswa Teknologi Informasi (HMTI)</option>
                                 <option value="kedokteran">Kedokteran</option>
-                            </select>
-
+                            </select> -->
+                            <legend class="ml-2 text-base font-semibold leading-6 text-gray-900 mt-5">Nama Organisasi</legend>
+                            <div class="sm:col-span-2">
+                                <input name="nama_organisasi" id="nama_organisasi" readonly type="text" value="" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Organisasi">
+                            </div> 
                             <div class="mt-2">
                                 <input id="noTelp" name="no_telp" type="text" autocomplete="email" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon / WA">
                             </div>
@@ -137,14 +140,34 @@
 
                 <!-- HIDDEN -->
                 <div class="sm:col-span-2">
+                        <div class="mt-2">
+                            <input type="hidden" name="lapangan" id="lapanganEvent" value="Full Lapangan" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                        </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                        <div class="mt-2">
+                            <input type="hidden" name="kat_kegiatan" id="kat_kegiatanEvent" value="Event" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                        </div>
+                        <div class="sm:col-span-2">
                             <div class="mt-2">
-                                <input type="hidden" name="lapangan" id="lapanganEvent" value="Full Lapangan" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                                <input type="hidden" name="email" id="getEmailyglogin" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                             </div>
                         </div>
                         <div class="sm:col-span-2">
                             <div class="mt-2">
-                                <input type="hidden" name="kat_kegiatan" id="kat_kegiatanEvent" value="Event" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                                <input type="hidden" name="id_user" id="idUserForm" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                             </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <div class="mt-2">
+                                <input type="hidden" name="status" id="" value="4" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                            </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <div class="mt-2">
+                                <input type="hidden" name="special_status" id="" value="0" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                            </div>
+                        </div>
                 </div>
 
                 
@@ -215,12 +238,42 @@
                             .then(data=>{
                                 if(data.is_success){
                                     console.log('berhasil')
+                                    window.location.href = '/persetujuan'
                                 }
                             })
                     }
                 
                 const formPeminjam = document.querySelector('form')
                 formPeminjam.addEventListener('submit',inputFormEvent)
+
+
+                window.userOrganizationName = "{{ Auth::user()-> namaOrganisasi }}";
+                window.userEmail = "{{ Auth::user()-> email }}";
+                document.addEventListener("DOMContentLoaded", function() {
+
+                    const userOrganizationName = window.userOrganizationName;
+                    const userEmail = window.userEmail;
+                    console.log("ini adalah " + userOrganizationName)
+                    const inputField = document.getElementById('nama_organisasi');
+                    const inputEmailField = document.getElementById('getEmailyglogin');
+
+                    if (inputField && userOrganizationName) {
+                        inputField.value = userOrganizationName;
+                    }
+                    inputEmailField.value = userEmail;
+                });
+
+                window.user_id = "{{ Auth::user()-> id_user }}";
+                document.addEventListener("DOMContentLoaded", function() {
+
+                    const user_id = window.user_id;
+                    console.log("ini adalah " + user_id)
+                    const inputField = document.getElementById('idUserForm');
+
+                    if (inputField && user_id) {
+                        inputField.value = user_id;
+                    }
+                });
 
                 </script>
 
