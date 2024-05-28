@@ -5,6 +5,8 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Models\jadwal;
+use App\Models\form;
+use Illuminate\Support\Carbon;
 
 class Kernel extends ConsoleKernel
 {
@@ -19,11 +21,25 @@ class Kernel extends ConsoleKernel
         }
     }
 
+    // HAPUS ITEM KALO LEWAT TANGGAL NYA
+    public function insertHistory(){
+        $currentDate = Carbon::today();
+        $form = form::where('tanggal', '<', $currentDate) -> where('status', 2) -> get();
+        foreach($form as $tgl){
+            $tgl -> status = 3;
+            $tgl -> save();
+        }
+    }
+
     protected function schedule(Schedule $schedule): void
     {
         $schedule -> call(function(){
             $this -> resetStatusJadwal();
         }) -> everyMinute();
+        $schedule -> call(function(){
+            $this -> insertHistory();
+        }) -> everyMinute();
+
     }
 
     /**

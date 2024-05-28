@@ -138,7 +138,7 @@
                         data.data.forEach((item) => {
                             console.log(data)
                             if(item.hariRutin === null && item.status !== 2){
-                                if(item.surat_peminjaman === null){
+                                if(item.surat_peminjaman === null && item.status !== 3){
                                     const row = 
                                     `
                                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -186,7 +186,7 @@
                         data.data.forEach((item) => {
                             console.log(data)
                             if(item.hariRutin !== null && item.status !== 2){
-                                if(item.surat_peminjaman === null){
+                                if(item.surat_peminjaman === null && item.status !== 3){
                                     const row = 
                                     `
                                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -234,7 +234,7 @@
                         data.data.forEach((item) => {
                             console.log(data)
                             if(item.hariRutin === null && item.status !== 2){
-                                if(item.surat_peminjaman !== null){
+                                if(item.surat_peminjaman !== null && item.status !== 3){
                                     const row = 
                                     `
                                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">

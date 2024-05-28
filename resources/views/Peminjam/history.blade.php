@@ -49,6 +49,14 @@
 </div>
 
 <script>
+
+    window.id_user = "{{ Auth::user()-> id_user }}";
+        document.addEventListener("DOMContentLoaded", function() {
+            const id_user = window.id_user;
+            console.log("ini adalah " + id_user)
+
+    });
+
     document.addEventListener('DOMContentLoaded', function() {
         fetch('http://127.0.0.1:8000/api/form')
             .then(response => response.json())

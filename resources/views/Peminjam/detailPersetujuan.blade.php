@@ -140,7 +140,7 @@
                         .then(data=>{
                             if(data.is_success){
                                 document.getElementById('organisasi').textContent = `: ${data.data.nama_organisasi}`;
-                                document.getElementById('noTelp').innerText = `: ${data.data.no_telp}`;
+                                document.getElementById('noTelp').innerText = `: 0${data.data.no_telp}`;
                                 document.getElementById('kategoriKegiatan').innerText = `: ${data.data.kat_kegiatan}`;
                                 document.getElementById('nama_pj').innerText = `: ${data.data.nama_pj}`;
                                 document.getElementById('lapangan').innerText = `: ${data.data.lapangan}`;

@@ -71,7 +71,7 @@
                 const tbodyHarian = document.querySelector('#listPeminjaman');
                 data.data.forEach((item) => {
                     console.log(data)
-                    if(item.status === 2 && item.special_status === 1 || item.special_status === 2 || item.special_status === 0){
+                    if(item.status === 2 || item.status === 4){
                     const row = 
                     `
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">

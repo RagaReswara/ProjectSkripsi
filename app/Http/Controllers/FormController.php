@@ -64,10 +64,17 @@ class FormController extends Controller
     }
 
     public function cekSlot(Request $request){
-        $slot = $request -> jam_mulai . '-' . $request -> jam_selesai;
-        $getSlot = Form::where('hari', $request -> hari) 
-        -> where('slot','LIKE', '%'. $request -> jam_mulai . '%') -> first();
-        return response()->json(['is_success'=> true,'data' => $getSlot]);
+        $slot = $request->jam_mulai . '-' . $request->jam_selesai;
+        $getSlot = Form::where('hari', $request->hari)
+                       ->where('slot', $request->jam_mulai . '-' .$request -> jam_selesai)
+                       ->pluck('lapangan')
+                       ->toArray();
+    
+        $allLapangan = implode(', ', $getSlot);
+        $lapanganArray = explode(', ', $allLapangan); // Convert the string back to an array
+        $slotCount = count($lapanganArray);
+    
+        return response()->json(['is_success' => true, 'data' => $allLapangan, 'count' => $slotCount]);
     }
 
     public function cetak(Request $request){
@@ -151,9 +158,19 @@ class FormController extends Controller
         list($startSlot, $endSlot) = explode(' - ', $request -> slot);
         $startSlot = trim($startSlot);
         $endSlot = trim($endSlot);
-
     }
 
+    // public function counter(){
+    //     $form = Form::selectRaw('nama_organisasi, COUNT(*) as count') -> groupByRaw()
+    //     return response()->json(['is_success' => true, 'data' => $form]);
+    // }
+
+    public function rekap(Request $request){
+        $tanggalAwal = $request->input('tanggalAwal');
+        $tanggalAkhir = $request->input('tanggalAkhir');
+        $forms = Form::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])-> where('status', '=', '3') -> where('special_status', '=', '2') -> get();
+        return response()->json(['is_success' => true, 'data' => $forms]);
+    }
     
 
 

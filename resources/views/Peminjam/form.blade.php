@@ -107,7 +107,7 @@
                         <!-- FULL LAPANGAN -->
                         <div class="relative flex flex-wrap gap-x-3 mt-4">
                             <div class="flex h-6 items-center">
-                                <input id="1lapangan" name="line[]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+                                <input id="1lapangan" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
                             </div>
                             <div class="text-sm leading-6">
                                 <label for="1lapangan" class="font-medium text-gray-900">Full Lapangan</label>
@@ -127,12 +127,12 @@
                             </div>
                             <div class="sm:col-span-2">
                                 <div class="mt-2">
-                                    <input type="hidden" name="" id="getStart" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                                    <input type="hidden" id="getStart" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
                                 <div class="mt-2">
-                                    <input type="hidden" name="" id="getSlotRutin" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                                    <input type="hidden" id="getSlotRutin" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                                 </div>
                             </div>
                             <div class="sm:col-span-2">
@@ -349,7 +349,7 @@
                     const slot = urlParams.get('slot');
 
                     console.log(tanggal1)
-                    console.log(slot)
+                    console.log('slot',slot)
 
                     const parts = tanggal1.split('-');
                     const day = parts[1];
@@ -373,7 +373,7 @@
                     })
                     .then(response => response.json())
                     .then(data => {
-                        console.log(data);
+                        console.log('abcsajdka',data);
 
                         if (data.lapangan) {
                             // Pisahkan string lapangan menjadi array menggunakan koma sebagai pemisah
@@ -418,11 +418,11 @@
                     
 
                     // Pisahkan jam mulai dan jam selesai
-                    const [start, end] = slot.split(' - ');
+                    const [start, end] = slot.split('-');
 
                     textFieldHari.value = dayIndonesian;
                     document.getElementById("textFieldTanggal").value = tanggal;
-                    document.getElementById("textFieldSlot").value = start + ' - ' + end;
+                    document.getElementById("textFieldSlot").value = slot;
                     // document.getElementById("textfieldTanggalRutin").value = tanggal;
                     document.getElementById("getStart").value = start;
 
@@ -481,13 +481,14 @@
                                 selectedLines += checkbox.id;
                             }
                         }); 
-                        if(counter == 6){
-                            formData.append("lapangan", 'Full Lapangan');
-                        }
-                        else{
-                            formData.append('lapangan', selectedLines);
-                        }
+                        // if(counter == 6){
+                        //     formData.append("lapangan", 'Full Lapangan');
+                        // }
+                        // else{
+                        //     formData.append('lapangan', selectedLines);
+                        // }
                         // Tampilkan nilai-nilai yang dicentang
+                        formData.append('lapangan', selectedLines);
                         console.log("Nilai-nilai yang dicentang:", selectedLines);
 
                         fetch('http://127.0.0.1:8000/api/formInput', {
@@ -643,7 +644,7 @@
                     const parts = popupPilihTanggal.value.split('-');
                     const day = parts[1];
                     const tanggalRutin = parts[3]+'-'+parts[2]+"-"+parts[0];
-                    const [startRutin, end] = selectedValue.split(' - ');
+                    const [startRutin, end] = selectedValue.split('-');
                     const hari = {
                         'Sun': 'Minggu',
                         'Mon': 'Senin',
@@ -656,7 +657,7 @@
                     const dayIndonesian = hari[day];
                     textfieldTanggalRutin.value = tanggalRutin;
                     textfieldHariRutin.value = dayIndonesian;
-                    textfieldSlotRutin.value = startRutin + ' - ' + end;
+                    textfieldSlotRutin.value = startRutin + '-' + end;
                     document.getElementById("getSlotRutin").value = startRutin;
                     console.log(dayIndonesian);
                 });

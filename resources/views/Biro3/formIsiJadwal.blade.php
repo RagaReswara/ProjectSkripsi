@@ -17,18 +17,21 @@
                         <div class="sm:col-span-4">
                             <!-- <label for="organisasi" class="block text-base font-medium leading-6 text-gray-900">Nama Organisasi</label> --> 
                             <select name="nama_organisasi" id="nama_organisasi" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-10">
-                                <option selected>Silahkan Pilih Organisasi</option>
+                                <option selected>Silahkan Pilih Organisasi / Instansi</option>
                                 <option value="Himpunan Mahasiswa Sistem Informasi (HMSI)">Himpunan Mahasiswa Sistem Informasi (HMSI)</option>
                                 <option value="Badan Eksekutif Mahasiswa Fakultas Teknologi Informasi (BMFTI)">Badan Eksekutif Mahasiswa Fakultas Teknologi Informasi (BMFTI)</option>
                                 <option value="Himpunan Mahasiswa Teknologi Informasi (HMTI)">Himpunan Mahasiswa Teknologi Informasi (HMTI)</option>
-                                <option value="kedokteran">Kedokteran</option>
+                                <option value="Badan Eksekutif Mahasiswa Universitas Kristen Duta Wacana (BMMU)">Badan Eksekutif Mahasiswa Universitas Kristen Duta Wacana (BMMU)</option>
+                                <option value="Badan Eksekutif Mahasiswa Fakultas Kedokteran (BMFTK)">Badan Eksekutif Mahasiswa Fakultas Kedokteran (BMFTK)</option>
                                 <option value="Karyawan">Karyawan</option>
+                                <option value="Lainnya">Lainnya</option>
                             </select>  
 
                             <div class="sm:col-span-1 mt-4">
                                 <!-- <label for="email" class="block text-base font-medium leading-6 text-gray-900">Nomor Telepon / WA</label> -->
                                 <div class="mt-2">
-                                    <input name="no_telp" type="text" autocomplete="noTelp" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon / WA">
+                                    <input id="noTelp" name="no_telp" type="text" autocomplete="noTelp" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon / WA">
+                                    <p id="error-message" class="text-red-500 mt-2 hidden">Nomor telepon tidak boleh lebih dari 13 karakter</p>
                                 </div>
                             </div>
                         </div>
@@ -189,7 +192,7 @@
 
                 <div class="sm:col-span-2">
                 <div class="mt-2">
-                    <input type="hidden" name="status" id="" value="1" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                    <input type="hidden" name="status" id="" value="2" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                 </div>
                 </div>
                 <div class="sm:col-span-2">
@@ -199,12 +202,12 @@
                 </div>
                 <div class="sm:col-span-2">
                     <div class="mt-2">
-                        <input type="hidden" name="" id="getStart" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                        <input type="hidden" id="getStart" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                     </div>
                 </div>
                 <div class="sm:col-span-2">
                     <div class="mt-2">
-                        <input type="hidden" name="" id="getSlotRutin" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
+                        <input type="hidden" id="getSlotRutin" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" readonly>
                     </div>
                 </div>
                 <div class="sm:col-span-2">
@@ -281,8 +284,8 @@
                 console.log(slot)
 
                 const parts = tanggal1.split('-');
-                const day = parts[1];
-                const tanggal = parts[3]+'-'+parts[2]+'-'+parts[0];
+                const day = parts[0];
+                const tanggal = parts[3]+'-'+parts[2]+'-'+parts[1];
 
                 const hari = {
                     'Sun': 'Minggu',
@@ -343,7 +346,8 @@
                 textFieldHari.value = dayIndonesian;
                 document.getElementById("getStart").value = start;
                 document.getElementById("textFieldTanggal").value = tanggal;
-                document.getElementById("textFieldSlot").value = start + ' - ' + end;
+                document.getElementById("textFieldSlot").value = slot;
+                
 
                 if (tanggal1) {
                     tanggal2 = flatpickr('input[name="tanggal2"]', {
@@ -416,12 +420,43 @@
                         }
                     })
                 });
-        
+
+        const basketCheckbox = document.getElementById('kat_kegiatan');
+        const checkboxes = document.querySelectorAll('input[name="line[]"]');
+        const fullLapanganCheckbox = document.getElementById('1lapangan').parentElement;
+
+        basketCheckbox.addEventListener('change', function(){
+            const selectedValue = basketCheckbox.value;
+
+            if(selectedValue == "Basket"){
+                checkboxes.forEach(function(checkbox) {
+                const label = document.querySelector(`label[for="${checkbox.id}"]`);
+                if (checkbox.id !== '1lapangan') {
+                    checkbox.classList.add("hidden");
+                    if (label) {
+                        label.classList.add("hidden");
+                    }
+                }
+            });
+        }
+        else{
+            checkboxes.forEach(function(checkbox) {
+                const label = document.querySelector(`label[for="${checkbox.id}"]`);
+                checkbox.classList.remove("hidden");
+                if (label) {
+                    label.classList.remove("hidden");
+                }
+            });
+        }
+    })
 
         function inputForm(event){
             const getHari = document.getElementById('textFieldHari').value;
             const getStart = document.getElementById('getStart').value;
             const getSlotRutin = document.getElementById('getSlotRutin').value;
+
+            const karyawanInput = document.getElementById('nama_organisasi').value;
+            
             let simpanSlot = '';
 
             const radioButtonRutin = document.querySelectorAll('input[name="bordered-radio"]');
@@ -434,17 +469,13 @@
                     console.log("Nilai yang dipilih:", selectedValue);
                 }
             });
-            const [startRutin, end] = selectedValue.split(' - ');
+            // const [startRutin, end] = selectedValue.split('-');
             const parts = isiTanggalRutin.value.split('-');
             const tanggalRutin = parts[3]+'-'+parts[2]+"-"+parts[0];
-
-            console.log('ini rutin', radioButtonRutin)
 
             event.preventDefault()
                 const form = document.querySelector('form')
                 const formData = new FormData(form)
-
-                console.log(formData)
                 formData.forEach(function(value,key){
                     console.log(key+' : '+value)
                 })
@@ -462,17 +493,22 @@
                         selectedLines += checkbox.id;
                     }
                 }); 
-                if(counter == 6){
-                    formData.append("lapangan", 'Full Lapangan');
-                }
-                else{
-                    formData.append('lapangan', selectedLines);
-                }
-                console.log("Nilai-nilai yang dicentang:", selectedLines);
+                // if(counter == 6){
+                //     formData.append("lapangan", 'Full Lapangan');
+                // }
+                // else{
+                //     formData.append('lapangan', selectedLines);
+                // }
+                // console.log("Nilai-nilai yang dicentang:", selectedLines);
 
-                formData.append("hariRutin", dayIndonesian)
-                formData.append("slotRutin", simpanSlot)
-                formData.append("tanggalRutin", tanggalRutin)
+                formData.append('lapangan', selectedLines);
+                // formData.append("hariRutin", dayIndonesian);
+                // formData.append("slotRutin", simpanSlot);
+                // formData.append("tanggalRutin", tanggalRutin);
+
+                if(karyawanInput == 'Karyawan' || 'Lainnya'){
+                    formData.append('special_status', 2);
+                }
 
                 fetch('http://127.0.0.1:8000/api/formInput', {
                     method:'post', body:formData
@@ -481,19 +517,49 @@
                 .then(data=>{
                     if(data.is_success){
                         console.log('berhasil')
+                        // fetch('http://127.0.0.1:8000/api/updateSlot', {
+                        //     method: 'post', headers:{'Content-Type':'application/json'}, body:JSON.stringify({hari:getHari, jam_mulai:getStart, hariRutin:dayIndonesian, jam_mulaiRutin:startRutin })
+                        // })
                         fetch('http://127.0.0.1:8000/api/updateSlot', {
-                            method: 'post', headers:{'Content-Type':'application/json'}, body:JSON.stringify({hari:getHari, jam_mulai:getStart, hariRutin:dayIndonesian, jam_mulaiRutin:startRutin })
+                            method: 'post', headers:{'Content-Type':'application/json'}, body:JSON.stringify({hari:getHari, jam_mulai:getStart })
                         })
                         .then(response=>response.json())
                         .then(data=>{
                             window.location.href = '/listPermohonan';
                         })
                     }
-                    document.getElementById("getSlotRutin").value = startRutin;
+                    // document.getElementById("getSlotRutin").value = startRutin;
                 })
         }
+
         const formPeminjam = document.querySelector('form')
         formPeminjam.addEventListener('submit',inputForm)
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const noTelpInput = document.getElementById('noTelp');
+            const errorMessage = document.getElementById('error-message');
+
+            noTelpInput.addEventListener('input', function () {
+                if (noTelpInput.value.length > 13) {
+                    errorMessage.classList.remove('hidden');
+                    noTelpInput.classList.add('ring-red-500', 'focus:ring-red-500');
+                } else {
+                    errorMessage.classList.add('hidden');
+                    noTelpInput.classList.remove('ring-red-500', 'focus:ring-red-500');
+                }
+            });
+
+            noTelpInput.addEventListener('blur', function () {
+                if (noTelpInput.value.length > 13) {
+                    noTelpInput.value = noTelpInput.value.slice(0, 13); // Trim the value to 13 characters
+                    errorMessage.classList.remove('hidden');
+                    noTelpInput.classList.add('ring-red-500', 'focus:ring-red-500');
+                } else {
+                    errorMessage.classList.add('hidden');
+                    noTelpInput.classList.remove('ring-red-500', 'focus:ring-red-500');
+                }
+            });
+        });
 
 
 </script>

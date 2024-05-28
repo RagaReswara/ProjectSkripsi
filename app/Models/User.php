@@ -29,6 +29,7 @@ class User extends Authenticatable
         'email',
         'password',
         'namaOrganisasi',
+        'nama_pj',
         'no_telp',
         'fakultas',
         'prodi',

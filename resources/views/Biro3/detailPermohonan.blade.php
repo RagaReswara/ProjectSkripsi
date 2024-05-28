@@ -86,9 +86,9 @@
 
             <div  class="flex flex-1 mt-5 mb-3">
                 <textarea id="catatan" name="catatan" rows="4" class="block p-2.5 w-96 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Berikan Catatan Untuk Peminjam"></textarea>
-                <button id="kirimPesanBtn" type="button" onclick="kirimGmail()" class="ml-2 max-h-[45px] mt-[62px] text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                <!-- <button id="kirimPesanBtn" type="button" onclick="kirimGmail()" class="ml-2 max-h-[45px] mt-[62px] text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                     Kirim Pesan
-                </button>        
+                </button>         -->
             </div> 
             <div class="w-3/12 dark:bg-gray-600 dark:border-gray-500 rounded-xl" id="alertContainer">
                 <div id="progressContainer" class="w-full bg-gray-200 rounded-full dark:bg-gray-700" style="display: none;">
@@ -122,7 +122,7 @@
                 .then(data=>{
                     if(data.is_success){
                         document.getElementById('organisasi').textContent = `: ${data.data.nama_organisasi}`;
-                        document.getElementById('noTelp').innerText = `: ${data.data.no_telp}`;
+                        document.getElementById('noTelp').innerText = `: 0${data.data.no_telp}`;
                         document.getElementById('kategoriKegiatan').innerText = `: ${data.data.kat_kegiatan}`;
                         document.getElementById('nama_pj').innerText = `: ${data.data.nama_pj}`;
                         document.getElementById('lapangan').innerText = `: ${data.data.lapangan}`;
@@ -169,17 +169,35 @@
             }
 
             function setujui(){
+                let simpanCatatan = document.getElementById('catatan').value;
                 fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
                     method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:idForm, status:2})
                 })
                 .then(response => response.json())
                 .then(data => {
-                    window.location.href = "/listPermohonan";
+                    fetch('http://127.0.0.1:8000/api/kirimEmail', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id_form: idForm, catatan: simpanCatatan })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ id: idForm, catatan: simpanCatatan })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                                window.location.href = "/listPermohonan";
+                            })
+                        }) 
                 })
                 console.log('clicked')
             }
 
             function tolak(){
+                let simpanCatatan = document.getElementById('catatan').value;
                 fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
                     method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:idForm, status:0})
                 })
@@ -193,7 +211,23 @@
                     })
                     .then(response => response.json())
                     .then(data => {
-                        window.location.href = '/listPermohonan'
+                        fetch('http://127.0.0.1:8000/api/kirimEmail', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ id_form: idForm, catatan: simpanCatatan })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({ id: idForm, catatan: simpanCatatan })
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                        window.location.href = "/listPermohonan";
+                                    })
+                                })
                     })
                 console.log('clicked')
             }

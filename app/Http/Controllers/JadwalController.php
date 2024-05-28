@@ -29,6 +29,11 @@ class JadwalController extends Controller
         return response()->json(['is_success'=> true,'data' => $jadwal]);
     }
 
+    // public function slotPertanggal(Request $request){
+    //     $jadwal = jadwal::join('forms', 'jadwals.hari', '=' , 'forms.hari') -> where('hari', $request -> hari) -> get();
+    //     return response()->json(['is_success'=> true,'data' => $jadwal]);
+    // }
+
     public function updateSlot(Request $request){
         $updateSlot = jadwal::where('hari', $request -> hari) 
         -> where('jam_mulai', $request -> jam_mulai) -> first();

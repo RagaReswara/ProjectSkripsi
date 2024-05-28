@@ -65,93 +65,102 @@
         const nextSunday = getNextSunday();
 
         document.addEventListener('DOMContentLoaded', function(){
-            let dateStr = '';
-            const tanggal = flatpickr('input[id="tanggal"]',{
-                dateFormat: 'd-D-m-Y',
-                minDate: nextSunday,
-                enableTime: false,
-                onChange: function(selectedDates, newDateStr, instance){
-                    jam.innerHTML = '';
-                    dateStr = newDateStr;
-                    console.log(dateStr)
-
-                    const parts = dateStr.split('-');
-                    const day = parts[1];
-                    const hari = {
-                        'Sun': 'Minggu',
-                        'Mon': 'Senin',
-                        'Tue': 'Selasa',
-                        'Wed': 'Rabu',
-                        'Thu': 'Kamis',
-                        'Fri': 'Jumat',
-                        'Sat': 'Sabtu'
-                    };
-
-                    const dayIndonesian = hari[day];
-                    console.log(dayIndonesian)
-                    fetch('http://127.0.0.1:8000/api/slotPertanggal', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ hari: dayIndonesian })
-                    })
-                        .then(response => response.json())
-                        .then(data => {
-                            data.data.forEach(item => {
-                            const startTime = item.jam_mulai.slice(0, -3);
-                            const endTime = item.jam_selesai.slice(0, -3);
-                            console.log(startTime)
-
-                            let bgColorClass = 'dark:bg-green-800';
-                            let pointerEventsClass = '';
-
-                            if (item.status === 1) {
-                                console.log('if 1') 
-                                bgColorClass = 'dark:bg-red-800';
-                                pointerEventsClass = 'pointer-events-none href="#" onclick="return false;"';
-
-                                fetch('http://127.0.0.1:8000/api/cekSlot', {
-                                    method: 'POST',
-                                    headers: { 'Content-Type': 'application/json' },
-                                    body: JSON.stringify({ hari: dayIndonesian, jam_mulai: startTime, jam_selesai: endTime })
-                                })
-                                .then(response => response.json())
-                                .then(data => {
-                                    console.log(data)
-                                    const response = data.data;
-                                    if(response !== null){
-                                        return response.lapangan; 
-                                    }
-                                })
-                                if(response.lapangan !== 'Full Lapangan'){
-                                    console.log('if 2')
-                                    console.log(response.lapangan)
-                                    bgColorClass = 'dark:bg-yellow-500';
-                                }             
-                            }
+                let dateStr = '';
+                const tanggal = flatpickr('input[id="tanggal"]', {
+                        dateFormat: 'd-D-m-Y',
+                        minDate: nextSunday,
+                        enableTime: false,
+                        onChange: async function(selectedDates, newDateStr, instance) {
+                            jam.innerHTML = '';
+                            dateStr = newDateStr;
+                            console.log(dateStr)
                             
-                            // else if (item.lapangan !== 'Full Lapangan') {
-                            //     bgColorClass = 'dark:bg-yellow-00';
-                            // }
+                            const parts = newDateStr.split('-');
+                            const day = parts[1];
+                            const hari = {
+                                'Sun': 'Minggu',
+                                'Mon': 'Senin',
+                                'Tue': 'Selasa',
+                                'Wed': 'Rabu',
+                                'Thu': 'Kamis',
+                                'Fri': 'Jumat',
+                                'Sat': 'Sabtu'
+                        };
+                        const dayIndonesian = hari[day];
+                        console.log(dayIndonesian);
 
-                            jam.innerHTML +=
-                                `
-                                <div class="w-1/7">
-                                    <div class="flex items-center h-24 rounded-xl bg-gray-50 ${bgColorClass} pl-4 ${pointerEventsClass}">
-                                        <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4"> 
-                                            <a href="http://127.0.0.1:8000/form?tanggal=${dateStr}&slot=${startTime} - ${endTime}" id="pesanLink" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white group">
-                                                <span class="flex whitespace-nowrap"> ${startTime} - ${endTime} </span>
-                                            </a>
-                                        </p>
+                        try {
+                            const response = await fetch('http://127.0.0.1:8000/api/slotPertanggal', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ hari: dayIndonesian })
+                            });
+
+                            const data = await response.json();
+                            console.log(data);
+
+                            for (const item of data.data) {
+                                let jamMulai = item.jam_mulai.slice(0, -3);
+                                let jamSelesai = item.jam_selesai.slice(0, -3);
+
+                                let bgColorClass = 'dark:bg-green-800'; 
+                                let pointerEventsClass = '';
+                                const lapangan = await checkSlot(dayIndonesian, jamMulai, jamSelesai);
+
+                                if (item.status === 1) {
+                                    console.log("lapangan", lapangan)
+                                    bgColorClass = 'dark:bg-red-800';
+                                    pointerEventsClass = 'pointer-events-none href="#" onclick="return false;"';
+
+                                    if(lapangan !== 5 && lapangan !== null){
+                                        bgColorClass = 'dark:bg-yellow-500'
+                                        pointerEventsClass = '';
+                                    }
+                                } 
+                                else if (item.status === 4) {
+                                    bgColorClass = 'dark:bg-yellow-400';
+                                }
+
+                                jam.innerHTML += `
+                                    <div class="w-1/7">
+                                        <div class="flex items-center h-24 rounded-xl bg-gray-50 ${bgColorClass} pl-4 ${pointerEventsClass}">
+                                            <p class="text-2xl text-gray-400 dark:text-gray-500 mr-4"> 
+                                                <a href="http://127.0.0.1:8000/form?tanggal=${dateStr}&slot=${jamMulai}-${jamSelesai}" id="pesanLink" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white group">
+                                                    <span class="flex whitespace-nowrap"> ${jamMulai} - ${jamSelesai} </span>
+                                                </a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
                                 `;
-                            console.log(item);
-                        });
-                    })
-                    .catch(error => console.error('Error fetching data:', error));
+                            }
+                        } catch (error) {
+                            console.error('Error:', error);
+                        }
                     }
                 });
             });
+
+            async function checkSlot(dayIndonesian, startTime, endTime) {
+                    try {
+                        const response = await fetch('http://127.0.0.1:8000/api/cekSlot', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ hari: dayIndonesian, jam_mulai: startTime, jam_selesai: endTime })
+                        });
+
+                        const data = await response.json();
+                        const responseData = data.count;
+
+                        if (responseData !== null) {
+                            return responseData;
+                        }
+
+                        return null;
+                    } catch (error) {
+                        console.error('Error:', error);
+                        return null;
+                    }
+                }
 
         // function slot() {
         //   fetch('http://127.0.0.1:8000/api/jadwal')

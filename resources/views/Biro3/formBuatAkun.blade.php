@@ -36,19 +36,34 @@
 
             <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div class="sm:col-span-3">
-                    <label for="first-name" class="block text-xl font-medium leading-6 text-gray-900">Nomor Telfon</label>
+                    <label for="last-name" class="block text-xl font-medium leading-6 text-gray-900">Nama Penanggung Jawab</label>
                     <div class="mt-2">
-                        <input type="text" name="no_telp" id="no_telp" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6" placeholder="">
+                        <input type="text" name="nama_pj" id="nama_pj" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Penanggung Jawab">
                     </div>
                 </div>
-                    <div class="sm:col-span-3">
+                <div class="sm:col-span-3">
+                    <label for="first-name" class="block text-xl font-medium leading-6 text-gray-900">Nomor Telfon</label>
+                    <div class="mt-2">
+                        <input type="text" name="no_telp" id="no_telp" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6" placeholder="Nomor Telfon">
+                        <p id="error-message" class="text-red-500 mt-2 hidden">Nomor telepon tidak boleh lebih dari 13 karakter</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                <div class="sm:col-span-3">
                     <label for="last-name" class="block text-xl font-medium leading-6 text-gray-900">Fakultas</label>
                     <div class="mt-2">
                         <input type="text" name="fakultas" id="fakultas" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Kosongkan jika diperuntukan untuk instansi">
                     </div>
                 </div>
+                <div class="sm:col-span-3">
+                    <label for="last-name" class="block text-xl font-medium leading-6 text-gray-900">Program Studi</label>
+                    <div class="mt-2">
+                        <input type="text" name="prodi" id="prodi" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Kosongkan jika untuk organisasi fakultas & instansi">
+                    </div>
+                </div>
             </div>
-
             <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div class="sm:col-span-3">
                     <label for="first-name" class="block text-xl font-medium leading-6 text-gray-900">Nama Organisasi</label>
@@ -56,26 +71,22 @@
                         <input type="text" name="namaOrganisasi" id="namaOrganisasi" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6" placeholder="Isi nama instansi jika bukan organisasi">
                     </div>
                 </div>
-                    <div class="sm:col-span-3">
-                    <label for="last-name" class="block text-xl font-medium leading-6 text-gray-900">Program Studi</label>
-                    <div class="mt-2">
-                        <input type="text" name="prodi" id="prodi" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Kosongkan jika untuk organisasi fakultas & instansi">
-                    </div>
+                <div class="sm:col-span-3">
+                    <label for="last-name" class="block text-xl font-medium leading-6 text-gray-900">Kategori Akun</label>
+                    <select name="role" id="role" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-2">
+                            <option disabled selected hidden></option>
+                            <option value="Admin">Admin</option>
+                            <option value="Fakultas">Fakultas</option>
+                            <option value="Prodi">Program Studi</option>
+                            <option value="Karyawan">Karyawan</option>
+                            <option value="Biro">Biro</option>
+                            <option value="BNI">BNI</option>
+                            <option value="UKM">UKM</option>
+                            <option value="Universitas">Universitas</option>
+                            <option value="Lainnya">Lainnya</option>
+                    </select>
                 </div>
             </div>
-            <label for="last-name" class="block text-xl font-medium leading-6 text-gray-900 mt-5">Akun Untuk</label>
-            <select name="role" id="role" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-80 p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-2">
-                    <option disabled selected hidden></option>
-                    <option value="Admin">Admin</option>
-                    <option value="Fakultas">Fakultas</option>
-                    <option value="Prodi">Program Studi</option>
-                    <option value="Karyawan">Karyawan</option>
-                    <option value="Biro">Biro</option>
-                    <option value="BNI">BNI</option>
-                    <option value="UKM">UKM</option>
-                    <option value="Universitas">Universitas</option>
-                    <option value="Lainnya">Lainnya</option>
-            </select>
 
             <div class="mt-6 flex items-center justify-end gap-x-6">
                     <div class="inline-flex mt-2 xs:mt-0">
@@ -118,11 +129,38 @@
             .then(data=>{
                 if(data.is_success){
                     console.log('berhasil')
+                    window.location.href = '/listAkun'
                 }
             })
         }
         const registerAkun = document.querySelector('form')
         registerAkun.addEventListener('submit',inputAkun)
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const noTelpInput = document.getElementById('no_telp');
+            const errorMessage = document.getElementById('error-message');
+
+            noTelpInput.addEventListener('input', function () {
+                if (noTelpInput.value.length > 13) {
+                    errorMessage.classList.remove('hidden');
+                    noTelpInput.classList.add('ring-red-500', 'focus:ring-red-500');
+                } else {
+                    errorMessage.classList.add('hidden');
+                    noTelpInput.classList.remove('ring-red-500', 'focus:ring-red-500');
+                }
+            });
+
+            noTelpInput.addEventListener('blur', function () {
+                if (noTelpInput.value.length > 13) {
+                    noTelpInput.value = noTelpInput.value.slice(0, 13); // Trim the value to 13 characters
+                    errorMessage.classList.remove('hidden');
+                    noTelpInput.classList.add('ring-red-500', 'focus:ring-red-500');
+                } else {
+                    errorMessage.classList.add('hidden');
+                    noTelpInput.classList.remove('ring-red-500', 'focus:ring-red-500');
+                }
+            });
+        });
 
 </script>
 
