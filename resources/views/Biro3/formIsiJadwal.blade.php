@@ -15,8 +15,9 @@
 
                     <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <div class="sm:col-span-4">
-                            <!-- <label for="organisasi" class="block text-base font-medium leading-6 text-gray-900">Nama Organisasi</label> --> 
-                            <select name="nama_organisasi" id="nama_organisasi" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-10">
+                            <!-- <label for="organisasi" class="block text-base font-medium leading-6 text-gray-900">Nama Organisasi</label> -->
+                            <legend class="ml-2 mt-10 text-base font-semibold leading-6 text-gray-900">Nama Penganggung jawab</legend>
+                            <select name="nama_organisasi" id="nama_organisasi" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Silahkan Pilih Organisasi / Instansi</option>
                                 <option value="Himpunan Mahasiswa Sistem Informasi (HMSI)">Himpunan Mahasiswa Sistem Informasi (HMSI)</option>
                                 <option value="Badan Eksekutif Mahasiswa Fakultas Teknologi Informasi (BMFTI)">Badan Eksekutif Mahasiswa Fakultas Teknologi Informasi (BMFTI)</option>
@@ -28,11 +29,16 @@
                             </select>  
 
                             <div class="sm:col-span-1 mt-4">
-                                <!-- <label for="email" class="block text-base font-medium leading-6 text-gray-900">Nomor Telepon / WA</label> -->
+                                <legend class="ml-2 text-base font-semibold leading-6 text-gray-900">Nama Penganggung jawab</legend>
+                                <div class="mt-2">
+                                    <input type="text" name="nama_pj" id="nama_pj" autocomplete="family-name" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Penanggung Jawab">
+                                </div>
+                                <legend class="ml-2 mt-3 text-base font-semibold leading-6 text-gray-900">No Telfon</legend>
                                 <div class="mt-2">
                                     <input id="noTelp" name="no_telp" type="text" autocomplete="noTelp" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon / WA">
                                     <p id="error-message" class="text-red-500 mt-2 hidden">Nomor telepon tidak boleh lebih dari 13 karakter</p>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -42,7 +48,6 @@
                         <fieldset>
                         <!-- <legend class="text-base font-semibold leading-6 text-gray-900">Kategori Kegiatan</legend> -->
                         <div class="space-y-2">
-                            
                             <select name="kat_kegiatan" id="kat_kegiatan" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-10">
                                 <option disabled selected hidden>Silahkan Pilih Kategori Kegiatan</option>
                                 <option value="Basket">Basket</option>
@@ -50,6 +55,7 @@
                                 <option value="Taekwondo">Taekwondo</option>
                                 <option value="Tenis Meja">Tenis Meja</option>
                                 <option value="Event">Event</option>
+                                <option value="Rutin">Rutin</option>
                                 <option value="Lainnya">Lainnya</option>
                             </select>
                             
@@ -123,16 +129,15 @@
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <div class="sm:col-span-3">
                         <!-- <label for="first-name" class="block text-base font-medium leading-6 text-gray-900">Nama Kegiatan</label> -->
+                        <legend class="ml-2 text-base font-semibold leading-6 text-gray-900">Nama Kegiatan</legend>
                         <div class="mt-2">
-                            <input type="text" name="nama_kegiatan" id="nama_kegiatan" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Kegiatan">
+                            <input type="text" name="nama_kegiatan" id="nama_kegiatan" autocomplete="given-name" class="block w-8/12 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Kegiatan">
                         </div>
                         </div>
 
                         <div class="sm:col-span-3">
                         <!-- <label for="last-name" class="block text-base font-medium leading-6 text-gray-900">Nama Penanggung Jawab</label> -->
-                        <div class="mt-2">
-                            <input type="text" name="nama_pj" id="nama_pj" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Penanggung Jawab">
-                        </div>
+                        
                         </div>
 
                         <div class="sm:col-span-2 sm:col-start-1">
@@ -428,7 +433,7 @@
         basketCheckbox.addEventListener('change', function(){
             const selectedValue = basketCheckbox.value;
 
-            if(selectedValue == "Basket"){
+            if(selectedValue == "Basket" || selectedValue == "Rutin" || selectedValue == "Event"){
                 checkboxes.forEach(function(checkbox) {
                 const label = document.querySelector(`label[for="${checkbox.id}"]`);
                 if (checkbox.id !== '1lapangan') {

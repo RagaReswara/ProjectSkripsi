@@ -26,13 +26,13 @@
                                 Nama Organisasi
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Penanggungjawab
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 No Telp/WA
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Kategori
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Penanggung jawab
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Tanggal
@@ -73,10 +73,10 @@
                                 Nama Organisasi
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                No Telp/WA
+                                Penanggung jawab
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Penanggung jawab
+                                No Telp/WA
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Kategori
@@ -124,13 +124,13 @@
                                 Nama Organisasi
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Penanggung jawab
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 No Telp/WA
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Kategori
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Penanggung jawab
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Tanggaal
@@ -191,13 +191,13 @@
                                         ${item.nama_organisasi}
                                     </th>
                                     <td class="px-6 py-4">
+                                        ${item.nama_pj}
+                                    </td>
+                                    <td class="px-6 py-4">
                                         0${item.no_telp}
                                     </td>
                                     <td class="px-6 py-4">
                                         ${item.kat_kegiatan}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        ${item.nama_pj}
                                     </td>
                                     <td class="px-6 py-4">
                                         ${item.tanggal}
@@ -211,7 +211,7 @@
                                     <td class="flex px-6 py-4 items-center justify-center">
                                         ${tandaPersetujuan(item.status)}
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="px-2 py-4">
                                         ${item.special_status == 0 ? 'Belum Dimulai' : item.special_status == 1 ? 'Sedang Dimulai' : 'Selesai'}
                                     </td>
                                     <td class="px-6 py-4 text-right">
@@ -248,10 +248,10 @@
                                             ${item.nama_organisasi}
                                         </th>
                                         <td class="px-6 py-4">
-                                            0${item.no_telp}
+                                            ${item.nama_pj}
                                         </td>
                                         <td class="px-6 py-4">
-                                            ${item.nama_pj}
+                                            0${item.no_telp}
                                         </td>
                                         <td class="px-6 py-4">
                                             ${item.kat_kegiatan}
@@ -308,10 +308,10 @@
                                             ${item.nama_organisasi}
                                         </th>
                                         <td class="px-6 py-4">
-                                            0${item.no_telp}
+                                            ${item.nama_pj}
                                         </td>
                                         <td class="px-6 py-4">
-                                            ${item.nama_pj}
+                                            0${item.no_telp}
                                         </td>
                                         <td class="px-6 py-4">
                                             ${item.kat_kegiatan}

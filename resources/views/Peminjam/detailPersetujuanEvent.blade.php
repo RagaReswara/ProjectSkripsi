@@ -209,7 +209,7 @@
                 let berkasTor = '';
                 berkasTor = tor.value;
 
-                console.log(formData)
+                // console.log(formData)
                 formData.forEach(function(value,key){
                     console.log(key+' : '+value)
                 })
@@ -217,7 +217,7 @@
                 formData.append('surat_peminjaman', berkasSurat);
                 formData.append('tor', berkasTor);
 
-                console.log('ini surat surat', berkasSurat, berkasTor)
+                // console.log('ini surat surat', berkasSurat, berkasTor)
 
                 fetch('http://127.0.0.1:8000/api/mulaiPinjam', {
                     method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id:idForm, surat_peminjaman:berkasSurat, tor:berkasTor})

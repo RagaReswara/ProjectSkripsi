@@ -14,7 +14,7 @@
 
                 <!-- TABEL UNTUK PEMINJAMAN HARIAN -->
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 gap-10 mt">
-                    <thead class="text-xs text-gray-900 dark:text-gray-300">
+                    <thead class="text-base text-gray-900 dark:text-gray-300">
                         <tr class="bg-white dark:bg-gray-700">
                             <th scope="col" class="px-6 py-3">
                                 Organisasi

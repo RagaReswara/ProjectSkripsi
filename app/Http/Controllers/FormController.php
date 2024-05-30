@@ -66,9 +66,9 @@ class FormController extends Controller
     public function cekSlot(Request $request){
         $slot = $request->jam_mulai . '-' . $request->jam_selesai;
         $getSlot = Form::where('hari', $request->hari)
-                       ->where('slot', $request->jam_mulai . '-' .$request -> jam_selesai)
-                       ->pluck('lapangan')
-                       ->toArray();
+                        ->where('slot', $request->jam_mulai . '-' .$request -> jam_selesai)
+                        ->pluck('lapangan')
+                        ->toArray();
     
         $allLapangan = implode(', ', $getSlot);
         $lapanganArray = explode(', ', $allLapangan); // Convert the string back to an array
@@ -171,8 +171,9 @@ class FormController extends Controller
         $forms = Form::whereBetween('tanggal', [$tanggalAwal, $tanggalAkhir])-> where('status', '=', '3') -> where('special_status', '=', '2') -> get();
         return response()->json(['is_success' => true, 'data' => $forms]);
     }
-    
 
+    public function fileDownload($id){
 
+    }
 
 }

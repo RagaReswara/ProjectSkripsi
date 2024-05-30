@@ -33,6 +33,7 @@ Route::get('/detailPersetujuan/{id_form}', function () { return view('peminjam/d
 Route::get('/detailPersetujuanEvent/{id_form}', function () { return view('peminjam/detailPersetujuanEvent'); });
 Route::get('/cetak', function () { return view('Peminjam/cetak'); });
 Route::get('/historyPeminjam', function () { return view('Peminjam/history'); });
+Route::get('/profile', function () { return view('Peminjam/userProfile'); });
 
 // BIRO 3
 Route::group(['middleware' => 'Admin'], function() {
@@ -47,6 +48,7 @@ Route::group(['middleware' => 'Admin'], function() {
     Route::get('/isiJadwal', function () { return view('Biro3/formIsiJadwal'); });
     Route::get('/isiEvent', function () { return view('Biro3/formIsiEvent'); });
     Route::get('/rekapIsiJadwal', function () { return view('Biro3/rekapIsiJadwal'); });
+    Route::get('/downloadFile{$id}', function () { return view('Biro3/rekapIsiJadwal'); });
 });
 
 

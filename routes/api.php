@@ -29,6 +29,7 @@ Route::post('/updateSlot',[JadwalController::class,'updateSlot']);
 
 Route::post('/registerAkun',[UserController::class,'registerAkun']);
 Route::get('/user',[UserController::class,'getUser']);
+Route::post('/updateUser',[UserController::class,'updateUser']);
 
 Route::get('/form',[FormController::class,'getForm']);
 Route::post('/getIsiTabel',[FormController::class,'getIsiTabel']);

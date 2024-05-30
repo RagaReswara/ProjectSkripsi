@@ -35,7 +35,7 @@
                 <!-- INDIKATOR -->
                 <!-- <p class="font-bold text-sm text-white mr-5"> ( Indikator )</p> -->
                 <span class="flex items-center text-base font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Kosong</span>
-                <span class="flex items-center text-base font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-yellow-300 rounded-full me-1.5 flex-shrink-0"></span>Masih Ada</span>
+                <span class="flex items-center text-base font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-yellow-300 rounded-full me-1.5 flex-shrink-0"></span>Kosong Sebagian</span>
                 <span class="flex items-center text-base font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-red-500 rounded-full me-1.5 flex-shrink-0"></span>Penuh</span>
                 
                 

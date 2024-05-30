@@ -7,7 +7,7 @@
         <div class="p-4 border-2 border-gray-200 border-solid rounded-lg dark:border-gray-700">
             <div class="flex-1 gap-4 mb-4">
 
-            <h2 class="font-bold text-3xl mb-3">List Peminjaman Yang Sedang Berlangsung</h2>
+            <h2 class="font-bold text-3xl text-gray-200 mb-5 bg-gray-800 rounded-lg p-1 flex justify-between items-center w-full">List Peminjaman Yang Sedang Berlangsung</h2>
             
             <!-- TABEL HARIAN -->
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -18,10 +18,10 @@
                                 Instansi/Organisasi
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Nama Penanggung Jawab
+                                Penanggungjawab
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Nomor Telfon / wa
+                                Nomor Telfon
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Kategori Kegiatan
@@ -74,8 +74,8 @@
                     if(item.status === 2 || item.status === 4){
                     const row = 
                     `
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <tr class="bg-white border-b text-sm dark:bg-gray-200 dark:border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-300 dark:text-black">
+                            <th scope="row" class="px-6 py-4 font-bold text-gray-900 whitespace-nowrap dark:text-black">
                                 ${item.nama_organisasi}
                             </th>
                             <td class="px-6 py-4">

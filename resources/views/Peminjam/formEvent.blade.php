@@ -7,73 +7,75 @@
 
             <form>
                 <div class="space-y-12">
-                    <div class="border-b border-gray-900/10 pb-12">
-                    <h2 class="text-2xl font-semibold leading-7 text-gray-900">Formulir Peminjaman Gor Khusus Kegiatan Event</h2>
-                    <p class="mt-1 text-base leading-6 text-gray-600">Silahkan untuk mengisi form dibawah ini.</p>
+                    <div class="border-b border-gray-900/10 pb-2">
+                        <h2 class="text-2xl font-semibold leading-7 text-gray-900">Formulir Peminjaman Gor Khusus Kegiatan Event</h2>
+                        <p class="mt-1 text-base leading-6 text-gray-600">Silahkan untuk mengisi form dibawah ini.</p>
 
-                    <div class="border-b-8 border-gray-950/40 pb-2"></div>
+                        <div class="border-b-8 border-gray-950/40 pb-2"></div>
 
-                    <div class="mt-2 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                        <div class="sm:col-span-2">
-                            <!-- <label for="organisasi" class="block text-base font-medium leading-6 text-gray-900">Nama Organisasi</label> -->
-                            <!-- <select name="nama_organisasi" id="nama_organisasi" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-2">
-                                <option selected>Silahkan Pilih Organisasi</option>
-                                <option value="Himpunan Mahasiswa Sistem Informasi (HMSI)">Himpunan Mahasiswa Sistem Informasi (HMSI)</option>
-                                <option value="Badan Eksekutif Mahasiswa Fakultas Teknologi Informasi (BMFTI)">Badan Eksekutif Mahasiswa Fakultas Teknologi Informasi (BMFTI)</option>
-                                <option value="Himpunan Mahasiswa Teknologi Informasi (HMTI)">Himpunan Mahasiswa Teknologi Informasi (HMTI)</option>
-                                <option value="kedokteran">Kedokteran</option>
-                            </select> -->
-                            <legend class="ml-2 text-base font-semibold leading-6 text-gray-900 mt-5">Nama Organisasi</legend>
+                        <div class="mt-2 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <div class="sm:col-span-2">
-                                <input name="nama_organisasi" id="nama_organisasi" readonly type="text" value="" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Organisasi">
-                            </div> 
-                            <div class="mt-2">
-                                <input id="noTelp" name="no_telp" type="text" autocomplete="email" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon / WA">
+                                <!-- <label for="organisasi" class="block text-base font-medium leading-6 text-gray-900">Nama Organisasi</label> -->
+                                <!-- <select name="nama_organisasi" id="nama_organisasi" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-2">
+                                    <option selected>Silahkan Pilih Organisasi</option>
+                                    <option value="Himpunan Mahasiswa Sistem Informasi (HMSI)">Himpunan Mahasiswa Sistem Informasi (HMSI)</option>
+                                    <option value="Badan Eksekutif Mahasiswa Fakultas Teknologi Informasi (BMFTI)">Badan Eksekutif Mahasiswa Fakultas Teknologi Informasi (BMFTI)</option>
+                                    <option value="Himpunan Mahasiswa Teknologi Informasi (HMTI)">Himpunan Mahasiswa Teknologi Informasi (HMTI)</option>
+                                    <option value="kedokteran">Kedokteran</option>
+                                </select> -->
+                                <legend class="ml-2 text-base font-semibold leading-6 text-gray-900 mt-5">Nama Organisasi</legend>
+                                <div class="sm:col-span-2">
+                                    <input name="nama_organisasi" id="nama_organisasi" readonly type="text" value="" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Organisasi">
+                                </div>
+                                <legend class="ml-2 text-base font-semibold leading-6 text-gray-900 mt-3">Nama Penanggung Jawab</legend>
+                                <div class="mt-0">
+                                    <input type="text" name="nama_pj" id="nama_pj" autocomplete="family-name" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Penanggung Jawab">
+                                </div>
                             </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 mt-5">
+                            <div class="sm:col-span-3">
+                                <legend class="ml-2 text-base font-semibold leading-6 text-gray-900">Nomor Telfon</legend>
+                                <div class="mt-0">
+                                    <input id="noTelp" name="no_telp" type="text" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon / WA">
+                                </div>
+                            </div>
+                            <div class="sm:col-span-3">
+                                <legend class="ml-2 text-base font-semibold leading-6 text-gray-900">Nama Kegiatan</legend>
+                                <div class="mt-0">
+                                    <input type="text" name="nama_kegiatan" id="nama_kegiatan" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Kegiatan">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-2 sm:col-start-1">
+                            <label for="city" class="block text-sm font-medium leading-6 text-gray-900">Hari</label>
+                            <div class="mt-2">
+                                <input type="text" name="hari" id="textfieldhariEvent" readonly autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            </div>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                            <label for="region" class="block text-base font-medium leading-6 text-gray-900">Tanggal</label>
+                            <div class="mt-2">
+                                <input type="text" name="tanggal" id="textfieldTanggalEvent" readonly autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            </div>
+                            </div>
+
+                            <div class="sm:col-span-2">
+                            <label for="postal-code" class="block text-base font-medium leading-6 text-gray-900">Slot / Jam</label>
+                            <div class="mt-2">
+                                <input type="text" name="slot" id="textfieldSlotEvent" readonly autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- <div class="border-b border-gray-700 pb-12">
+
                         
-                    </div>
-                    </div>
-
-                    <div class="border-b border-gray-700 pb-12">
-
-                    <div class="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                        <div class="sm:col-span-3">
-                        <!-- <label for="first-name" class="block text-base font-medium leading-6 text-gray-900">Nama Kegiatan</label> -->
-                        <div class="mt-0">
-                            <input type="text" name="nama_kegiatan" id="nama_kegiatan" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Kegiatan">
-                        </div>
-                        </div>
-
-                        <div class="sm:col-span-3">
-                        <!-- <label for="last-name" class="block text-base font-medium leading-6 text-gray-900">Nama Penanggung Jawab</label> -->
-                        <div class="mt-0">
-                            <input type="text" name="nama_pj" id="nama_pj" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Penanggung Jawab">
-                        </div>
-                        </div>
-
-                        <div class="sm:col-span-2 sm:col-start-1">
-                        <label for="city" class="block text-sm font-medium leading-6 text-gray-900">Hari</label>
-                        <div class="mt-2">
-                            <input type="text" name="hari" id="textfieldhariEvent" readonly autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                        </div>
-                        </div>
-
-                        <div class="sm:col-span-2">
-                        <label for="region" class="block text-base font-medium leading-6 text-gray-900">Tanggal</label>
-                        <div class="mt-2">
-                            <input type="text" name="tanggal" id="textfieldTanggalEvent" readonly autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                        </div>
-                        </div>
-
-                        <div class="sm:col-span-2">
-                        <label for="postal-code" class="block text-base font-medium leading-6 text-gray-900">Slot / Jam</label>
-                        <div class="mt-2">
-                            <input type="text" name="slot" id="textfieldSlotEvent" readonly autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-                        </div>
-                        </div>
-
-                    </div>
-                    </div>
+                    </div> -->
 
                     <blockquote class="p-4 my-4 border-s-4 border-gray-300 bg-gray-50 dark:border-gray-800 dark:bg-gray-500">
                         <p class="text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">Silahkan download dan isi Surat Peminjaman kemudian di upload beserta ToR mengenai acara yang akan diselenggarakan</p>
@@ -249,6 +251,8 @@
 
                 window.userOrganizationName = "{{ Auth::user()-> namaOrganisasi }}";
                 window.userEmail = "{{ Auth::user()-> email }}";
+                window.userPj = "{{ Auth::user()-> nama_pj }}";
+                window.userNoTelp = "{{ Auth::user()-> no_telp }}";
                 document.addEventListener("DOMContentLoaded", function() {
 
                     const userOrganizationName = window.userOrganizationName;
@@ -256,11 +260,15 @@
                     console.log("ini adalah " + userOrganizationName)
                     const inputField = document.getElementById('nama_organisasi');
                     const inputEmailField = document.getElementById('getEmailyglogin');
+                    const inputPj = document.getElementById('nama_pj');
+                    const inputNoTelp = document.getElementById('noTelp');
 
                     if (inputField && userOrganizationName) {
                         inputField.value = userOrganizationName;
                     }
                     inputEmailField.value = userEmail;
+                    inputPj.value = userPj;
+                    inputNoTelp.value = '0'+userNoTelp;
                 });
 
                 window.user_id = "{{ Auth::user()-> id_user }}";

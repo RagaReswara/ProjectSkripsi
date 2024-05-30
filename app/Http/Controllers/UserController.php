@@ -48,4 +48,29 @@ class UserController extends Controller
         return response()->json(['is_success'=> true,'data' => $form]);
     }
 
+    public function updateUser(Request $request) 
+    {
+        $getUser = User::find($request -> id_user);
+        $updateUser = [
+            'email',
+            'password',
+            'namaOrganisasi',
+            'no_telp',
+            'nama_pj',
+            'fakultas',
+            'prodi',
+            'role',
+            'plain_pw'
+        ];
+        
+        foreach($updateUser as $update){
+            if($request -> has($update)){
+                $getUser -> $update = $request -> input($update);
+            }
+        }
+        $getUser -> save();
+        return response()->json(['is_success'=> true,'data' => $getUser]);
+        
+    }
+
 }

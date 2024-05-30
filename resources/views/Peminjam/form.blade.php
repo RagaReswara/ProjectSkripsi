@@ -28,11 +28,17 @@
                             <legend class="ml-2 text-base font-semibold leading-6 text-gray-900 mt-5">Nama Organisasi</legend>
                             <div class="sm:col-span-2">
                                 <input name="nama_organisasi" id="nama_organisasi" readonly type="text" value="" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Organisasi">
-                            </div>    
+                            </div>
+                            
+                            <legend class="ml-2 text-base font-semibold leading-6 text-gray-900 mt-5">Nama Penanggung Jawab</legend>
+                            <div class="sm:col-span-2 mt-2">
+                                <input type="text" name="nama_pj" id="nama_pj" readonly autocomplete="family-name" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Penanggung Jawab">
+                            </div>
                     
                             <legend class="ml-2 text-base font-semibold leading-6 text-gray-900 mt-5">Nomor Telfon</legend>
                             <div class="sm:col-span-2">
-                                <input name="no_telp" type="text" autocomplete="noTelp" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon/WA Penanggung Jawab">
+                                <input name="no_telp" id="no_telp" type="text" readonly autocomplete="noTelp" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon/WA Penanggung Jawab">
+                                <p id="error-message" class="text-red-500 mt-2 hidden">Nomor telepon tidak boleh lebih dari 13 karakter</p>
                             </div>
                             
                         
@@ -42,22 +48,26 @@
                     <!-- CHECKBOX KATEGORI KEGIATAN-->
                     <div class="space-y-10">
                         <fieldset>
-                        <!-- <legend class="text-base font-semibold leading-6 text-gray-900">Kategori Kegiatan</legend> -->
+                        
                         <div class="space-y-2">
+
+                        <legend class="ml-2 mt-5 text-base font-semibold leading-6 text-gray-900">Kategori Kegiatan</legend>
                                     <select name="kat_kegiatan" id="kat_kegiatan" class="bg-gray-500 border border-gray-50 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 sm:max-w-md shadow-sm sm:leading-6 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-10">
                                         <option disabled selected hidden>Silahkan Pilih Kategori Kegiatan</option>
                                         <option value="Basket">Basket</option>
                                         <option value="Bulu Tangkis">Bulu Tangkis</option>
                                         <option value="Taekwondo">Taekwondo</option>
                                         <option value="Tenis Meja">Tenis Meja</option>
+                                        <option value="Event">Event</option>
+                                        <option value="Rutin">Rutin</option>
                                         <option value="Lainnya">Lainnya</option>
                                     </select>
                             
 
                             <!-- <h2 class="text-base font-semibold leading-7 text-gray-900">Perhatian</h2> -->
-                            <p class="text-gray-600">Khusus untuk kegiatan event silahkan untuk mengisikan form
+                            <!-- <p class="text-gray-600">Khusus untuk kegiatan event silahkan untuk mengisikan form
                                 <a id="tanggalEvent" href="" class="font-medium text-blue-600 underline dark:text-blue-500 hover:no-underline">disini</a>
-                            </p>
+                            </p> -->
                         </fieldset>
                     </div>
                     <!-- CHECKBOX KATEGORI KEGIATAN -->
@@ -159,18 +169,19 @@
                     <div class="border-b border-gray-900/10 pb-12">
 
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                        <div class="sm:col-span-3">
+                        <div class="sm:col-span-2">
                         <!-- <label for="first-name" class="block text-base font-medium leading-6 text-gray-900">Nama Kegiatan</label> -->
-                        <div class="mt-2">
+                        <legend class="ml-2 text-base font-semibold leading-6 text-gray-900 mt-5">Nama Kegiatan</legend>
+                        <div class="sm:col-span-2 mt-2">
                             <input type="text" name="nama_kegiatan" id="nama_kegiatan" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Kegiatan">
                         </div>
                         </div>
 
                         <div class="sm:col-span-3">
                         <!-- <label for="last-name" class="block text-base font-medium leading-6 text-gray-900">Nama Penanggung Jawab</label> -->
-                        <div class="mt-2">
+                        <!-- <div class="mt-2">
                             <input type="text" name="nama_pj" id="nama_pj" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Penanggung Jawab">
-                        </div>
+                        </div> -->
                         </div>
 
                         <div class="sm:col-span-2 sm:col-start-1">
@@ -336,10 +347,48 @@
                     }
                 });
 
+                document.addEventListener('DOMContentLoaded', function () {
+                    const noTelpInput = document.getElementById('noTelp');
+                    const errorMessage = document.getElementById('error-message');
+
+                    noTelpInput.addEventListener('input', function () {
+                        if (noTelpInput.value.length > 13) {
+                            errorMessage.classList.remove('hidden');
+                            noTelpInput.classList.add('ring-red-500', 'focus:ring-red-500');
+                        } else {
+                            errorMessage.classList.add('hidden');
+                            noTelpInput.classList.remove('ring-red-500', 'focus:ring-red-500');
+                        }
+                    });
+
+                    noTelpInput.addEventListener('blur', function () {
+                        if (noTelpInput.value.length > 13) {
+                            noTelpInput.value = noTelpInput.value.slice(0, 13); // Trim the value to 13 characters
+                            errorMessage.classList.remove('hidden');
+                            noTelpInput.classList.add('ring-red-500', 'focus:ring-red-500');
+                        } else {
+                            errorMessage.classList.add('hidden');
+                            noTelpInput.classList.remove('ring-red-500', 'focus:ring-red-500');
+                        }
+                    });
+                });
+
+                const basketCheckbox = document.getElementById('kat_kegiatan');
+                const checkboxes = document.querySelectorAll('input[name="line[]"]');
+                const fullLapanganCheckbox = document.getElementById('1lapangan').parentElement;
+
+                function getNextSunday() {
+                    const today = new Date();
+                    const nextSunday = new Date(today.setDate(today.getDate() + (7 - today.getDay())));
+                    return nextSunday;
+                }
+                const nextSunday = getNextSunday();
+
                 // DATE PICKER flatpickr
                 document.addEventListener('DOMContentLoaded', function(){
                     let tanggal2 = flatpickr('input[name="tanggal2"]',{
                         dateFormat: 'd-D-m-Y',
+                        minDate: nextSunday,
                         enableTime: false,
                     });
 
@@ -354,6 +403,34 @@
                     const parts = tanggal1.split('-');
                     const day = parts[1];
                     const tanggal = parts[3]+'-'+parts[2]+'-'+parts[0];
+
+                    basketCheckbox.addEventListener('change', function(){
+                        const selectedValue = basketCheckbox.value;
+
+                    if(selectedValue == "Basket" || selectedValue == "Rutin"){
+                            checkboxes.forEach(function(checkbox) {
+                            const label = document.querySelector(`label[for="${checkbox.id}"]`);
+                            if (checkbox.id !== '1lapangan' ) {
+                                checkbox.classList.add("hidden");
+                                if (label) {
+                                    label.classList.add("hidden");
+                                }
+                            }
+                        });
+                    }
+                    else if(selectedValue == "Event"){
+                        window.location.href = `http://127.0.0.1:8000/formEvent?tanggalEvent=${tanggal}&slotEvent=${start + '-' + end}&hariEvent=${dayIndonesian}`;
+                    }
+                    else{
+                        checkboxes.forEach(function(checkbox) {
+                            const label = document.querySelector(`label[for="${checkbox.id}"]`);
+                            checkbox.classList.remove("hidden");
+                            if (label) {
+                                label.classList.remove("hidden");
+                            }
+                        });
+                    }
+                    })
 
                     const hari = {
                         'Sun': 'Minggu',
@@ -427,7 +504,7 @@
                     document.getElementById("getStart").value = start;
 
 
-                    document.getElementById('tanggalEvent').href = `http://127.0.0.1:8000/formEvent?tanggalEvent=${tanggal}&slotEvent=${start + '-' + end}&hariEvent=${dayIndonesian}`;
+                    // document.getElementById('tanggalEvent').href = `http://127.0.0.1:8000/formEvent?tanggalEvent=${tanggal}&slotEvent=${start + '-' + end}&hariEvent=${dayIndonesian}`;
 
                     // Jika tanggal1 ada dalam URL, set nilai tanggal1 ke dalam date picker tanggal2
                     if (tanggal1) {
@@ -579,6 +656,8 @@
                 
                 window.userOrganizationName = "{{ Auth::user()-> namaOrganisasi }}";
                 window.userEmail = "{{ Auth::user()-> email }}";
+                window.userPj = "{{ Auth::user()-> nama_pj }}";
+                window.userNoTelp = "{{ Auth::user()-> no_telp }}";
                 document.addEventListener("DOMContentLoaded", function() {
 
                     const userOrganizationName = window.userOrganizationName;
@@ -586,11 +665,15 @@
                     console.log("ini adalah " + userOrganizationName)
                     const inputField = document.getElementById('nama_organisasi');
                     const inputEmailField = document.getElementById('getEmailyglogin');
+                    const inputPj = document.getElementById('nama_pj');
+                    const inputNoTelp = document.getElementById('no_telp');
 
                     if (inputField && userOrganizationName) {
                         inputField.value = userOrganizationName;
                     }
                     inputEmailField.value = userEmail;
+                    inputPj.value = userPj;
+                    inputNoTelp.value = userNoTelp;
 
                 });
 
@@ -610,13 +693,19 @@
                 document.addEventListener("DOMContentLoaded", function() {
                     const role = window.role;
                     console.log("ini adalah " + role)
+                    const kegiatanRutin = document.getElementById('kat_kegiatan');
+                    const rutinOption = kegiatanRutin.querySelector('option[value="Rutin"]');
 
                     function cekRoleRutin(){
                         const buttonUntukRutin = document.getElementById('buttonRutin');
+                        const kegiatanRutin = document.getElementById('kat_kegiatan');
+
                         if (role === 'Universitas' || role === 'UKM') {
                             buttonUntukRutin.classList.remove('hidden');
+                            kegiatanRutin.classList.remove('hidden');
                         } else {
                             buttonUntukRutin.classList.add('hidden');
+                            rutinOption.classList.add('hidden');
                         }
                     }
                     cekRoleRutin()
