@@ -22,12 +22,6 @@
                             <td id="organisasi" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
                                 : 
                             </td>
-                            <th scope="col" class="px-6 py-3">
-                                Tanggal
-                            </th>
-                            <td id="tanggal" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                                : 
-                            </td>
                         </tr>
                         <tr class="bg-white dark:bg-gray-700">
                             <th scope="col" class="px-6 py-3">
@@ -36,38 +30,12 @@
                             <td id="nama_pj" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
                                 : 
                             </td>
-                            <th scope="col" class="px-6 py-3">
-                                Hari
-                            </th>
-                            <td id="hari" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                                : 
-                            </td>
-                        </tr>
-                        <tr class="bg-white dark:bg-gray-700">
-                            <th scope="col" class="px-6 py-3">
-                                Kategori Kegiatan
-                            </th>
-                            <td id="kategoriKegiatan" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                                : 
-                            </td>
-                            <th scope="col" class="px-6 py-3">
-                                Jam
-                            </th>
-                            <td id="jam" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                                : 
-                            </td>
                         </tr>
                         <tr class="bg-white dark:bg-gray-700">
                             <th scope="col" class="px-6 py-3">
                                 namaKegiatan
                             </th>
                             <td id="namaKegiatan" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
-                                : 
-                            </td>
-                            <th scope="col" class="px-6 py-3">
-                                lapangan
-                            </th>
-                            <td id="lapangan" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
                                 : 
                             </td>
                         </tr>
@@ -81,7 +49,63 @@
                             <th scope="col" class="px-6 py-3 dark:bg-white">
                                 
                             </th>
-                            <td class="dark:bg-white px-6 py-4 text-gray-700 flex justify-end">
+                            <!-- <td class="dark:bg-white px-6 py-4 text-gray-700 flex justify-end">
+                                <button type="button" onclick="cetak()" class="text-white bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
+                                    Cetak Form
+                                </button>
+                                <div id="progressContainer" class="w-full bg-gray-200 rounded-full dark:bg-gray-700" style="display: none;">
+                                    <div id="progressBar" class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style="width: 0%; height: 100%">0%</div>
+                                    <div id="progressText" class="ml-3 text-sm font-medium text-gray-700 dark:text-gray-300" style="display: none; margin-top: 2px;">Mengunduh Form.....</div>
+                                </div>
+                            </td> -->
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-700">
+                            <th scope="col" class="px-6 py-3">
+                                Tanggal
+                            </th>
+                            <td id="tanggal" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                                : 
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-700">
+                            <th scope="col" class="px-6 py-3">
+                                Hari
+                            </th>
+                            <td id="hari" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                                : 
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-700">
+                            <th scope="col" class="px-6 py-3">
+                                Jam
+                            </th>
+                            <td id="jam" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                                : 
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-700">
+                            <tr class="bg-white dark:bg-gray-700">
+                            <th scope="col" class="px-6 py-3">
+                                Kategori Kegiatan
+                            </th>
+                            <td id="kategoriKegiatan" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                                : 
+                            </td>
+                        </tr>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-700">
+                            <th scope="col" class="px-6 py-3">
+                                lapangan
+                            </th>
+                            <td id="lapangan" class="dark:bg-gray-200 px-6 py-4 font-bold text-gray-700">
+                                : 
+                            </td>
+                        </tr>
+                        <tr class="bg-white">
+                        <th scope="col" class="px-6 py-3">
+                                
+                            </th>
+                            <td class="flex-1 dark:bg-white px-6 py-4 text-gray-700 flex justify-end">
                                 <button type="button" onclick="cetak()" class="text-white bg-gradient-to-r from-gray-500 via-gray-600 to-gray-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">
                                     Cetak Form
                                 </button>
@@ -93,6 +117,25 @@
                         </tr>
                     </thead>
                 </table>
+
+                <div class="inline-flex rounded-md shadow-sm mb-10" role="group">
+                    <!-- DOWNLOAD FILE SURAT PEMINJAMAN -->
+                    <div class="mt-5 grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-4">
+                        <div class="sm:col-span-2 sm:col-start-1">
+                            <label class="block mb-2 text-base font-medium text-gray-900 dark:text-gray-900" for="surat_peminjaman">Surat Peminjaman</label>
+                            <input class="block w-full text-base text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="surat_peminjaman" name="surat_peminjaman" type="file">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block mb-2 text-base font-medium text-gray-900 dark:text-gray-900" for="tor">ToR</label>
+                            <input class="block w-full text-base text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="tor" name="tor" type="file">
+                        </div>
+                        <button id="kirimSurat" onclick="inputForm(event)" type="submit" class="flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-2 py-1 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            Kirim
+                        </button>
+                        
+                    </div>
+                </div>
+
                 <table>
                         <tr class="bg-white dark:bg-white text-black">
                             <th scope="col" class="px-6 py-3">
@@ -116,6 +159,8 @@
                             </td>
                         </tr>
                 </table>
+
+                
 
                 <div class="flex flex-1 justify-end">
                     <button id="btnMulaiPinjam" type="button" onclick="mulaiPinjam()" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center">

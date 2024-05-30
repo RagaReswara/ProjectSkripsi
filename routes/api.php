@@ -36,6 +36,7 @@ Route::post('/getIsiTabel',[FormController::class,'getIsiTabel']);
 Route::post('/formInput',[FormController::class,'inputForm']);
 Route::post('/getByid',[FormController::class,'getByid']);
 Route::post('/cekSlot',[FormController::class,'cekSlot']);
+Route::post('/cekSlotRutin',[FormController::class,'cekSlotRutin']);
 Route::post('/mulaiPinjam',[FormController::class,'mulaiPinjam']);
 Route::post('/hapusForm',[FormController::class,'hapusForm']);
 Route::post('/rekap',[FormController::class,'rekap']);
@@ -45,6 +46,9 @@ Route::post('/kirimEmail',[FormController::class,'kirimEmail']);
 
 Route::post('/cekLapangan',[FormController::class,'cekLapangan']);
 Route::get('/counter',[FormController::class,'counter']);
+
+Route::post('/downloadSurat', [FormController::class, 'downloadSurat']);
+Route::post('/downloadTor', [FormController::class, 'downloadTor']);
 
 
 

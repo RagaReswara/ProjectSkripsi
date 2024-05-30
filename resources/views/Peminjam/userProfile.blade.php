@@ -116,7 +116,7 @@
                 inputField.value = nama_pj;
             }
             inputEmailField.value = userEmail;
-            inputNoTelp.value = userNo_telp;
+            inputNoTelp.value = '0'+userNo_telp;
             inputFakultas.value = userFakultas;
             inputProdi.value = userProdi;
             inputNamaOrganisasi.value = userNamaOrganisasi;
@@ -154,13 +154,13 @@
             formData.append("id_user", id_user);
 
             fetch('http://127.0.0.1:8000/api/updateUser', {
-                method:'POST', headers:{'Content-Type':'application/json'}, body:formData
+                method:'POST', body:formData
             })
             .then(response=>response.json())
             .then(data=>{
                 if(data.is_success){
                     console.log('berhasil')
-                    window.location.href = '/listAkun'
+                    window.location.href = '/persetujuan'
                 }
             })
         }

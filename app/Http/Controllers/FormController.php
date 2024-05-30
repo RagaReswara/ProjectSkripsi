@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Form;
-
+use Illuminate\Support\Facades\Storage;
 use Barryvdh\DomPDF\Facade\PDF;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Mail;
@@ -67,6 +67,20 @@ class FormController extends Controller
         $slot = $request->jam_mulai . '-' . $request->jam_selesai;
         $getSlot = Form::where('hari', $request->hari)
                         ->where('slot', $request->jam_mulai . '-' .$request -> jam_selesai)
+                        ->pluck('lapangan')
+                        ->toArray();
+    
+        $allLapangan = implode(', ', $getSlot);
+        $lapanganArray = explode(', ', $allLapangan); // Convert the string back to an array
+        $slotCount = count($lapanganArray);
+    
+        return response()->json(['is_success' => true, 'data' => $allLapangan, 'count' => $slotCount]);
+    }
+
+    public function cekSlotRutin(Request $request){
+        $slot = $request->jam_mulai . '-' . $request->jam_selesai;
+        $getSlot = Form::where('hariRutin', $request->hariRutin)
+                        ->where('slotRutin', $request->jam_mulai . '-' .$request -> jam_selesai)
                         ->pluck('lapangan')
                         ->toArray();
     
@@ -172,8 +186,27 @@ class FormController extends Controller
         return response()->json(['is_success' => true, 'data' => $forms]);
     }
 
-    public function fileDownload($id){
+    public function downloadSurat(Request $request){
+        $file = Form::findOrFail($request -> id_form);
+        $filePath = 'uploads/' . $file -> surat_peminjaman;
+        if ($file) {
+            $fileUrl = Storage::url($filePath);
+            return response()->json(['is_success' => true, 'url' => $fileUrl]);
+        } 
+        else {
+            return response()->json(['is_success' => false, 'data' => $file]);
+        }
+    }
 
+    public function downloadTor(Request $request){
+        $file = Form::findOrFail($request -> id_form);
+        $filePath = 'uploads/' . $file -> tor;
+        if ($file) {
+            $fileUrl = Storage::url($filePath);
+            return response()->json(['is_success' => true, 'url' => $fileUrl]);
+        } else {
+            return response()->json(['is_success' => false, 'data' => $file]);
+        }
     }
 
 }

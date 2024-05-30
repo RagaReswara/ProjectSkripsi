@@ -125,10 +125,14 @@
 
                                 let bgColorClass = 'dark:bg-green-800'; 
                                 let pointerEventsClass = '';
+                                const lapangan = await checkSlot(dayIndonesian, jamMulai, jamSelesai);
+                                let lapanganRutin = null;
 
-                                
+                                if(item.hariRutin != null){
+                                    lapanganRutin = await checkSlotRutin(item.hariRutin, jamMulai, jamSelesai);
+                                }
+
                                 if (item.status === 1) {
-                                    const lapangan = await checkSlot(dayIndonesian, jamMulai, jamSelesai);
                                     console.log("lapangan", lapangan)
                                     bgColorClass = 'dark:bg-red-800';
                                     pointerEventsClass = 'pointer-events-none href="#" onclick="return false;"';
@@ -136,11 +140,16 @@
                                     if(lapangan !== 5 && lapangan !== null){
                                         bgColorClass = 'dark:bg-yellow-500'
                                         pointerEventsClass = '';
+                                        console.log('lapangan Rutin',lapanganRutin)
+                                        if(lapanganRutin !== null){
+                                            bgColorClass = 'dark:bg-red-800';
+                                            pointerEventsClass = 'pointer-events-none href="#" onclick="return false;"';
+                                        }
                                     }
                                 } 
-                                else if (item.status === 4) {
-                                    bgColorClass = 'dark:bg-yellow-400';
-                                }
+                                // else if (item.status === 4) {
+                                //     bgColorClass = 'dark:bg-yellow-400';
+                                // }
 
                                 jam.innerHTML += `
                                     <div class="w-1/7">
@@ -182,6 +191,28 @@
                         return null;
                     }
                 }
+
+            async function checkSlotRutin(dayIndonesian, startTime, endTime) {
+                try {
+                    const response = await fetch('http://127.0.0.1:8000/api/cekSlotRutin', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ hariRutin: dayIndonesian, jam_mulai: startTime, jam_selesai: endTime })
+                    });
+
+                    const data = await response.json();
+                    const responseData = data.count;
+
+                    if (responseData !== null) {
+                        return responseData;
+                    }
+
+                    return null;
+                } catch (error) {
+                    console.error('Error:', error);
+                    return null;
+                }
+            }
         
         
             function slot() {
