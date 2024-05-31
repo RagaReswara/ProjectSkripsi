@@ -57,6 +57,21 @@
                     </div>
                 </div>
                 <div class="sm:col-span-3">
+                    <label for="last-name" class="block text-xl font-medium leading-6 text-gray-900">NIM</label>
+                    <div class="mt-2">
+                        <input type="text" name="nim" id="nim" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Kosongkan jika diperuntukan untuk instansi" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                <div class="sm:col-span-3">
+                    <label for="first-name" class="block text-xl font-medium leading-6 text-gray-900">Nama Singkat Organisasi</label>
+                    <div class="mt-2">
+                        <input type="text" name="singkatan_organisasi" id="singkatan_organisasi" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-md sm:leading-6" placeholder="Nama Singkat Organisasi">
+                    </div>
+                </div>
+                <div class="sm:col-span-3">
                     <label for="last-name" class="block text-xl font-medium leading-6 text-gray-900">Fakultas</label>
                     <div class="mt-2">
                         <input type="text" name="fakultas" id="fakultas" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Kosongkan jika diperuntukan untuk instansi" readonly>
