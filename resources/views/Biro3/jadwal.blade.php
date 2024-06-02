@@ -5,12 +5,12 @@
 <!-- CONTENT -->
     <div class="p-4 sm:ml-64">
 
-        <h2 class="font-bold text-3xl">Pengaturan Jadwal GOR Samapta</h2>
-        Jl. Dr. Wahidin Sudirohusodo No.5-25, Kotabaru, Kec. Gondokusuman, Kota Yogyakarta, 
-        Daerah Istimewa Yogyakarta 55224, 0274563929
+        <h2 class="font-bold text-4xl">Pengaturan Jadwal GOR Samapta</h2>
+        <h3 class="text-2xl"> Dr. Wahidin Sudirohusodo No.5-25, Kotabaru, Kec. Gondokusuman, Kota Yogyakarta, 
+        Daerah Istimewa Yogyakarta 55224, 0274563929</h3>
 
 
-        <div class="p-4 border-2 border-gray-200 border-solid rounded-lg dark:border-gray-700">
+        <div class="p-4 border-2 border-gray-200 border-solid rounded-lg dark:border-gray-700 mt-10">
         
             <div class="flex-1 gap-4 mb-4">
                 <p class="text-2xl font-semibold text-gray-400 dark:text-black mr-4 mb-5">Pilih tanggal dan slot untuk diatur</p>
@@ -20,7 +20,7 @@
                     
                 <!-- DATE PICKER -->
                 <div class="relative max-w-sm mr-10">
-                      <input id="tanggal" name="tanggal1" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                      <input id="tanggal" name="tanggal1" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
                       <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                           <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
@@ -32,13 +32,13 @@
                 <!-- DATE PICKER -->
 
                     </p>
-
                 <!-- INDIKATOR -->
                 <!-- <p class="font-bold text-sm text-white mr-5"> ( Indikator )</p> -->
-                <span class="flex items-center text-base font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Kosong</span>
-                <span class="flex items-center text-base font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-yellow-300 rounded-full me-1.5 flex-shrink-0"></span>Kosong Sebagian</span>
-                <span class="flex items-center text-base font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-red-500 rounded-full me-1.5 flex-shrink-0"></span>Penuh</span>
+                <span class="flex items-center text-lg font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Kosong</span>
+                <span class="flex items-center text-lg font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-yellow-300 rounded-full me-1.5 flex-shrink-0"></span>Kosong Sebagian</span>
+                <span class="flex items-center text-lg font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-red-500 rounded-full me-1.5 flex-shrink-0"></span>Penuh</span>
                 
+                <span class="flex items-center text-lg font-medium text-gray-900 dark:text-white me-3">||   Waktu yang ditampilkan berdasarkan Waktu Indonesia bagian Barat</span>
                 
                 </div>
             </div>
@@ -125,10 +125,14 @@
 
                                 let bgColorClass = 'dark:bg-green-800'; 
                                 let pointerEventsClass = '';
+                                const lapangan = await checkSlot(dayIndonesian, jamMulai, jamSelesai);
+                                let lapanganRutin = null;
 
-                                
+                                if(item.hariRutin != null){
+                                    lapanganRutin = await checkSlotRutin(item.hariRutin, jamMulai, jamSelesai);
+                                }
+
                                 if (item.status === 1) {
-                                    const lapangan = await checkSlot(dayIndonesian, jamMulai, jamSelesai);
                                     console.log("lapangan", lapangan)
                                     bgColorClass = 'dark:bg-red-800';
                                     pointerEventsClass = 'pointer-events-none href="#" onclick="return false;"';
@@ -136,11 +140,16 @@
                                     if(lapangan !== 5 && lapangan !== null){
                                         bgColorClass = 'dark:bg-yellow-500'
                                         pointerEventsClass = '';
+                                        console.log('lapangan Rutin',lapanganRutin)
+                                        if(lapanganRutin !== null){
+                                            bgColorClass = 'dark:bg-red-800';
+                                            pointerEventsClass = 'pointer-events-none href="#" onclick="return false;"';
+                                        }
                                     }
                                 } 
-                                else if (item.status === 4) {
-                                    bgColorClass = 'dark:bg-yellow-400';
-                                }
+                                // else if (item.status === 4) {
+                                //     bgColorClass = 'dark:bg-yellow-400';
+                                // }
 
                                 jam.innerHTML += `
                                     <div class="w-1/7">
@@ -182,6 +191,28 @@
                         return null;
                     }
                 }
+
+            async function checkSlotRutin(dayIndonesian, startTime, endTime) {
+                try {
+                    const response = await fetch('http://127.0.0.1:8000/api/cekSlotRutin', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ hariRutin: dayIndonesian, jam_mulai: startTime, jam_selesai: endTime })
+                    });
+
+                    const data = await response.json();
+                    const responseData = data.count;
+
+                    if (responseData !== null) {
+                        return responseData;
+                    }
+
+                    return null;
+                } catch (error) {
+                    console.error('Error:', error);
+                    return null;
+                }
+            }
         
         
             function slot() {
