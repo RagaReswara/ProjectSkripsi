@@ -10,17 +10,17 @@
             <div class="flex items-center h-10 rounded bg-gray-50 dark:bg-gray-800 mb-5">
 
                 <!-- INDIKATOR -->
-                <span class="flex items-center text-base font-medium text-gray-900 dark:text-white me-3 ml-5"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Disetujui</span>
-                <span class="flex items-center text-base font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-yellow-300 rounded-full me-1.5 flex-shrink-0"></span>Menunggu Disetujui</span>
-                <span class="flex items-center text-base font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-red-500 rounded-full me-1.5 flex-shrink-0"></span>Ditolak</span>
+                <span class="flex items-center text-lg font-medium text-gray-900 dark:text-white me-3 ml-5"><span class="flex w-2.5 h-2.5 bg-green-600 rounded-full me-1.5 flex-shrink-0"></span>Disetujui</span>
+                <span class="flex items-center text-lg font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-yellow-300 rounded-full me-1.5 flex-shrink-0"></span>Menunggu Disetujui</span>
+                <span class="flex items-center text-lg font-medium text-gray-900 dark:text-white me-3"><span class="flex w-2.5 h-2.5 bg-red-500 rounded-full me-1.5 flex-shrink-0"></span>Ditolak</span>
             
             </div>
             
-            <h2 class="font-bold text-3xl mt-5 mb-2">Permintaan Harian</h2>
+            <h2 class="font-bold text-3xl mt-5 mb-2">Permintaan Peminjaman</h2>
             <!-- TABEL HARIAN -->
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <table class="w-full text-base text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 Nama Organisasi
@@ -67,7 +67,7 @@
                     
                 <table id="tabelRutin" class="hidden w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <h2 id="bookingRutin" class="hidden font-bold text-3xl mt-10 mb-2">Permintaan Rutin</h2>
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <thead class="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 Nama Organisasi
@@ -118,7 +118,7 @@
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table id="tabelEvent" class="hidden w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <h2 id="bookingEvent" class="hidden font-bold text-3xl mt-5 mb-2">Permintaan Event</h2>
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <thead class="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 Nama Organisasi
@@ -138,9 +138,9 @@
                             <th scope="col" class="px-6 py-3">
                                 Hari
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            <!-- <th scope="col" class="px-6 py-3">
                                 Slot
-                            </th>
+                            </th> -->
                             <th scope="col" class="px-6 py-3">
                                 Persetujuan
                             </th>
@@ -175,7 +175,7 @@
             // HARIAN
             document.addEventListener('DOMContentLoaded', function() {
                 fetch('http://127.0.0.1:8000/api/getIsiTabel', {
-                                method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id_user: id_user})
+                        method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({id_user: id_user})
                     })
                     .then(response => response.json())
                     .then(data => {
@@ -186,7 +186,7 @@
                             if(item.hariRutin === null && item.surat_peminjaman === null){
                             const row = 
                             `
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <tr class="bg-white text-base border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         ${item.nama_organisasi}
                                     </th>
@@ -243,7 +243,7 @@
                                 document.getElementById('bookingRutin').classList.remove('hidden')
                                 const row = 
                                 `
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <tr class="bg-white text-base border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             ${item.nama_organisasi}
                                         </th>
@@ -303,7 +303,7 @@
                                 document.getElementById('bookingEvent').classList.remove('hidden')
                                 const row = 
                                 `
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <tr class="bg-white text-base border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             ${item.nama_organisasi}
                                         </th>
@@ -321,9 +321,6 @@
                                         </td>
                                         <td class="px-6 py-4">
                                             ${item.hari}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            ${item.slot}
                                         </td>
                                         <td class="px-6 py-4">
                                             ${tandaPersetujuan(item.status)}

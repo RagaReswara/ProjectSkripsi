@@ -249,7 +249,7 @@
                     const url = window.URL.createObjectURL(blob);
                     const a = document.createElement('a');
                     a.href = url;
-                    a.download = 'Nota_dan_Formulir_Peminjaman.pdf';
+                    a.download = 'Formulir_Peminjaman.pdf';
                     document.body.appendChild(a);
                     a.click();
                     a.remove();

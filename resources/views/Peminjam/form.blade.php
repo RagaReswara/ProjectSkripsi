@@ -35,7 +35,7 @@
                                 <input type="text" name="nama_pj" id="nama_pj" readonly autocomplete="family-name" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Penanggung Jawab">
                             </div>
                     
-                            <legend class="ml-2 text-base font-semibold leading-6 text-gray-900 mt-5">Nomor Telfon</legend>
+                            <legend class="ml-2 text-base font-semibold leading-6 text-gray-900 mt-5">Nomor Telepon</legend>
                             <div class="sm:col-span-2">
                                 <input name="no_telp" id="no_telp" type="text" readonly autocomplete="noTelp" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon/WA Penanggung Jawab">
                                 <p id="error-message" class="text-red-500 mt-2 hidden">Nomor telepon tidak boleh lebih dari 13 karakter</p>
@@ -673,7 +673,7 @@
                     }
                     inputEmailField.value = userEmail;
                     inputPj.value = userPj;
-                    inputNoTelp.value = userNoTelp;
+                    inputNoTelp.value = '0' + userNoTelp;
 
                 });
 

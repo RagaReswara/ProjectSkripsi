@@ -28,9 +28,9 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-        $credential = $request -> only('email' , 'password');
+        $cekRole = $request -> only('email' , 'password');
 
-        if(Auth::attempt($credential))
+        if(Auth::attempt($cekRole))
         {
             $user = Auth::user();
             if($user -> role === 'Admin')

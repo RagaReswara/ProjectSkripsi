@@ -172,8 +172,4 @@ class FormController extends Controller
         return response()->json(['is_success' => true, 'data' => $forms]);
     }
 
-    public function fileDownload($id){
-
-    }
-
 }

@@ -32,9 +32,6 @@
                         <th scope="col" class="px-6 py-3">
                             Tanggal
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Jam / Slot
-                        </th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -57,9 +54,9 @@
                         <td id="tanggal" class="px-6 py-4">
                             
                         </td>
-                        <td id="jam" class="px-6 py-4">
+                        <!-- <td id="jam" class="px-6 py-4">
                             
-                        </td>
+                        </td> -->
                     </tr>
                 </tbody>
             </table>
@@ -150,7 +147,7 @@
                     document.getElementById('namaKegiatan').innerText = `${data.data.nama_kegiatan}`;
                     document.getElementById('tanggal').innerText = `${data.data.tanggal}`;
                     document.getElementById('hari').innerText = `${data.data.hari}`;
-                    document.getElementById('jam').innerText = `${data.data.slot}`;
+                    // document.getElementById('jam').innerText = `${data.data.slot}`;
                     console.log(data)
 
                     const catatan = document.getElementById('catatan');
@@ -158,7 +155,6 @@
                             catatan.innerText = `: Belum Ada`;
                         }
                         else{
-                            
                             catatan.innerText = `: ${data.data.catatan}`;
                         }
                     const status = document.getElementById('status');
@@ -320,7 +316,7 @@
                     const url = window.URL.createObjectURL(blob);
                     const a = document.createElement('a');
                     a.href = url;
-                    a.download = 'Nota_dan_Formulir_Peminjaman.pdf';
+                    a.download = 'Formulir_Peminjaman.pdf';
                     document.body.appendChild(a);
                     a.click();
                     a.remove();

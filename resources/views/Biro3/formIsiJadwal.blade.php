@@ -33,7 +33,7 @@
                                 <div class="mt-2">
                                     <input type="text" name="nama_pj" id="nama_pj" autocomplete="family-name" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nama Penanggung Jawab">
                                 </div>
-                                <legend class="ml-2 mt-3 text-base font-semibold leading-6 text-gray-900">No Telfon</legend>
+                                <legend class="ml-2 mt-3 text-base font-semibold leading-6 text-gray-900">No Telepon</legend>
                                 <div class="mt-2">
                                     <input id="noTelp" name="no_telp" type="text" autocomplete="noTelp" class="block w-full max-w-60 rounded-md border-0 py-1.5 sm:max-w-md text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-base sm:leading-6" placeholder="Nomor Telepon / WA">
                                     <p id="error-message" class="text-red-500 mt-2 hidden">Nomor telepon tidak boleh lebih dari 13 karakter</p>
